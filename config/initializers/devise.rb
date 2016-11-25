@@ -256,6 +256,8 @@ Devise.setup do |config|
       config.omniauth provider_name, api_key, api_secret
     end
   end
+  
+  config.omniauth :facebook, "FACEBOOK_API_KEY", "FACEBOOK_API_SECRET", scope: 'email,public_profile,user_friends', info_fields: 'email, name'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
