@@ -11,10 +11,6 @@ development:
   <<: *default
   database: db/development
 
-staging:
-  <<: *default
-  database: db/staging
-
 production:
   <<: *default
   database: db/production
