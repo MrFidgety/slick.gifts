@@ -247,15 +247,15 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  User.omniauth_providers.each do |provider_name|
-    if provider_name == :developer
-      config.omniauth :developer
-    else
-      api_key = ENV["#{provider_name.upcase}_API_KEY"]
-      api_secret = ENV["#{provider_name.upcase}_API_SECRET"]
-      config.omniauth provider_name, api_key, api_secret
-    end
-  end
+  # User.omniauth_providers.each do |provider_name|
+  #   if provider_name == :developer
+  #     config.omniauth :developer
+  #   else
+  #     api_key = ENV["#{provider_name.upcase}_API_KEY"]
+  #     api_secret = ENV["#{provider_name.upcase}_API_SECRET"]
+  #     config.omniauth provider_name, api_key, api_secret
+  #   end
+  # end
   
   config.omniauth :facebook, "FACEBOOK_API_KEY", "FACEBOOK_API_SECRET", scope: 'email,public_profile,user_friends', info_fields: 'email, name'
 
