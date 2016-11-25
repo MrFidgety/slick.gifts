@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<%= display_meta_tags %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+<%= render 'layouts/shim' %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="container">
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <ul class="nav">
+    <% if user_signed_in? -%>
+      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+    <% else -%>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <% end -%>
+  </ul>
+  <%= yield %>
 </body>
 </html>
