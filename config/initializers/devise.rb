@@ -257,6 +257,8 @@ Devise.setup do |config|
   #   end
   # end
   
+  config.omniauth :developer
+  
   config.omniauth :facebook, ENV["FACEBOOK_API_KEY"], 
     ENV["FACEBOOK_API_SECRET"], scope: 'email,public_profile,user_friends', 
     info_fields: 'email, name', display: 'touch'

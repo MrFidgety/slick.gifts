@@ -1,12 +1,17 @@
+<% if user_signed_in? %>
+<%= link_to 'Log out', destroy_user_session_path, :method => :delete,
+      class: "btn btn-default btn-lg" %>
+<% else %>
 <% title "Home" %>
 <h1 class="site-title">Slick<span>.gifts</span></h1>
 <p class="tagline">Surprise! It's what you wanted.</p>
 <div class="text-center">
-  <% if user_signed_in? %>
-    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete,
+  <% if Rails.env.development? %>
+    <%= link_to "Continue as Developer", omniauth_authorize_path(User, "developer"), 
         class: "btn btn-default btn-lg" %>
   <% else %>
     <%= link_to "Continue with Facebook", user_facebook_omniauth_authorize_path, 
         class: "btn btn-default btn-lg" %>
   <% end %>
 </div>
+<% end %>

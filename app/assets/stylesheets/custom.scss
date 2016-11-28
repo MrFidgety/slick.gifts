@@ -35,3 +35,16 @@ h1.site-title {
   text-align: center;
   color: $light-gray;
 }
+
+#site-container {
+  padding-top: 15px;
+}
+
+.alert-notice {
+  color: white;
+  background-color: $slick-blue;
+  a.close {
+    color: white;
+    opacity: 1;
+  }
+}
