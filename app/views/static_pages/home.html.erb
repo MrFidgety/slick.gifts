@@ -2,6 +2,11 @@
 <h1 class="site-title">Slick<span>.gifts</span></h1>
 <p class="tagline">Surprise! It's what you wanted.</p>
 <div class="text-center">
-  <%= link_to "Continue with Facebook", user_facebook_omniauth_authorize_path, 
+  <% if user_signed_in? %>
+    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete,
         class: "btn btn-default btn-lg" %>
+  <% else %>
+    <%= link_to "Continue with Facebook", user_facebook_omniauth_authorize_path, 
+        class: "btn btn-default btn-lg" %>
+  <% end %>
 </div>

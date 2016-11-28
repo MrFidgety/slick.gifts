@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     site_name   = "Slick.gifts"
     title       = options[:title] || [controller_name, action_name].join(" ")
     description = options[:description] || "Surprise! It's what you wanted."
-    image       = options[:image] || "default-image-url" #view_context.image_url("crucendo-social.png")
+    image       = options[:image] || "default-image-url"
     type        = options[:type] || "website"
     current_url = request.url
 
