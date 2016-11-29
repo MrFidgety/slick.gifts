@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :uid, use: [:slugged, :finders]
+  friendly_id :uid, use: [:slugged]
   
   devise  :rememberable, :trackable, :omniauthable, 
           :omniauth_providers => [:facebook, 
