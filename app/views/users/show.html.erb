@@ -2,6 +2,7 @@
       class: "btn btn-default btn-lg" %>
 <%= link_to 'User Settings', settings_path,
       class: "btn btn-default btn-lg" %>
+<p>View access <%= @view_access? "provided" : "rejected" %></p>
 <p>Profile (Add Interests, Items, Wearables)</p>
 <h1><%= @user.name %> <small><%= @user.email %></small></h1>
 <%= image_tag(@user.image, class: "img-responsive") %>
