@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
     @friend_array = @graph.get_connections("me", "friends")
     if @friend_array
-      friend_ids = @friend_array.map { |f| f[:id] } 
+      friend_ids = @friend_array.map { |f| f["id"] } 
       @friends = User.where(id: friend_ids)
     end
   end
