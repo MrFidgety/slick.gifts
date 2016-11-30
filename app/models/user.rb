@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   end
   
   def is_friend?(user)
-    Koala::Facebook::API.new(oauth_token).get_connections(uid, "friends/#{user.uid}").empty?
+    @graph = Koala::Facebook::API.new(oauth_token)
+    @graph.get_connections("me", "friends/#{user.uid}").empty?
   end
 end
