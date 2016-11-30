@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @friend_array = @graph.get_connections("me", "friends")
     if @friend_array
       friend_ids = @friend_array.map { |f| f["id"] } 
-      @friends = User.where(id: friend_ids)
+      @friends = User.where(slug: friend_ids)
     end
   end
   
