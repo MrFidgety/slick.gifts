@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   def index
     # Get current user friends
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    @friends = @graph.get_connections("me", "friends").symbolize_keys!
+    friend_array = @graph.get_connections("me", "friends")
+    if friend_array
+      friend_ids = friend_array.map { |f| f[:id] } 
+      @friends = User.where(id: friend_ids)
+    end
   end
   
   def show
