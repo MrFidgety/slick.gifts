@@ -2,5 +2,7 @@
       class: "btn btn-default btn-lg" %>
 <p>Home Page (Friends, etc)</p>
 <% @friends.each do |friend| %>
-    <%= friendname %>
+    <%= friend.name %>
 <% end if @friends %>
+
+<%= @friend_array.inspect %>
