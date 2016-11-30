@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
       oauth_token: auth.credentials.token,
       oauth_expires_at: Time.at(auth.credentials.expires_at)
     }
-    save!
   end
   
   def is_friend?(user)
