@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   before_action :determine_view_access,    only: :show
   
   def index

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+
   friendly_id :uid, use: [:slugged]
   
   devise  :rememberable, :trackable, :omniauthable, 
@@ -17,6 +18,6 @@ class User < ActiveRecord::Base
   end
   
   def is_friend?(user)
-    Koala::Facebook::GraphAPI.new(oauth_token).get_connections(uid, "friends/#{user.uid}").empty?
+    Koala::Facebook::API.new(oauth_token).get_connections(uid, "friends/#{user.uid}").empty?
   end
 end
