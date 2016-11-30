@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  # Devise OAuth login callbacks
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks" 
   }
@@ -7,13 +8,20 @@ Rails.application.routes.draw do
     delete 'logout', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
   
-  resources :users, :path => 'users', only: [:index, :show]
-  
+  # Conditional routes
+  authenticated :user do
+    root  'users#index', as: :authenticated_root
+    get   'settings'    =>  'users#settings'
+  end
   root  'static_pages#home'
+  
+  # Only enable show user page
+  resources :users, :path => 'users', only: [:show]
+  
+  # Static pages
   get   'help'          =>  'static_pages#help'
   get   'about'         =>  'static_pages#about'
   get   'contact'       =>  'static_pages#contact'
-  get   'settings'      =>  'static_pages#settings'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

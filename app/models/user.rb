@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at) if auth.credentials.expires_at.present?
     end
   end
+  
+  def is_friend?(user)
+    Koala::Facebook::GraphAPI.new(oauth_token).get_connections(uid, "friends/#{user.uid}").empty?
+  end
 end

@@ -1,11 +1,3 @@
-<% if user_signed_in? %>
-<p>Dashboard (Friends, etc)</p>
-<%= link_to 'Current User', current_user,
-      class: "btn btn-default btn-lg" %>
-<%= link_to 'Log out', destroy_user_session_path, :method => :delete,
-      class: "btn btn-default btn-lg" %>
-<% else %>
-<% title "Home" %>
 <h1 class="site-title">Slick<span>.gifts</span></h1>
 <p class="tagline">Surprise! It's what you wanted.</p>
 <div class="text-center">
@@ -17,4 +9,3 @@
         class: "btn btn-default btn-lg" %>
   <% end %>
 </div>
-<% end %>
