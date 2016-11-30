@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
       image: auth.info.image,
       oauth_token: auth.credentials.token,
       oauth_expires_at: Time.at(auth.credentials.expires_at)
-    }.save!
+    }
+    save!
   end
   
   def is_friend?(user)
