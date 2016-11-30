@@ -19,17 +19,17 @@ class UsersController < ApplicationController
     def determine_view_access
       @user = User.friendly.find(params[:id])
      
+      # Determine user view access
       if user_signed_in?
-        if current_user.equal?(@user) || current_user.is_friend?(@user)
-          # If logged in, and is current user or friend of user, access is allowed
-          @view_access = true
+        if current_user == @user
+          @view_access = "edit"
+        elsif current_user.is_friend?(@user)
+          @view_access = "view"
         else
-          # If logged in and is not friend of user, access is restricted
-          @view_access = false
+          @view_access = "restricted"
         end
       else
-        # If not logged in, access is restricted
-        @view_access = false
+        @view_access = "restricted"
       end
     end
 end
