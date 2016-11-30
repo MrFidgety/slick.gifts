@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_action :determine_view_access,    only: :show
   
   def index
-    # Display current user friends
+    # Get current user friends
+    @graph = Koala::Facebook::API.new(current_user.oauth_token)
+    @friends = @graph.get_connections("me", "friends")
   end
   
   def show
