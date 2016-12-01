@@ -1,7 +1,7 @@
 <div id="item-<%= item.id %>" class="panel panel-default">
   <div class="panel-body">
     <span class="pull-right">
-      <% if @current_user_profile %>
+      <% if editable %>
       <%= link_to 'edit', edit_item_path(item),
                   remote: true %>
       <%= link_to 'delete', item_path(item), 

@@ -9,11 +9,14 @@
 <p>Profile (Add Interests, Items, Wearables)</p>
 <%= image_tag(@user.image, class: "img-responsive") %>
 <h1><%= @user.name %> <small><%= @user.email %></small></h1>
+<% if @current_user_profile %>
 <p>
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
 </p>
+<% end %>
 <div id="item-container" class="panel-group">
-  <%= render @items %>
+  <%= render partial: "items/item", collection: @items,
+        as: :item, locals: {editable: @current_user_profile} %>
 </div>
 <% if @current_user_profile %>
 <%= render 'items/new' %>
