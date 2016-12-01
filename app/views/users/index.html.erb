@@ -1,4 +1,6 @@
 <%= link_to 'Current User', current_user,
       class: "btn btn-default btn-lg" %>
 <p>Home Page (Friends, etc)</p>
-<%= render @friends if @friends%>
+<div class="panel-group">
+  <%= render @friends if @friends %>
+</div>

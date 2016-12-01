@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+  
+  has_many :items
 
   friendly_id :uid, use: [:slugged]
   

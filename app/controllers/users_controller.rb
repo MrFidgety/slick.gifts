@@ -10,6 +10,13 @@ class UsersController < ApplicationController
   end
   
   def show
+    @items = @user.items
+    
+    if @view_access == "edit"
+      # Set up new elements user can create
+      @item = Item.new
+    end
+    
     # Display user wish list
     
   end

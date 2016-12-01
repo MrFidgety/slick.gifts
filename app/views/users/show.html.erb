@@ -1,3 +1,4 @@
+<% @current_user_profile = @view_access == "edit" %>
 <%= link_to 'Home', root_path, 
       class: "btn btn-default btn-lg" %>
 <% if @view_access == "edit" %>
@@ -8,3 +9,18 @@
 <p>Profile (Add Interests, Items, Wearables)</p>
 <%= image_tag(@user.image, class: "img-responsive") %>
 <h1><%= @user.name %> <small><%= @user.email %></small></h1>
+<p>
+  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
+</p>
+<div id="item-container" class="panel-group">
+  <%= render @items %>
+</div>
+<% if @current_user_profile %>
+<%= render 'items/new' %>
+<div  class="modal fade" 
+      id="edit-item-modal" 
+      tabindex="-1" 
+      role="dialog" 
+      aria-hidden="true">
+</div>
+<% end %>
