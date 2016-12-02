@@ -7,6 +7,12 @@ class UsersController < ApplicationController
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
     friend_array = @graph.get_connections("me", "friends")
     @friends = User.where(slug: friend_array.map { |f| f["id"] }) if friend_array
+    
+    # Get all purchases from current user that are purchased or not received
+    @actionable_purchases = current_user.purchases.where(status: [:purchased, :not_received])
+    
+    # Get all purchases for current user that have been gifted
+    @actionable_gifts = current_user.items.purchases.gifted
   end
   
   def show
@@ -16,9 +22,6 @@ class UsersController < ApplicationController
       # Set up new elements user can create
       @item = Item.new
     end
-    
-    # Display user wish list
-    
   end
   
   def settings
