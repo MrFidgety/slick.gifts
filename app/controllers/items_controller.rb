@@ -2,6 +2,9 @@ class ItemsController < ApplicationController
   
   before_action :correct_user, except: [:create]
   
+  # Prevent flash from appearing twice after AJAX call
+  after_filter { flash.discard if request.xhr? }
+  
   def create
     # Create new item from params
     @item = current_user.items.build(item_params)
@@ -27,8 +30,17 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    # Destroy item
-    @item.destroy
+    flash[:notice] = "Unable to delete while outstanding gifted item"
+    # # If any purchases have been received, archive item
+    # if @item.purchases.received.any?
+    #   @item.archive
+    # # If any purchases are currently 'gifted' notify user
+    # elsif @item.purchases.gifted.any?
+    #   flash[:notice] = "Unable to delete while outstanding gifted item"
+    # else
+    #   # Otherwise destroy item
+    #   @item.destroy
+    # end
   end
   
   private
