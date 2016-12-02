@@ -14,10 +14,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
-  def edit
-  end
-  
+
   def update
     # Respond to AJAX call
     respond_to do |format|

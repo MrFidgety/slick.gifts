@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Purchase Item</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for purchase, remote: true do |f| %>
+        <div class="form-group">
+        <%= f.text_area :comment, placeholder: 'Comment', 
+              class: 'form-control input-lg' %>
+        </div>
+        <%= f.submit 'Purchase', 
+            class: 'btn btn-success btn-lg', 
+            data: {disable_with: 'Purchasing'} %>
+      <% end %>
+    </div>
+  </div>
+</div>

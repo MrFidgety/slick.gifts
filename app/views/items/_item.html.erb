@@ -7,8 +7,12 @@
       <%= link_to 'delete', item_path(item), 
                   method: :delete,
                   remote: true %>
+      <% else %>
+        <%= link_to "purchase", [:new, @purchaseable, :purchase],
+                  remote: true %>
       <% end %>
     </span>
     <%= item.name %>
+    (updated <%= local_time(item.updated_at) %>)
   </div>
 </div>

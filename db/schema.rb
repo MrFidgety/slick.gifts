@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201044452) do
+ActiveRecord::Schema.define(version: 20161202040325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20161201044452) do
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+
+  create_table "purchases", force: :cascade do |t|
+    t.text     "comment"
+    t.text     "status"
+    t.integer  "purchaseable_id"
+    t.string   "purchaseable_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "purchases", ["purchaseable_id", "purchaseable_type"], name: "index_purchases_on_purchaseable_id_and_purchaseable_type", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               default: ""
