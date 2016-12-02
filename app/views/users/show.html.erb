@@ -20,7 +20,7 @@
 <% if @current_user_profile %>
 <%= render 'items/new' %>
 <div  class="modal fade" 
-      id="edit-item-modal" 
+      id="edit-modal" 
       tabindex="-1" 
       role="dialog" 
       aria-hidden="true">
@@ -28,7 +28,7 @@
 <% end %>
 <% if @view_access == "view" %>
 <div  class="modal fade" 
-      id="purchase-item-modal" 
+      id="purchase-modal" 
       tabindex="-1" 
       role="dialog" 
       aria-hidden="true">

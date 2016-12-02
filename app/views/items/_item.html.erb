@@ -10,6 +10,8 @@
       <% else %>
         <%= link_to "purchase", [:new, item, :purchase],
                   remote: true %>
+        <%= link_to "view purchases", [:index, item, :purchase],
+                  remote: true %>
       <% end %>
     </span>
     <%= item.name %>

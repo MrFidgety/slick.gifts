@@ -12,6 +12,9 @@ class PurchasesController < ApplicationController
   def create
     # Create new purchase from params
     @purchase = @purchaseable.purchases.build(purchase_params)
+    # Purchase owned by current user
+    @purchase.user = current_user
+    
     # Respond to AJAX call
     respond_to do |format|
       if @purchase.save

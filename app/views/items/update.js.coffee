@@ -4,4 +4,4 @@ $('#item-<%= @item.id %>').replaceWith(
           as: :item, locals: {editable: true} %>")
 
 # Hide edit item modal
-$('#edit-item-modal').modal('hide')
+$('#edit-modal').modal('hide')
