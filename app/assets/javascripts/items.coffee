@@ -7,7 +7,7 @@ $(document).on "page:change page:restore", ->
       $.parseJSON(data.responseText))
   
   # Render edit form errors
-  $("#edit-element-modal").on "ajax:error", ".edit_item, .edit_interest, .edit_style", 
+  $("#edit-modal").on "ajax:error", ".edit_item, .edit_interest, .edit_style", 
   (e, data, status, xhr) ->
     $("form.edit_item").render_form_errors('item', 
       'error-message',

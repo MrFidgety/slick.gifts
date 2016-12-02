@@ -30,17 +30,16 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    flash[:notice] = "Unable to delete while outstanding gifted item"
-    # # If any purchases have been received, archive item
-    # if @item.purchases.received.any?
-    #   @item.archive
-    # # If any purchases are currently 'gifted' notify user
-    # elsif @item.purchases.gifted.any?
-    #   flash[:notice] = "Unable to delete while outstanding gifted item"
-    # else
-    #   # Otherwise destroy item
-    #   @item.destroy
-    # end
+    # If any purchases have been received, archive item
+    if @item.purchases.received.any?
+      @item.archive
+    # If any purchases are currently 'gifted' notify user
+    elsif @item.purchases.gifted.any?
+      flash[:notice] = "Unable to delete while outstanding gifted item"
+    else
+      # Otherwise destroy item
+      @item.destroy
+    end
   end
   
   private
