@@ -4,7 +4,7 @@
       <h4 class="modal-title">Purchase Item</h4>
     </div>
     <div class="modal-body">
-      <%= form_for purchase, remote: true do |f| %>
+      <%= form_for [@purchaseable, @purchase], remote: true do |f| %>
         <div class="form-group">
         <%= f.text_area :comment, placeholder: 'Comment', 
               class: 'form-control input-lg' %>
