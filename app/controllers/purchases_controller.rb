@@ -26,7 +26,7 @@ class PurchasesController < ApplicationController
   
     # Find purchaseable element
     def load_purchaseable
-      klass = [Item, Interest, Style].detect { |c| params["#{c.name.underscore}_id"]}
+      klass = [Item].detect { |c| params["#{c.name.underscore}_id"]}
       @purchaseable = klass.find(params["#{klass.name.underscore}_id"])
     end
     
