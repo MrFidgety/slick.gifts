@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @friends = User.where(slug: friend_array.map { |f| f["id"] }) if friend_array
     
     # Get all purchases from current user that are purchased or not received
-    @actionable_purchases = current_user.purchases.where(status: Purchase.statuses[:purchased, :not_received])
+    @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received])
     
     # Get all purchases for current user that have been gifted
     @actionable_gifts = Purchase.joins(:items).where(items: {user_id: current_user.id})
