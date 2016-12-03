@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :purchases
   has_many :items
   has_many :interests
+  has_many :styles
 
   friendly_id :uid, use: [:slugged]
   

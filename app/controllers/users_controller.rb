@@ -23,6 +23,7 @@ class UsersController < ApplicationController
       # Set up new elements user can create
       @item = Item.new
       @interest = Interest.new
+      @style = Style.new
     end
   end
   
