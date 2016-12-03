@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   has_many :purchases, as: :purchaseable
-  has_one :want, as: :wanted
+  has_one :want, as: :wanted, dependent: :destroy
   belongs_to :user
   
   after_create :link_want
