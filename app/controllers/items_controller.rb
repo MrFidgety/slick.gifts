@@ -32,10 +32,10 @@ class ItemsController < ApplicationController
   
   def destroy
     # If any purchases have been received, archive item
-    if @item.purchases.received.any?
+    if @item.want.purchases.received.any?
       @item.archive
     # If any purchases are currently 'gifted' notify user
-    elsif @item.purchases.gifted.any?
+    elsif @item.want.purchases.gifted.any?
       flash[:notice] = "Unable to delete while outstanding gifted item"
     else
       # Otherwise destroy item
