@@ -6,7 +6,7 @@
       <%= local_time(purchase.updated_at) %><br>
       <p><%= purchase.comment %></p>
       <% if purchase.want.present? %>
-        <%= render want.wanted %>
+        <%= render purchase.want.wanted %>
       <% else %>
       Uh oh, it looks like the person you bought this for removed the item!
       <% end %>
