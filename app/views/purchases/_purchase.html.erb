@@ -5,6 +5,9 @@
       You purchased this (Status: <%= purchase.status %>)<br>
       <%= local_time(purchase.updated_at) %><br>
       <p><%= purchase.comment %></p>
+      <% if purchase.want.blank? %>
+      Uh oh, it looks like the person you bought this for removed the item!
+      <% end %>
     <% else %>
       Someone purchased this (Status: <%= purchase.status %>)<br>
       <%= local_time(purchase.updated_at) %><br>
