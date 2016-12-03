@@ -1,9 +1,10 @@
 <% actionable ||= purchase.user == current_user %>
+<% show_want ||= false %>
 <div class="panel panel-default">
   <div class="panel-body">
     <% if actionable %>
       <% if purchase.want.present? %>
-        <%= render purchase.want.wanted, plain: true %>
+        <%= render purchase.want.wanted, plain: true if show_want %>
         You purchased this for 
         <%= link_to purchase.want.user.name, purchase.want.user %>
         on <%= local_time(purchase.updated_at) %>
