@@ -1,4 +1,5 @@
 <% editable ||= false %>
+<% plain ||= false %>
 <div id="style-<%= style.id %>" class="panel panel-default">
   <div class="panel-body">
     <span class="pull-right">
@@ -13,7 +14,7 @@
                   remote: true %>
         | <%= link_to "view purchases", want_purchases_path(style.want),
                   remote: true %>
-      <% end %>
+      <% end unless plain %>
     </span>
     STYLE - <%= style.name %>
     (updated <%= local_time(style.updated_at) %>)
