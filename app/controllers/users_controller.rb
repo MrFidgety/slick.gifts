@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @view_access == "edit"
       # Set up new elements user can create
       @item = Item.new
+      @interest = Interest.new
     end
   end
   
