@@ -5,16 +5,10 @@ $(document).on "page:change page:restore", ->
     $("form#new_item").render_form_errors('item', 
       'error-message',
       $.parseJSON(data.responseText))
-  
+      
   # Render edit form errors
-  $("#edit-modal").on "ajax:error", ".edit_item, .edit_interest, .edit_style", 
+  $("#edit-modal").on "ajax:error", ".edit_item", 
   (e, data, status, xhr) ->
     $("form.edit_item").render_form_errors('item', 
-      'error-message',
-      $.parseJSON(data.responseText))
-    $("form.edit_interest").render_form_errors('interest', 
-      'error-message',
-      $.parseJSON(data.responseText))
-    $("form.edit_style").render_form_errors('style', 
       'error-message',
       $.parseJSON(data.responseText))

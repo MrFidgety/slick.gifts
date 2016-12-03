@@ -31,14 +31,14 @@ class InterestsController < ApplicationController
   end
   
   def destroy
-    # If any purchases have been received, archive item
+    # If any purchases have been received, archive interest
     if @interest.want.purchases.received.any?
       @interest.archive
     # If any purchases are currently 'gifted' notify user
     elsif @interest.want.purchases.gifted.any?
       flash[:notice] = "Unable to delete while outstanding gifted item"
     else
-      # Otherwise destroy item
+      # Otherwise destroy interest
       @interest.destroy
     end
   end

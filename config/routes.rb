@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
     resources :items
     resources :interests
+    resources :styles
   end
   root  'static_pages#home'
   

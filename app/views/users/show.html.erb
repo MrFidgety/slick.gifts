@@ -10,6 +10,7 @@
 <p>
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-interest-modal">New Interest</button>
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
+  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-style-modal">New Style</button>
 </p>
 <% end %>
 <div id="want-container" class="panel-group">
@@ -20,6 +21,7 @@
 <% if @current_user_profile %>
 <%= render 'items/new' %>
 <%= render 'interests/new' %>
+<%= render 'styles/new' %>
 <div  class="modal fade" 
       id="edit-modal" 
       tabindex="-1" 

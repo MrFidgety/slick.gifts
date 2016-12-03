@@ -1,0 +1,20 @@
+<div id="style-<%= style.id %>" class="panel panel-default">
+  <div class="panel-body">
+    <span class="pull-right">
+      <% if editable %>
+      <%= link_to 'edit', edit_style_path(style),
+                  remote: true %>
+      | <%= link_to 'delete', style_path(style), 
+                  method: :delete,
+                  remote: true %>
+      <% else %>
+        <%= link_to "purchase", new_want_purchase_path(style.want),
+                  remote: true %>
+        | <%= link_to "view purchases", want_purchases_path(style.want),
+                  remote: true %>
+      <% end %>
+    </span>
+    STYLE - <%= style.name %>
+    (updated <%= local_time(style.updated_at) %>)
+  </div>
+</div>
