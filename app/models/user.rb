@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   extend FriendlyId
   
-  has_many :items
+  has_many :wants
   has_many :purchases
+  has_many :items
 
   friendly_id :uid, use: [:slugged]
   

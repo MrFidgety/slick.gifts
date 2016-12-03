@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202064723) do
+ActiveRecord::Schema.define(version: 20161203005924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,18 @@ ActiveRecord::Schema.define(version: 20161202064723) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
+  create_table "wants", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wanted_id"
+    t.string   "wanted_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "wants", ["user_id"], name: "index_wants_on_user_id", using: :btree
+  add_index "wants", ["wanted_id", "wanted_type"], name: "index_wants_on_wanted_id_and_wanted_type", using: :btree
+
   add_foreign_key "items", "users"
   add_foreign_key "purchases", "users"
+  add_foreign_key "wants", "users"
 end

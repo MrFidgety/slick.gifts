@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @items = @user.items
+    @wants = @user.wants
     
     if @view_access == "edit"
       # Set up new elements user can create

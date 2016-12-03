@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def create
     # Create new item from params
     @item = current_user.items.build(item_params)
+
     # Respond to AJAX call
     respond_to do |format|
       if @item.save

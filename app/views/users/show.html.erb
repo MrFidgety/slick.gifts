@@ -13,8 +13,11 @@
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
 </p>
 <% end %>
-<div id="item-container" class="panel-group">
-  <%= render partial: "items/item", collection: @items,
+<div id="want-container" class="panel-group">
+  <% @wants.each do |want| %>
+    <%= render want.wanted, editable: @current_user_profile %>
+  <% end %>
+  <%#= render partial: "items/item", collection: @items,
         as: :item, locals: {editable: @current_user_profile} %>
 </div>
 <% if @current_user_profile %>
