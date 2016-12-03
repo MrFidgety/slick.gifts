@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root  'users#index', as: :authenticated_root
     get   'settings'    =>  'users#settings'
     # Wants can be purchased
-    resources :items do
+    resources :wants do
       resources :purchases
     end
   end

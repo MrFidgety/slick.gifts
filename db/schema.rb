@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203005924) do
+ActiveRecord::Schema.define(version: 20161203031754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,16 +33,15 @@ ActiveRecord::Schema.define(version: 20161203005924) do
 
   create_table "purchases", force: :cascade do |t|
     t.text     "comment"
-    t.integer  "purchaseable_id"
-    t.string   "purchaseable_type"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
-    t.integer  "status",            default: 0
+    t.integer  "status",     default: 0
+    t.integer  "want_id"
   end
 
-  add_index "purchases", ["purchaseable_id", "purchaseable_type"], name: "index_purchases_on_purchaseable_id_and_purchaseable_type", using: :btree
   add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
+  add_index "purchases", ["want_id"], name: "index_purchases_on_want_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               default: ""
@@ -80,5 +79,6 @@ ActiveRecord::Schema.define(version: 20161203005924) do
 
   add_foreign_key "items", "users"
   add_foreign_key "purchases", "users"
+  add_foreign_key "purchases", "wants"
   add_foreign_key "wants", "users"
 end
