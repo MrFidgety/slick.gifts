@@ -8,9 +8,9 @@
                   method: :delete,
                   remote: true %>
       <% else %>
-        <%= link_to "purchase", new_want_purchase_path(item.want.id),
+        <%= link_to "purchase", new_want_purchase_path(item.want),
                   remote: true %>
-        | <%= link_to "view purchases", want_purchase_path(item.want.id),
+        | <%= link_to "view purchases", want_purchases_path(item.want),
                   remote: true %>
       <% end %>
     </span>
