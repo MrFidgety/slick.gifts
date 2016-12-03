@@ -8,4 +8,8 @@ class Purchase < ActiveRecord::Base
     return all if values.blank?
     where(status: statuses.values_at(*Array(values)))
   end
+  
+  def set_status(new_status)
+    update_columns(status: Purchase.status[new_status])
+  end
 end
