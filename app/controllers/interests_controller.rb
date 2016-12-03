@@ -7,7 +7,7 @@ class InterestsController < ApplicationController
   
   def create
     # Create new interest from params
-    @interest = current_user.items.build(interest_params)
+    @interest = current_user.interests.build(interest_params)
 
     # Respond to AJAX call
     respond_to do |format|
