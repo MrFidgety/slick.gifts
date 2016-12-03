@@ -1,9 +1,7 @@
 <% @current_user_profile = @view_access == "edit" %>
-<%= link_to 'Home', root_path, 
-      class: "btn btn-default btn-lg" %>
+<%= link_to 'Home', root_path %>
 <% if @view_access == "edit" %>
-  <%= link_to 'User Settings', settings_path,
-        class: "btn btn-default btn-lg" %>
+  <%= link_to 'User Settings', settings_path %>
 <% end %>
 <p>View access: <%= @view_access %></p>
 <%= image_tag(@user.image, class: "img-responsive") %>
