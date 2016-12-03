@@ -10,6 +10,7 @@
 <h1><%= @user.name %> <small><%= @user.email %></small></h1>
 <% if @current_user_profile %>
 <p>
+  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-interest-modal">New Interest</button>
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
 </p>
 <% end %>
@@ -17,11 +18,10 @@
   <% @wants.each do |want| %>
     <%= render want.wanted, editable: @current_user_profile %>
   <% end %>
-  <%#= render partial: "items/item", collection: @items,
-        as: :item, locals: {editable: @current_user_profile} %>
 </div>
 <% if @current_user_profile %>
 <%= render 'items/new' %>
+<%= render 'interests/new' %>
 <div  class="modal fade" 
       id="edit-modal" 
       tabindex="-1" 
