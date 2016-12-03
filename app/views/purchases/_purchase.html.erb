@@ -1,12 +1,12 @@
-<% actionable ||= false %>
+<% actionable ||= purchase.user == current_user %>
 <div class="panel panel-default">
   <div class="panel-body">
     <% if actionable %>
-      Purchase (Status: <%= purchase.status %>)<br>
+      You purchased this (Status: <%= purchase.status %>)<br>
       <%= local_time(purchase.updated_at) %><br>
       <p><%= purchase.comment %></p>
     <% else %>
-      Purchase (Status: <%= purchase.status %>)<br>
+      Someone purchased this (Status: <%= purchase.status %>)<br>
       <%= local_time(purchase.updated_at) %><br>
       <p><%= purchase.comment %></p>
     <% end %>
