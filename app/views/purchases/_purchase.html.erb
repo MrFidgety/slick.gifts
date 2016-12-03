@@ -1,1 +1,5 @@
-<p><%= local_time(purchase.updated_at) %> - <%= purchase.user.name %> (<%= purchase.status %>)</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= local_time(purchase.updated_at) %> - <%= purchase.user.name %> (<%= purchase.status %>)
+  </div>
+</div>

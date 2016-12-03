@@ -1,8 +1,14 @@
 <%= link_to 'Current User', current_user,
       class: "btn btn-default btn-lg" %>
 <div id="actions-container" class="panel-group">
-  <%#= render @actionable_gifts %>
-  <%= render @actionable_purchases %>
+  <div>
+    <h3>You have been gifted these</h3>
+    <%#= render @actionable_gifts %>
+  </div>
+  <div>
+    <h3>You haven't given these gifts yet!</h3>
+    <%= render @actionable_purchases %>
+  </div>
 </div>
 <div id="friends-container" class="panel-group">
   <%= render @friends if @friends %>
