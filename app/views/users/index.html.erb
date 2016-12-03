@@ -1,11 +1,9 @@
-<%= link_to 'My Profile', current_user %>
+<%= link_to 'Profile', current_user %>
 <div id="actions-container" class="panel-group">
   <div>
-    <h3>You have been gifted these</h3>
     <%#= render @actionable_gifts %>
   </div>
   <div>
-    <h3>You haven't given these gifts yet!</h3>
     <%= render @actionable_purchases, actionable: true %>
   </div>
 </div>
