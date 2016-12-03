@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @actionable_purchases = current_user.purchases.where(status: [:purchased, :not_received])
     
     # Get all purchases for current user that have been gifted
-    @actionable_gifts = current_user.items.purchases.gifted
+    @actionable_gifts = current_user.items.includes(:purchases).where(purchases: { status: Purchase.statuses[:gifted] } )
   end
   
   def show
