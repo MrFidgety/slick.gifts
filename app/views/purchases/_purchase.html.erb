@@ -1,19 +1,24 @@
 <% actionable ||= purchase.user == current_user %>
 <div class="panel panel-default">
   <div class="panel-body">
-    (Status: <%= purchase.status %>)
     <% if actionable %>
       <% if purchase.want.present? %>
         <%= render purchase.want.wanted, plain: true %>
         You purchased this for 
-        <%= link_to purchase.want.user.name, purchase.want.user %><br>
+        <%= link_to purchase.want.user.name, purchase.want.user %>
+        on <%= local_time(purchase.updated_at) %>
+        <p><%= purchase.comment %></p>
       <% else %>
-      Uh oh, it looks like the person you bought this for removed the item!
+        Uh oh, it looks like the person you purchased something for on
+        <%= local_time(purchase.updated_at) %> 
+        has removed the item from their list!
+        <p><%= purchase.comment %></p>
       <% end %>
     <% else %>
-      Someone purchased this<br>
+      Someone purchased this for
+      <%= purchase.want.user.name %> on
+      <%= local_time(purchase.updated_at) %>
+      <p><%= purchase.comment %></p>
     <% end %>
-    <%= local_time(purchase.updated_at) %><br>
-    <p><%= purchase.comment %></p>
   </div>
 </div>
