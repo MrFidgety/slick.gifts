@@ -1,6 +1,5 @@
 # Add the new item to the users list
-$("<%= j render partial: 'items/item', object: @item,
-        as: :item, locals: {editable: true} %>").prependTo('#want-container')
+$("<%= j render @item, editable: true %>").prependTo('#want-container')
 
 # Hide new item modal
 $('#new-item-modal').modal('hide')

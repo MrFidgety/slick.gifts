@@ -1,7 +1,5 @@
 # Replace item in view
 $('#item-<%= @item.id %>').replaceWith(
-  "<%= j render partial: 'items/item', object: @item,
-          as: :item, locals: {editable: true} %>")
+  "<%= j render @item, editable: true %>")
 
-# Hide edit item modal
 $('#edit-modal').modal('hide')

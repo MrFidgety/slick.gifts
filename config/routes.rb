@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :purchases
     end
     resources :items
+    resources :interests
   end
   root  'static_pages#home'
   
