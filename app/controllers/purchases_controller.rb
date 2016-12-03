@@ -24,6 +24,14 @@ class PurchasesController < ApplicationController
       end
     end
   end
+  
+  def gift
+    # Update status to gifted
+  end
+  
+  def receive
+    # Update status to received or not-received
+  end
     
   private
   
