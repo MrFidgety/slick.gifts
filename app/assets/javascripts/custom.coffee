@@ -27,6 +27,7 @@ $(document).on "page:change page:restore", ->
   $('.alert').click ->
     $(this).hide(0, () ->
       $(this).next().display_alert()
+      $(this).remove()
     )
     
   $('.alert:first').display_alert()
