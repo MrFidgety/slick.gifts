@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     #@actionable_gifts = Purchase.joins(:items).where(items: {user_id: current_user.id})
     #@actionable_gifts = current_user.items.includes(:purchases).where(purchases: { status: Purchase.statuses[:gifted] } )
     
+    # Set page meta tags
+    @page_title = "Home"
   end
   
   def show
@@ -25,6 +27,11 @@ class UsersController < ApplicationController
       @interest = Interest.new
       @style = Style.new
     end
+    
+    # Set page meta tags
+    prepare_meta_tags(title: @user.name,
+                      description: "Check out my list if you're ever unsure what to get me!",
+                      keywords: %w[@user.name wishlist registry wish list gift gifts present presents])
   end
   
   def settings

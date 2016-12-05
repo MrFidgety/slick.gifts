@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def prepare_meta_tags(options={})
     site_name   = "Slick.gifts"
-    title       = options[:title]
+    title       = options[:title] || [controller_name, action_name].join(" ")
     description = options[:description] || "Surprise! It's what you wanted."
     image       = options[:image] || "default-image-url"
     type        = options[:type] || "website"
