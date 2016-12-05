@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     @user.read_from_omniauth(request.env["omniauth.auth"])
     sign_in_and_redirect @user, :event => :authentication
-    flash_message :notice, "Successfully authenticated from your Facebook account.", true if is_navigational_format?
+    flash_message :notice, "Successfully authenticated from your Facebook account.", true
     remember_me(@user)
   end
 
