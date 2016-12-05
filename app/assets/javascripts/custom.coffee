@@ -20,14 +20,18 @@ $(document).on "page:change page:restore", ->
     form.find('.error-message').remove()
     
   $.fn.display_alert = () ->
-    $(this).show(0).delay(3000).remove_alert()
+    $(this).show
+    timeout = window.setTimeout($(this).remove_alert, 3000)
+    $(this).data('timeout', timeout)
     
   $.fn.remove_alert = () ->
-    $(this).remove_alert()
+    $(this).hide
+    window.clearTimeout($(this).data('timeout'))
+    $(this).next().display_alert
     
   $('.alert').click ->
     console.log('clicked flash message')
-    $(this).hide()
+    $(this).remove_alert
     
-  $('.alert:first').display_alert()
+  $('.alert:first').display_alert
     
