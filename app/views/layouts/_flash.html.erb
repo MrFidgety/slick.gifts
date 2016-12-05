@@ -1,6 +1,8 @@
-<% flash.each do |message_type, message| %>
+<div id="flash-container">
+<% flash.first do |message_type, message| %>
 <div class="alert alert-dismissible fade in alert-<%= message_type %>">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <%= message %>
 </div>
 <% end %>
+</div>

@@ -1,0 +1,10 @@
+#flash-container {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  .alert {
+    min-height: 62px;
+  }
+}
