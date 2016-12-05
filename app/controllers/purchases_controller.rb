@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_filter :find_want
-  before_filter :purchase_owner, only: :give
+  before_filter :purchase_owner, only: [:give, :receive]
+  
   
   def index
     @purchases = @want.purchases
