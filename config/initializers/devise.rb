@@ -261,7 +261,7 @@ Devise.setup do |config|
   
   config.omniauth :facebook, ENV["FACEBOOK_API_KEY"], 
     ENV["FACEBOOK_API_SECRET"], scope: 'email,public_profile,user_friends', 
-    info_fields: 'email, name', display: 'popup', image_size: 'large'
+    info_fields: 'email, name', image_size: 'large'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

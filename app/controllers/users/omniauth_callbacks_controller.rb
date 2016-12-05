@@ -20,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
   
   def failure
-    flash_message :notice, "Slick.gifts connects you and your Facebook friends for better gift giving", true
+    flash_message :notice, "Slick.gifts connects you and your Facebook friends for better gift giving"
     redirect_to root_path 
   end
 
