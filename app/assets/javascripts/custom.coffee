@@ -27,7 +27,7 @@ $(document).on "page:change page:restore", ->
   $.fn.remove_alert = () ->
     $(this).hide()
     window.clearTimeout($(this).data('timeout'))
-    $(this).next().display_alert()
+    #$(this).next().display_alert()
     
   $('.alert').click ->
     console.log('clicked flash message')
