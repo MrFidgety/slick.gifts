@@ -4,4 +4,4 @@ $(document).on "page:change page:restore", ->
     e.preventDefault()
     FB.login (response) ->
       window.location = '/users/auth/facebook' if response.authResponse
-    , {scope: 'email,public_profile,user_friends'})
+    , {scope: 'email,public_profile,user_friends'}
