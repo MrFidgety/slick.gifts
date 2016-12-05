@@ -10,6 +10,6 @@ class Purchase < ActiveRecord::Base
   end
   
   def set_status(new_status)
-    update_columns(status: Purchase.status[new_status])
+    update_columns(status: Purchase.statuses[new_status])
   end
 end
