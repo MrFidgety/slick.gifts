@@ -18,3 +18,11 @@ $(document).on "page:change page:restore", ->
     form = this
     form.find('.error-message').unwrap()
     form.find('.error-message').remove()
+    
+  $.fn.display_alert = () ->
+    $(this).show(0).delay(1000).hide(0, () ->
+      $(this).next().display_alert()
+    )
+    
+  $('.alert:first').display_alert()
+    
