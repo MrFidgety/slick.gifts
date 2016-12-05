@@ -1,7 +1,7 @@
 <%= link_to 'Profile', current_user %>
 <div id="actions-container">
   <div>
-    <%#= render @actionable_gifts %>
+    <%= render @actionable_gifts, show_want: true %>
   </div>
   <div>
     <%= render @actionable_purchases, show_want: true %>

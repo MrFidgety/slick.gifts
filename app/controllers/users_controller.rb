@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received])
     
     # Get all purchases for current user that have been gifted
-    #@actionable_gifts = Purchase.joins(:items).where(items: {user_id: current_user.id})
+    @actionable_gifts = Purchase.joins(:wants).where(want: {user_id: current_user.id})
     #@actionable_gifts = current_user.items.includes(:purchases).where(purchases: { status: Purchase.statuses[:gifted] } )
     
     # Set page meta tags

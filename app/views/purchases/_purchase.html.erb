@@ -1,6 +1,6 @@
 <% actionable ||= purchase.user == current_user %>
 <% show_want ||= false %>
-<div class="panel panel-default">
+<div id="purchase-<%= purchase.id %>" class="panel panel-default">
   <div class="panel-body">
     <% if actionable %>
       <% if purchase.want.present? %>
