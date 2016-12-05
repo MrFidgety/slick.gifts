@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def prepare_meta_tags(options={})
     site_name   = "Slick.gifts"
-    title       = options[:title] || [controller_name, action_name].join(" ")
+    title       = options[:title]
     description = options[:description] || "Surprise! It's what you wanted."
     image       = options[:image] || "default-image-url"
     type        = options[:type] || "website"
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       description: description,
       keywords:    %w[wishlist registry wish list gift gifts present presents],
       fb: {
-        app_id:    '353739404981009'
+        app_id:    ENV["FACEBOOK_API_KEY"]
       },
       twitter: {
         site_name: site_name,
