@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     # Set page meta tags
-    @page_title = "Begin"
+    prepare_meta_tags(title: 'Begin')
   end
 
   def help

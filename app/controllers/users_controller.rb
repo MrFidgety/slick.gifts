@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     #@actionable_gifts = current_user.items.includes(:purchases).where(purchases: { status: Purchase.statuses[:gifted] } )
     
     # Set page meta tags
-    @page_title = "Home"
+    prepare_meta_tags(title: 'Home')
   end
   
   def show
