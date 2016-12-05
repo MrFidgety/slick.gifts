@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     @user.read_from_omniauth(request.env["omniauth.auth"])
     sign_in_and_redirect @user, :event => :authentication
-    set_flash_message(:notice, :success, :kind => provider_name) if is_navigational_format?
+    flash_message :notice, "Successfully authenticated from your Facebook account.", true if is_navigational_format?
     remember_me(@user)
   end
 
@@ -20,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
   
   def failure
-    flash[:notice] = "Slick.gifts connects you and your Facebook friends for better gift giving."
+    flash_message :notice, "Slick.gifts connects you and your Facebook friends for better gift giving", true
     redirect_to root_path 
   end
 
