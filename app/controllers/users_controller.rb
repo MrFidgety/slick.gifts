@@ -30,10 +30,7 @@ class UsersController < ApplicationController
     
     # Set page meta tags
     prepare_meta_tags(title: "#{@user.name}'s Slick.gifts",
-                      description: "Check out my Slick.gifts if you're ever 
-                      unsure what to get me. Even better, set up your own gifts 
-                      so we know what to get you!",
-                      keywords: %w[@user.name wishlist registry wish list gift gifts present presents])
+                      description: "Check out my Slick.gifts if you're ever unsure what to get me. Even better, set up your own gifts so we know what to get you!")
   end
   
   def settings
