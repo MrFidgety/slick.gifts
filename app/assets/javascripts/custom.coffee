@@ -20,10 +20,10 @@ $(document).on "page:change page:restore", ->
     form.find('.error-message').remove()
     
   $.fn.display_alert = () ->
-    $(this).show(0).delay(3000).hide(0, () ->
-      $(this).next().display_alert()
-      $(this).remove()
-    )
+    $(this).show(0).delay(3000).remove_alert()
+    
+  $.fn.remove_alert = () ->
+    $(this).remove_alert()
     
   $('.alert').click ->
     console.log('clicked flash message')
