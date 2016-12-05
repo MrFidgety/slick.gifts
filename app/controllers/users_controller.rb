@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     end
     
     # Set page meta tags
-    prepare_meta_tags(title: @user.name,
+    prepare_meta_tags(title: "#{@user.name}'s Slick.gifts",
                       description: "Check out my Slick.gifts if you're ever 
                       unsure what to get me. Even better, set up your own gifts 
                       so we know what to get you!",
