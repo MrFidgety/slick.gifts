@@ -22,6 +22,7 @@ $(document).on "page:change page:restore", ->
   $.fn.display_alert = () ->
     $(this).show(0).delay(3000).hide(0, () ->
       $(this).next().display_alert()
+      $(this).remove()
     )
     
   $('.alert').click ->
