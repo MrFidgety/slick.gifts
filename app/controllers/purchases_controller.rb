@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_filter :find_want
-  before_filter :purchase_owner, only: [:give, :receive]
+  before_filter :purchase_owner, only: :give
+  before_filter :want_owner, only: :receive
   
   
   def index
@@ -52,5 +53,11 @@ class PurchasesController < ApplicationController
     # Ensure current user is purchase owner
     def purchase_owner
       redirect_to root_url unless @purchase = current_user.purchases.find(params[:id])
+    end
+    
+    # Ensure current user is want owner
+    def want_owner
+      redirect_to root_url unless @want = current_user.wants.find(params[:want_id])
+      @purchase = Purchase.find(params[:id])
     end
 end
