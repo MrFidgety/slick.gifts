@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     # Set page meta tags
-    prepare_meta_tags(title: 'Begin')
+    prepare_meta_tags(title: 'Continue with Facebook')
   end
 
   def help
