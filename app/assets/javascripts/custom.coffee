@@ -21,8 +21,8 @@ $(document).on "page:change page:restore", ->
     
   $.fn.display_alert = () ->
     $(this).show()
-    timeout = window.setTimeout($(this).remove_alert(), 3000)
-    $(this).data('timeout', timeout)
+    #timeout = window.setTimeout($(this).remove_alert(), 3000)
+    #$(this).data('timeout', timeout)
     
   $.fn.remove_alert = () ->
     $(this).hide()
