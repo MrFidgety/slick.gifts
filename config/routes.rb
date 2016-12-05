@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     get   'settings'    =>  'users#settings'
     # Wants can be purchased
     resources :wants do
-      resources :purchases
+      resources :purchases do
+        post 'give', on: :member
+        post 'receive', on: :member
+      end
     end
     resources :items
     resources :interests
