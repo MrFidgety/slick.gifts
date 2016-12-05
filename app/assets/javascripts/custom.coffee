@@ -26,7 +26,9 @@ $(document).on "page:change page:restore", ->
     )
     
   $('.alert').click ->
+    console.log('clicked flash message')
     $(this).hide(() ->
+      
       $(this).next().display_alert()
       $(this).remove()
     )
