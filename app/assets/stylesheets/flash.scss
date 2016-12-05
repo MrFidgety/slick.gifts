@@ -8,5 +8,8 @@
     font-weight: 700;
     text-align: center;
     border-radius: 0;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
   }
 }

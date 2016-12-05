@@ -6,8 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def sign_in_with(provider_name)
     @user = User.from_omniauth(request.env["omniauth.auth"])
     @user.read_from_omniauth(request.env["omniauth.auth"])
+    flash_message :notice, "Successfully authenticated from your Facebook account."
     sign_in_and_redirect @user, :event => :authentication
-    flash_message :notice, "Successfully authenticated from your Facebook account.", true
     remember_me(@user)
   end
 
