@@ -1,13 +1,4 @@
-jQuery ->
-  $('body').prepend('<div id="fb-root"></div>')
-
-  $.ajax
-    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
-    dataType: 'script'
-    cache: true
-
-window.fbAsyncInit = ->
-  FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true)
+$(document).on "page:change page:restore", ->
 
   $('#facebook-login').click (e) ->
     e.preventDefault()
