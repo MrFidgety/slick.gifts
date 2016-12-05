@@ -20,7 +20,7 @@ $(document).on "page:change page:restore", ->
     form.find('.error-message').remove()
     
   $.fn.display_alert = () ->
-    $(this).show(0).delay(1000).hide(0, () ->
+    $(this).show(0).delay(3000).hide(0, () ->
       $(this).next().display_alert()
     )
     
