@@ -33,6 +33,7 @@ class PurchasesController < ApplicationController
   
   def receive
     # Update status to received or not-received
+    @purchase.set_status(:received)
   end
     
   private

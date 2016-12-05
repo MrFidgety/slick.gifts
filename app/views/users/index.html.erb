@@ -1,10 +1,10 @@
 <%= link_to 'Profile', current_user %>
 <div id="actions-container">
   <div>
-    <%= render @actionable_gifts, show_want: true %>
+    <%= render @actionable_gifts, actionable: true %>
   </div>
   <div>
-    <%= render @actionable_purchases, show_want: true %>
+    <%= render @actionable_purchases, actionable: true %>
   </div>
 </div>
 <div id="friends-container" class="panel-group">
