@@ -9,8 +9,8 @@
         <%= link_to purchase.want.user.name, purchase.want.user %>
         on <%= local_time(purchase.updated_at) %>
         <p><%= purchase.comment %></p>
-        <%= link_to 'I have given this item' give_purchase_path(purchase) %>
-        method: :post, remote: true, class: "goal-have" do %>
+        <%= link_to 'I have given this item', give_purchase_path(purchase),
+            method: :post, remote: true %>
       <% else %>
         Uh oh, it looks like the person you purchased something for on
         <%= local_time(purchase.updated_at) %> 

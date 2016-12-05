@@ -25,7 +25,7 @@ class PurchasesController < ApplicationController
     end
   end
   
-  def gift
+  def give
     # Update status to gifted
     @purchase.set_status(:gifted)
   end
