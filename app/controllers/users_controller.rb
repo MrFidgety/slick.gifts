@@ -14,11 +14,6 @@ class UsersController < ApplicationController
     #@actionable_gifts = Purchase.joins(:items).where(items: {user_id: current_user.id})
     #@actionable_gifts = current_user.items.includes(:purchases).where(purchases: { status: Purchase.statuses[:gifted] } )
     
-    flash_message :notice, "Flash 1", true
-    flash_message :notice, "Flash 2", true
-    flash_message :notice, "Flash 3", true
-    flash_message :notice, "Flash 4", true
-    flash_message :notice, "Flash 5", true
   end
   
   def show
