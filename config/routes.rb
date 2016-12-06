@@ -12,21 +12,21 @@ Rails.application.routes.draw do
   authenticated :user do
     root  'users#index', as: :authenticated_root
     get   'settings'    =>  'users#settings'
-    # Wants can be purchased
     resources :wants do
       resources :purchases do
-        post 'give', on: :member
+        post 'gift', on: :member
         post 'receive', on: :member
       end
     end
-    resources :items
-    resources :interests
-    resources :styles
+    resources :items, :interests, :styles, except: :index
   end
   root  'static_pages#home'
   
   # Only enable show user page
-  resources :users, :path => 'users', only: [:show]
+  resources :users, only: [:show] do
+    get 'gifted', on: :member
+    get 'received', on: :member
+  end
   
   # Static pages
   get   'help'          =>  'static_pages#help'

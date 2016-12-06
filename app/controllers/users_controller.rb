@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :determine_view_access,    only: :show
+  before_action :determine_view_access,    only: [:show, :gifted, :received]
   
   def index
     # Get current user friends
@@ -36,6 +36,16 @@ class UsersController < ApplicationController
   def settings
     # Set page meta tags
     prepare_meta_tags(title: "Settings")
+  end
+  
+  def gifted
+    # Set page meta tags
+    prepare_meta_tags(title: "Gifted by #{@user.name}")
+  end
+  
+  def received
+    # Set page meta tags
+    prepare_meta_tags(title: "Received by #{@user.name}")
   end
   
   private
