@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-12 col-md-6 col-md-offset-3">
+  <div class="col-sm-8 col-md-offset-2 col-md-6 col-md-offset-3">
     <%= image_tag "slick_gifts_logo_1.png",  
         alt: 'Slick.gifts Logo', 
         id: 'home-page-logo', 
@@ -9,11 +9,11 @@
 <p class="tagline">Surprise!<br>It's what you wanted.</p>
 <div class="text-center">
   <% if Rails.env.development? %>
-    <%= link_to fa_icon("facebook", text: "Continue as Developer"), 
+    <%= link_to icon("facebook", "Continue as Developer"), 
         omniauth_authorize_path(User, "developer"), 
         class: "btn btn-default btn-facebook btn-lg" %>
   <% else %>
-    <%= link_to fa_icon("facebook", text: "Continue with Facebook"), 
+    <%= link_to icon("facebook", "Continue with Facebook"), 
         user_facebook_omniauth_authorize_path, 
         id: "facebook-login", 
         class: "btn btn-default btn-facebook btn-lg" %>

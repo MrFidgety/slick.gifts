@@ -54,7 +54,7 @@ img#home-page-logo {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
-  &:hover {
+  &:hover, &:focus {
     color: white;
     background-color: #3b5998;
     opacity: 0.8;
