@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :purchases do
         post 'gift', on: :member
         post 'receive', on: :member
+        post 'not_receive', on: :member
       end
     end
     resources :items, :interests, :styles, except: :index
