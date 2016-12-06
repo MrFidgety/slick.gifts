@@ -11,18 +11,13 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
   
-  # All urls are https by default
-  def default_url_options(options={})
-    { :secure => true }
-  end 
-
   def prepare_meta_tags(options={})
     site_name   = "Slick.gifts"
     title       = options[:title] || [controller_name, action_name].join(" ")
     description = options[:description] || "Surprise! It's what you wanted."
     image       = options[:image] || view_context.image_url("slick_gifts_social.png")
     type        = options[:type] || "website"
-    current_url = request.url
+    current_url = request.original_url
 
     # Let's prepare a nice set of defaults
     defaults = {
