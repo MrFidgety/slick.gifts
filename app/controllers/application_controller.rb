@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     site_name   = "Slick.gifts"
     title       = options[:title] || [controller_name, action_name].join(" ")
     description = options[:description] || "Surprise! It's what you wanted."
-    image       = options[:image] || "default-image-url"
+    image       = options[:image] || view_context.image_url("slick_gifts_social.png")
     type        = options[:type] || "website"
     current_url = request.url
 
