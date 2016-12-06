@@ -34,6 +34,8 @@ class UsersController < ApplicationController
   end
   
   def settings
+    # Set page meta tags
+    prepare_meta_tags(title: "Settings")
   end
   
   private
