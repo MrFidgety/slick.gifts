@@ -51,3 +51,12 @@ h1.site-title {
 img#home-page-logo {
   margin: 2em 0;
 }
+.btn-facebook {
+  color: white;
+  background-color: #3b5998;
+  &:hover {
+    color: white;
+    background-color: #3b5998;
+    opacity: 0.8;
+  }
+}

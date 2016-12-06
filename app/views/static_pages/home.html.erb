@@ -9,13 +9,13 @@
 <p class="tagline">Surprise!<br>It's what you wanted.</p>
 <div class="text-center">
   <% if Rails.env.development? %>
-    <%= link_to "Continue as Developer", 
+    <%= link_to fa_icon("facebook", text: "Continue as Developer"), 
         omniauth_authorize_path(User, "developer"), 
-        class: "btn btn-default btn-lg" %>
+        class: "btn btn-default btn-facebook btn-lg" %>
   <% else %>
     <%= link_to fa_icon("facebook", text: "Continue with Facebook"), 
         user_facebook_omniauth_authorize_path, 
         id: "facebook-login", 
-        class: "btn btn-default btn-lg" %>
+        class: "btn btn-default btn-facebook btn-lg" %>
   <% end %>
 </div>
