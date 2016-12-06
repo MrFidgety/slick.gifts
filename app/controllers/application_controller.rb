@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     description = options[:description] || "Surprise! It's what you wanted."
     image       = options[:image] || view_context.image_url("slick_gifts_social.png")
     type        = options[:type] || "website"
-    current_url = request.original_url
+    current_url = "https://#{request.host+request.fullpath}"
 
     # Let's prepare a nice set of defaults
     defaults = {
