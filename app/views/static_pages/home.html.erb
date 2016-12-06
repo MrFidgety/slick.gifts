@@ -1,15 +1,21 @@
 <div class="row">
   <div class="col-sm-12 col-md-6 col-md-offset-3">
-    <%= image_tag "slick_gifts_logo_1.png",  alt: 'Slick.gifts Logo', class: 'img-responsive' %>
+    <%= image_tag "slick_gifts_logo_1.png",  
+        alt: 'Slick.gifts Logo', 
+        id: 'home-page-logo', 
+        class: 'img-responsive' %>
   </div>
 </div>
-<p class="tagline">Surprise! It's what you wanted.</p>
+<p class="tagline">Surprise!<br>It's what you wanted.</p>
 <div class="text-center">
   <% if Rails.env.development? %>
-    <%= link_to "Continue as Developer", omniauth_authorize_path(User, "developer"), 
+    <%= link_to "Continue as Developer", 
+        omniauth_authorize_path(User, "developer"), 
         class: "btn btn-default btn-lg" %>
   <% else %>
-    <%= link_to "Continue with Facebook", user_facebook_omniauth_authorize_path, 
-        id: "facebook-login", class: "btn btn-default btn-lg" %>
+    <%= link_to fa_icon("facebook", text: "Continue with Facebook"), 
+        user_facebook_omniauth_authorize_path, 
+        id: "facebook-login", 
+        class: "btn btn-default btn-lg" %>
   <% end %>
 </div>

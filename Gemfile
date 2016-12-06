@@ -20,6 +20,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'meta-tags'
 gem 'local_time'
+gem 'font-awesome-rails'
 gem 'sdoc',                       '0.4.0', group: :doc
 
 group :development, :test do
