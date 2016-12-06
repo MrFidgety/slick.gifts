@@ -12,6 +12,8 @@ class InterestsController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @interest.save
+        flash_message :notice, "New interest added to your profile"
+        flash_message :notice, "You can edit this interest during the next 48 hours"
         format.js 
       else
         format.js   { render json: @interest.errors, status: :unprocessable_entity }
@@ -23,6 +25,7 @@ class InterestsController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @interest.update_attributes(interest_params)
+        flash_message :notice, "Interest successfully updated"
         format.js
       else
         format.js   { render json: @interest.errors, status: :unprocessable_entity }
@@ -33,11 +36,13 @@ class InterestsController < ApplicationController
   def destroy
     # If any purchases have been received, archive interest
     if @interest.want.purchases.received.any?
+      flash_message :notice, "Interest archived"
       @interest.archive
     # If any purchases are currently 'gifted' notify user
     elsif @interest.want.purchases.gifted.any?
-      flash_message :notice, "Unable to delete while outstanding gifted item", true
+      flash_message :notice, "Unable to delete. There are outstanding gifts for this interest"
     else
+      flash_message :notice, "Interest deleted"
       # Otherwise destroy interest
       @interest.destroy
     end

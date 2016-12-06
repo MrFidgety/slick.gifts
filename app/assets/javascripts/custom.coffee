@@ -20,16 +20,19 @@ $(document).on "page:change page:restore", ->
     form.find('.error-message').remove()
     
   $.fn.display_alert = () ->
+    # Remove this alert if clicked
+    $(this).click ->
+      $(this).remove_alert()
+    # Show then hide this alert
     $(this).show(0).delay(3000).hide(0, () ->
       $(this).remove_alert()
     )
   
   $.fn.remove_alert = () ->
+    # Trigger next alert to display
     $(this).next().display_alert()
+    # Remove current alert
     $(this).remove()
-    
-  $('.alert').click ->
-    $(this).remove_alert()
-    
+
   $('.alert:first').display_alert()
     

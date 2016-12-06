@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @item.save
+        flash_message :notice, "New item added to your profile"
+        flash_message :notice, "You can edit this item during the next 48 hours"
         format.js 
       else
         format.js   { render json: @item.errors, status: :unprocessable_entity }
@@ -23,6 +25,7 @@ class ItemsController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @item.update_attributes(item_params)
+        flash_message :notice, "Item successfully updated"
         format.js
       else
         format.js   { render json: @item.errors, status: :unprocessable_entity }
@@ -33,11 +36,13 @@ class ItemsController < ApplicationController
   def destroy
     # If any purchases have been received, archive item
     if @item.want.purchases.received.any?
+      flash_message :notice, "Item archived"
       @item.archive
     # If any purchases are currently 'gifted' notify user
     elsif @item.want.purchases.gifted.any?
-      flash_message :notice, "Unable to delete while outstanding gifted item", true
+      flash_message :notice, "Unable to delete. There are outstanding gifts for this item"
     else
+      flash_message :notice, "Item deleted"
       # Otherwise destroy item
       @item.destroy
     end

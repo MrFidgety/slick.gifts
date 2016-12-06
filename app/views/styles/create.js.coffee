@@ -6,3 +6,9 @@ $('#new-style-modal').modal('hide')
 
 # Reset new style form
 $('#new_style').trigger("reset").clear_form_errors()
+
+# Render flash
+$("#flash-container").html("<%= j render 'layouts/flash' %>")
+
+# Display any flash
+$('.alert:first').display_alert()

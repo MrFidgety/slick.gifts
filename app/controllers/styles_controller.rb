@@ -11,6 +11,8 @@ class StylesController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @style.save
+        flash_message :notice, "New style added to your profile"
+        flash_message :notice, "You can edit this style during the next 48 hours"
         format.js 
       else
         format.js   { render json: @style.errors, status: :unprocessable_entity }
@@ -22,6 +24,7 @@ class StylesController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @style.update_attributes(style_params)
+        flash_message :notice, "Style successfully updated"
         format.js
       else
         format.js   { render json: @style.errors, status: :unprocessable_entity }
@@ -32,11 +35,13 @@ class StylesController < ApplicationController
   def destroy
     # If any purchases have been received, archive style
     if @style.want.purchases.received.any?
+      flash_message :notice, "Style archived"
       @style.archive
     # If any purchases are currently 'gifted' notify user
     elsif @style.want.purchases.gifted.any?
-      flash_message :notice, "Unable to delete while outstanding gifted item", true
+      flash_message :notice, "Unable to delete. There are outstanding gifts for this style"
     else
+      flash_message :notice, "Style deleted"
       # Otherwise destroy style
       @style.destroy
     end

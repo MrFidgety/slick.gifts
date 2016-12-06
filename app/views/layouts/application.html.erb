@@ -13,7 +13,9 @@
 </head>
 <body>
   <%= render 'layouts/facebook_sdk' %>
-  <%= render 'layouts/flash' %>
+  <div id="flash-container">
+    <%= render 'layouts/flash' %>
+  </div>
   <div id="site-container" class="container">
     <%= yield %>
   </div>
