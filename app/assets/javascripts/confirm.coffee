@@ -35,5 +35,6 @@ $(document).on "page:change page:restore", ->
       .on 'shown.bs.modal', ->
         $(this).find('.confirm-modal-button').on 'click', -> 
           $.rails.confirmed(link)
+          $(this).modal('hide')
       .on 'hidden.bs.modal', -> 
         $(@).remove()
