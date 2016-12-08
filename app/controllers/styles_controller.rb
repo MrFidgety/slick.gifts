@@ -32,7 +32,7 @@ class StylesController < ApplicationController
         end
       else
         flash_message :notice, "Style can not be edited as it has been active for more than 48 hours"
-        flash_message :notice, "You can always create a new style"
+        flash_message :notice, "Hint: You can always create a new style"
         format.js
       end
     end

@@ -11,12 +11,13 @@
           <p><%= purchase.comment %></p>
           <%= link_to "I have gifted this to #{purchase.want.user.name}", 
               gift_want_purchase_path(purchase.want, purchase),
+              class: "btn btn-default",
               method: :post, remote: true, 
               data: {
                 title: "Gifted", 
                 message:   "Only select this when you have given the item to 
-                            #{purchase.want.user.name}. They will confirm they 
-                            have received it.",
+                            #{purchase.want.user.name}. They will confirm it has
+                            been received.",
                 confirm: "I have given this" } %>
         <% elsif purchase.gifted? %>
           <%= link_to purchase.user.name, purchase.user %> 

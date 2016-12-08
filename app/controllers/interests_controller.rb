@@ -33,7 +33,7 @@ class InterestsController < ApplicationController
         end
       else
         flash_message :notice, "Interest can not be edited as it has been active for more than 48 hours"
-        flash_message :notice, "You can always create a new interest"
+        flash_message :notice, "Hint: You can always create a new interest"
         format.js
       end
     end
