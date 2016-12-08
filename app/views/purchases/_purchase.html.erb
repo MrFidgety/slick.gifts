@@ -16,7 +16,7 @@
                 title: "Gifted", 
                 message:   "Only select this when you have given the item to 
                             #{purchase.want.user.name}. They will confirm they 
-                            have received it."
+                            have received it.",
                 confirm: "I have given this" } %>
         <% elsif purchase.gifted? %>
           <%= link_to purchase.user.name, purchase.user %> 
