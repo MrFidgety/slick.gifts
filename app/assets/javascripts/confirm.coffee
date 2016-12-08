@@ -1,4 +1,4 @@
-(document).on "page:change page:restore", ->
+$(document).on "page:change page:restore", ->
   
   $.rails.allowAction = (link) ->
     return true unless link.attr('data-confirm')
