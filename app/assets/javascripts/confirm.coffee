@@ -25,7 +25,7 @@
               <p>#{message}</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default">#{confirm}</button>
+              <button type="button" class="btn btn-default confirm-modal-button">#{confirm}</button>
             </div>
           </div>
         </div>
