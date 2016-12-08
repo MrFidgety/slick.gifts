@@ -15,9 +15,9 @@ $(document).on "page:change page:restore", ->
     confirm = link.attr 'data-confirm'
     html = 
     """
-      <div class="modal fade">
+      <div id="confirm-modal" class="modal fade">
         <div class="modal-dialog">
-          <div class="modal-content confirm-modal">
+          <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">#{title}</h4>
             </div>
@@ -35,6 +35,5 @@ $(document).on "page:change page:restore", ->
       .on 'shown.bs.modal', ->
         $(this).find('.confirm-modal-button').on 'click', -> 
           $.rails.confirmed(link)
-        $(this).modal('hide')
       .on 'hidden.bs.modal', -> 
         $(@).remove()

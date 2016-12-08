@@ -1,4 +1,4 @@
-<% if @purchase.gifted? %>
+<% if @purchase.not_received? %>
 $('#purchase-<%= @purchase.id %>').remove()
 <% end %>
 
