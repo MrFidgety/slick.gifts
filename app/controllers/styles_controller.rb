@@ -23,11 +23,17 @@ class StylesController < ApplicationController
   def update
     # Respond to AJAX call
     respond_to do |format|
-      if @style.update_attributes(style_params)
-        flash_message :notice, "Style successfully updated"
-        format.js
+      if @style.want.can_edit?
+        if @style.update_attributes(style_params)
+          flash_message :notice, "Style successfully updated"
+          format.js
+        else
+          format.js   { render json: @style.errors, status: :unprocessable_entity }
+        end
       else
-        format.js   { render json: @style.errors, status: :unprocessable_entity }
+        flash_message :notice, "Style can not be edited as it has been active for more than 48 hours"
+        flash_message :notice, "You can always create a new style"
+        format.js
       end
     end
   end

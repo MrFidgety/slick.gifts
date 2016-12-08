@@ -9,14 +9,25 @@
           <%= link_to purchase.want.user.name, purchase.want.user %>
           on <%= local_time(purchase.updated_at) %>
           <p><%= purchase.comment %></p>
-          <%= link_to 'I have given this item', gift_want_purchase_path(purchase.want, purchase),
-            method: :post, remote: true %>
+          <%= link_to "I have gifted this to #{purchase.want.user.name}", 
+              gift_want_purchase_path(purchase.want, purchase),
+              method: :post, remote: true, 
+              data: {
+                title: "Gifted", 
+                message:   "Only select this when you have given the item to 
+                            #{purchase.want.user.name}. They will confirm they 
+                            have received it."
+                confirm: "I have given this" } %>
         <% elsif purchase.gifted? %>
-          <%= link_to purchase.user.name, purchase.user %> purchased this for you
-          and has gifted it to you.
+          <%= link_to purchase.user.name, purchase.user %> 
+          purchased this for you and has gifted it to you.
           <p><%= purchase.comment %></p>
-          <%= link_to 'I have received this item', receive_want_purchase_path(purchase.want, purchase),
-            method: :post, remote: true %>
+          <%= link_to "I have received this from #{purchase.user.name}", 
+              receive_want_purchase_path(purchase.want, purchase),
+              method: :post, remote: true %>
+          <%= link_to 'I have not received this', 
+              not_receive_want_purchase_path(purchase.want, purchase),
+              method: :post, remote: true %>
         <% end %>
       <% else %>
         Uh oh, it looks like the person you purchased something for on

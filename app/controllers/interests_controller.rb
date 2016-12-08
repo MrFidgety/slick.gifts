@@ -24,11 +24,17 @@ class InterestsController < ApplicationController
   def update
     # Respond to AJAX call
     respond_to do |format|
-      if @interest.update_attributes(interest_params)
-        flash_message :notice, "Interest successfully updated"
-        format.js
+      if @interest.want.can_edit?
+        if @interest.update_attributes(interest_params)
+          flash_message :notice, "Interest successfully updated"
+          format.js
+        else
+          format.js   { render json: @interest.errors, status: :unprocessable_entity }
+        end
       else
-        format.js   { render json: @interest.errors, status: :unprocessable_entity }
+        flash_message :notice, "Interest can not be edited as it has been active for more than 48 hours"
+        flash_message :notice, "You can always create a new interest"
+        format.js
       end
     end
   end
