@@ -1,8 +1,19 @@
 <% full_display ||= false %>
 <div id="purchase-<%= purchase.id %>" class="panel panel-default">
   <div class="panel-body">
-    <%= render "purchases/purchase_#{purchase.status}", 
-        purchase: purchase,
-        full_display: full_display %>
+    <% if purchase.want.present? %>
+      <%= render "purchases/purchase_#{purchase.status}", 
+          purchase: purchase,
+          full_display: full_display %>
+    <% else %>
+      Uh oh, it looks like the person you purchased something for on
+      <%= local_time(purchase.created_at) %> 
+      has removed the item from their list!
+      <% if purchase.comment.present? %>
+        <p>Your comments were: <strong>"<%= purchase.comment %>"</strong></p>
+      <% else %>
+        <p>You did not make any comments about the purchase.</p>
+      <% end %>
+    <% end %>
   </div>
 </div>
