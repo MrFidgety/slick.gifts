@@ -41,11 +41,13 @@ class UsersController < ApplicationController
   def gifted
     # Set page meta tags
     prepare_meta_tags(title: "Gifted by #{@user.name}")
+    @gifted = current_user.purchases.received
   end
   
   def received
     # Set page meta tags
     prepare_meta_tags(title: "Received by #{@user.name}")
+    @received = Purchase.includes(:want).where(wants: {user_id: current_user.id}, status: Purchase.statuses[:received])
   end
   
   private
