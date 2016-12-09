@@ -2,7 +2,8 @@ class PurchasesController < ApplicationController
   
   before_action :find_want
   before_action :signed_in, except: :index
-  before_action :purchase_owner, only: :gift
+  before_action :can_delete, only: :destroy
+  before_action :purchase_owner, only: [:gift]
   before_action :want_owner, only: [:receive, :not_receive]
   
   # Prevent flash from appearing twice after AJAX call
@@ -52,6 +53,8 @@ class PurchasesController < ApplicationController
   end
   
   def destroy
+    flash_message :notice, "Purchase successfully cancelled"
+    @purchase.destroy
   end
     
   private
@@ -75,5 +78,10 @@ class PurchasesController < ApplicationController
     def want_owner
       redirect_to root_url unless @want = current_user.wants.find(params[:want_id])
       @purchase = Purchase.find(params[:id])
+    end
+    
+    # Ensure purchase belongs to current user and is purchased or not_received
+    def can_delete
+      redirect_to root_url unless @purchase = current_user.for_statuses([:purchased, :not_received]).find(params[:id])
     end
 end
