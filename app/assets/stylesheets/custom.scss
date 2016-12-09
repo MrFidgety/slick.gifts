@@ -20,16 +20,6 @@ body {
   padding-top: 56px;
 }
 
-h1.site-title {
-  font-size: 6em;
-  font-weight: 600;
-  text-align: center;
-  color: $dark-gray;
-  span {
-    font-weight: 300;
-    color: $slick-blue;
-  }
-}
 .tagline {
   font-size: 3em;
   font-weight: 300;
@@ -88,8 +78,19 @@ img#home-page-logo {
     height: 26px;
   }
 }
-.navbar-nav > li > a {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  line-height: inherit;
+.navbar-slick {
+  background-color: $slick-blue;
+  border: none;
+  .navbar-nav > li > a {
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: inherit;
+    transition: opacity 0.3s ease;
+    &:hover, &:focus, &:active {
+      color: white;
+      background: none;
+      opacity: 0.6;
+    }
+  }
 }
