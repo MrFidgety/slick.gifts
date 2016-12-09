@@ -1,5 +1,6 @@
 #flash-container {
   position: fixed;
+  top: -56px;       // account for body padding
   z-index: 9999;
   width: 100%;
   .alert {
@@ -11,5 +12,14 @@
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
+  }
+}
+
+.alert-notice {
+  color: white;
+  background-color: $slick-dark-blue;
+  a.close {
+    color: white;
+    opacity: 1;
   }
 }
