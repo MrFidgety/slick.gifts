@@ -1,9 +1,7 @@
 .user-panel {
-  .img-container {
-    width: 3em;
-    height: 3em;
-  }
   img {
     object-fit: cover;
+    height: 3em;
+    width: 3em;
   }
 }
