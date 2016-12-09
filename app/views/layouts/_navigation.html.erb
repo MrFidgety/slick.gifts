@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <% if user_signed_in? %>
+    <div class="navbar-header">
+      <%= current_user.name %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Profile', current_user %></li>
+      </ul>
+    </div>
+    <% else %>
+    <div class="navbar-header">
+      <%= link_to icon("facebook", "Join"), 
+        user_facebook_omniauth_authorize_path, 
+        id: "facebook-login", 
+        class: "btn btn-default btn-facebook" %>
+    </div>
+    <% end %>
+  </div>
+</nav>
