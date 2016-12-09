@@ -17,6 +17,7 @@ body {
   @media (min-width: $screen-md-min) {
     font-size: 14px;
   }
+  padding-top: 56px;
 }
 
 h1.site-title {
@@ -74,4 +75,18 @@ img#home-page-logo {
 }
 .navbar-right {
   float: right!important;
+}
+
+// Navbar css
+.navbar {
+  height: 56px;
+  .fa {
+    font-size: 26px;
+  }
+  img {
+    height: 26px;
+  }
+}
+.navbar-nav > li > a {
+  line-height: 26px;
 }
