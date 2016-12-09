@@ -2,10 +2,12 @@
 <% if full_display %>
   <% if purchase.want.present? %>
     <%= render purchase.want.wanted, plain: true %>
-    <p><%= name %> purchased this on <%= local_time(purchase.created_at) %>.</p>
+    <p><%= name %> purchased this on <%= local_time(purchase.created_at) %> for 
+    <%= link_to purchase.want.user.name, purchase.want.user %>.</p>
     <% if purchase.comment.present? %>
       <p><strong>"<%= purchase.comment %>"</strong></p>
     <% end %>
+  <% else %>
     Uh oh, it looks like the person you purchased something for on
     <%= local_time(purchase.created_at) %> 
     has removed the item from their list!
@@ -14,7 +16,6 @@
     <% else %>
       <p>You did not make any comments about the purchase.</p>
     <% end %>
-  <% else %>
   <% end %>
 <% else %>
   <p><%= name %> purchased this on <%= local_time(purchase.created_at) %>.</p>
