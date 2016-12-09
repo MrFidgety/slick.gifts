@@ -24,7 +24,7 @@ $(document).on "page:change page:restore", ->
     $(this).click ->
       $(this).remove_alert()
     # Show then hide this alert
-    $(this).show(0).delay(3000).hide(0, () ->
+    $(this).show(0).delay(5000).hide(0, () ->
       $(this).remove_alert()
     )
   

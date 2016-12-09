@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
   before_filter :find_want
   before_filter :purchase_owner, only: :gift
-  before_filter :want_owner, only: :receive
+  before_filter :want_owner, only: [:receive, :not_receive]
   
   # Prevent flash from appearing twice after AJAX call
   after_filter { flash.discard if request.xhr? }
