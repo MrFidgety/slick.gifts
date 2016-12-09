@@ -2,6 +2,7 @@ html,body {
   height: 100%;
   min-height: 100%;
   font-family: 'Open Sans', sans-serif;
+  background: $light-gray;
 }
 
 body {
@@ -74,6 +75,7 @@ img#home-page-logo {
 }
 .navbar-slick {
   background-color: $slick-blue;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
   border: none;
   .navbar-nav > li > a {
     color: white;
