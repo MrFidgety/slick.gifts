@@ -1,6 +1,6 @@
-<% display ||= :compact %>
+<% full_display ||= false %>
 <div id="purchase-<%= purchase.id %>" class="panel panel-default">
   <div class="panel-body">
-    <%= render "purchases/purchase_#{purchase.status}", display: display %>
+    <%= render "purchases/purchase_#{purchase.status}", full_display: full_display %>
   </div>
 </div>
