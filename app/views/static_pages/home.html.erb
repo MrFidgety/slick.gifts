@@ -4,16 +4,21 @@
         alt: 'Slick.gifts Logo', 
         id: 'home-page-logo', 
         class: 'img-responsive' %>
+    <p class="tagline">Surprise!<br>It's what you wanted.</p>
+    <div class="panel panel-default">
+      <div class="panel-body">Make a list of the things you want, your interests, and style.  View your friends lists and never get a bad gift again.</div>
+    </div>
   </div>
 </div>
-<p class="tagline">Surprise!<br>It's what you wanted.</p>
+
+
 <div class="text-center">
   <% if Rails.env.development? %>
     <%= link_to icon("facebook", "Continue as Developer"), 
         omniauth_authorize_path(User, "developer"), 
         class: "btn btn-default btn-facebook btn-lg" %>
   <% else %>
-    <%= link_to icon("facebook", "Continue with Facebook"), 
+    <%#= link_to icon("facebook", "Continue with Facebook"), 
         user_facebook_omniauth_authorize_path, 
         id: "facebook-login", 
         class: "btn btn-default btn-facebook btn-lg" %>
