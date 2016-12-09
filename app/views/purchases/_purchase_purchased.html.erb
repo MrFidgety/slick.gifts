@@ -17,6 +17,14 @@
                   #{purchase.want.user.name}. They will confirm it has
                   been received.",
           confirm: "I have given this" } %>
+  <%= link_to "Cancel this purchase", 
+        want_purchase_path(purchase.want, purchase),
+        class: "btn btn-default",
+        method: :delete, remote: true, 
+          data: {
+          title: "Cancel", 
+          message: "This will remove the purchase completely.",
+          confirm: "I want to cancel this" } %>
 <% else %>
   <p><%= name %> purchased this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
