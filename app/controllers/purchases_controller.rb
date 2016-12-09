@@ -1,13 +1,15 @@
 class PurchasesController < ApplicationController
-  before_filter :find_want
-  before_filter :purchase_owner, only: :gift
-  before_filter :want_owner, only: [:receive, :not_receive]
+  
+  before_action :find_want
+  before_action :signed_in, except: :index
+  before_action :purchase_owner, only: :gift
+  before_action :want_owner, only: [:receive, :not_receive]
   
   # Prevent flash from appearing twice after AJAX call
   after_filter { flash.discard if request.xhr? }
   
   def index
-    @purchases = @want.purchases
+    @purchases = @want.purchases.order(updated_at: :desc)
   end
   
   def new
@@ -47,6 +49,9 @@ class PurchasesController < ApplicationController
     flash_message :notice, "We've let #{@purchase.user.name} know that you didnt receive their gift"
     # Update status to received or not-received
     @purchase.set_status(:not_received)
+  end
+  
+  def destroy
   end
     
   private

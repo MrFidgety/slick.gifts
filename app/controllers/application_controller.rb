@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
   
+  # Only allow signed in users
+  def signed_in
+    redirect_to root_url unless user_signed_in?
+  end
+
   def prepare_meta_tags(options={})
     site_name   = "Slick.gifts"
     title       = options[:title] || [controller_name, action_name].join(" ")

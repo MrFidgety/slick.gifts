@@ -1,4 +1,6 @@
 class StylesController < ApplicationController
+  
+  before_action :signed_in
   before_action :correct_user, except: [:create]
   
   # Prevent flash from appearing twice after AJAX call
