@@ -21,6 +21,13 @@
           Never get a bad gift again.<br>#NoBadGifts
         </div>
       </div>
+      <div class="panel panel-default panel-facebook">
+        <%= link_to user_facebook_omniauth_authorize_path do %>
+        <div class="panel-body">
+          <%= icon("facebook", "Continue with Facebook") %>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
