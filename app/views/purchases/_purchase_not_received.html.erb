@@ -23,5 +23,5 @@
   <% if purchase.comment.present? %>
     <p><strong>"<%= purchase.comment %>"</strong></p>
   <% end %>
-  <p>It hasn't been gifted yet, so don't tell <%= purchase.want.user.name %>!</p>
+  <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>

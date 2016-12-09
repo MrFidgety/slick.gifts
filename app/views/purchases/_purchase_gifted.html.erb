@@ -1,0 +1,33 @@
+<% name = current_user == purchase.user ? 'You' : 'Someone' %>
+<% if full_display %>
+  <%= render purchase.want.wanted, plain: true %>
+  <p><%= link_to purchase.user.name, purchase.user %> purchased this for you and 
+  has gifted it to you.</p>
+  <% if purchase.comment.present? %>
+    <p><strong>"<%= purchase.comment %>"</strong></p>
+  <% end %>
+  <%= link_to "I have received this from #{purchase.user.name}", 
+      receive_want_purchase_path(purchase.want, purchase),
+      class: "btn btn-default",
+      method: :post, remote: true, 
+      data: {
+        title: "Received", 
+        message: "Only select this when you have received the gift from 
+                #{purchase.user.name}.",
+        confirm: "I have received this" } %>
+  <%= link_to "I have not received this", 
+      not_receive_want_purchase_path(purchase.want, purchase),
+      class: "btn btn-default",
+      method: :post, remote: true, 
+      data: {
+        title: "Not Received", 
+        message: "This will let #{purchase.user.name} know that you 
+                haven't received their gift.",
+        confirm: "I have not received this" } %>
+<% else %>
+  <p><%= name %> purchased this on <%= local_time(purchase.created_at) %>.</p>
+  <% if purchase.comment.present? %>
+    <p><strong>"<%= purchase.comment %>"</strong></p>
+  <% end %>
+  <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
+<% end %>
