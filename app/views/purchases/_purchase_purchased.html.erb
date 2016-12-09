@@ -1,11 +1,13 @@
-<% name = current_user == purchase.user ? purchase.user.name : 'Someone' %>
+<% name = current_user == purchase.user ? 'You' : 'Someone' %>
 <% if full_display %>
   <% if purchase.want.present? %>
     <%= render purchase.want.wanted, plain: true %>
   <% else %>
   <% end %>
 <% else %>
-  <p><%= name %> has purchased this on <%= local_time(purchase.created_at) %>.</p>
-  <p><strong>"<%= purchase.comment %>"</strong></p>
+  <p><%= name %> purchased this on <%= local_time(purchase.created_at) %>.</p>
+  <% if purchase.comment.present? %>
+    <p><strong>"<%= purchase.comment %>"</strong></p>
+  <% end %>
   <p>It hasn't been gifted yet, so don't tell <%= purchase.want.user.name %>!</p>
 <% end %>
