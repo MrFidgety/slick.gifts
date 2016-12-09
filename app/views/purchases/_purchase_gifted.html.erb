@@ -25,7 +25,8 @@
                 haven't received their gift.",
         confirm: "I have not received this" } %>
 <% else %>
-  <p><%= name %> purchased this on <%= local_time(purchase.created_at) %>.</p>
+  <p><%= name %> purchased this 
+  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
   <% if purchase.comment.present? %>
     <p><strong>"<%= purchase.comment %>"</strong></p>
   <% end %>

@@ -1,15 +1,18 @@
 <% name = current_user == purchase.user ? 'You' : purchase.user.name %>
 <% if full_display %>
   <%= render purchase.want.wanted, plain: true %>
-  <p><%= name %> purchased this on <%= local_time(purchase.created_at) %> for 
+  <p><%= name %> purchased this 
+  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %> for 
   <%= link_to purchase.want.user.name, purchase.want.user %>.</p>
   <% if purchase.comment.present? %>
     <p><strong>"<%= purchase.comment %>"</strong></p>
   <% end %>
 <% else %>
-  <p><%= name %> purchased this on <%= local_time(purchase.created_at) %>.</p>
+  <p><%= name %> purchased this 
+  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
   <% if purchase.comment.present? %>
     <p><strong>"<%= purchase.comment %>"</strong></p>
   <% end %>
-  <p><%= purchase.want.user.name %> received this as of <%= local_time(purchase.updated_at) %></p>
+  <p><%= purchase.want.user.name %> received this as of 
+  <%= local_relative_time(purchase.updated_at, type: 'weekday-or-date') %></p>
 <% end %>
