@@ -1,5 +1,5 @@
 <% if full_display %>
   Full display
 <% else %>
-  Compact display
+  <%= purchase.user.name %> has purchased this for <%= purchase.want.user.name %>
 <% end %>
