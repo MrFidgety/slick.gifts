@@ -1,0 +1,58 @@
+<% actionable ||= false %>
+<div id="purchase-<%= purchase.id %>" class="panel panel-default">
+  <div class="panel-body">
+    <% if actionable %>
+      <% if purchase.want.present? %>
+        <%= render purchase.want.wanted, plain: true %>
+        <% if purchase.purchased? %>
+          You purchased this for 
+          <%= link_to purchase.want.user.name, purchase.want.user %>
+          on <%= local_time(purchase.updated_at) %>
+          <p><%= purchase.comment %></p>
+          <%= link_to "I have gifted this to #{purchase.want.user.name}", 
+              gift_want_purchase_path(purchase.want, purchase),
+              class: "btn btn-default",
+              method: :post, remote: true, 
+              data: {
+                title: "Gifted", 
+                message: "Only select this when you have given the gift to 
+                        #{purchase.want.user.name}. They will confirm it has
+                        been received.",
+                confirm: "I have given this" } %>
+        <% elsif purchase.gifted? %>
+          <%= link_to purchase.user.name, purchase.user %> 
+          purchased this for you and has gifted it to you.
+          <p><%= purchase.comment %></p>
+          <%= link_to "I have received this from #{purchase.user.name}", 
+              receive_want_purchase_path(purchase.want, purchase),
+              class: "btn btn-default",
+              method: :post, remote: true, 
+              data: {
+                title: "Received", 
+                message: "Only select this when you have received the gift from 
+                        #{purchase.user.name}.",
+                confirm: "I have received this" } %>
+          <%= link_to "I have not received this", 
+              not_receive_want_purchase_path(purchase.want, purchase),
+              class: "btn btn-default",
+              method: :post, remote: true, 
+              data: {
+                title: "Not Received", 
+                message: "This will let #{purchase.user.name} know that you 
+                        haven't received their gift.",
+                confirm: "I have not received this" } %>
+        <% end %>
+      <% else %>
+        Uh oh, it looks like the person you purchased something for on
+        <%= local_time(purchase.updated_at) %> 
+        has removed the item from their list!
+        <p><%= purchase.comment %></p>
+      <% end %>
+    <% else %>
+      Someone purchased this for
+      <%= purchase.want.user.name %> on
+      <%= local_time(purchase.updated_at) %>
+      <p><%= purchase.comment %></p>
+    <% end %>
+  </div>
+</div>
