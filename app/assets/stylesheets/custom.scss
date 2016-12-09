@@ -91,10 +91,14 @@ img#home-page-logo {
   }
 }
 
-.panel-default {
-  color: $dark-gray;
-  font-size: 1.5em;
-  border-radius: 0;
-  border: none;
-  box-shadow: 0 -1px 0 #e0e0e0,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+.panel-group.panel-front {
+  margin: 3em 0;
+  .panel-default {
+    margin-bottom: 1em;
+    color: $dark-gray;
+    font-size: 1.5em;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 -1px 0 #e0e0e0,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  }
 }
