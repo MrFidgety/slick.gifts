@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <%= link_to user_path(user) do %>
   <div class="panel-body">
-    <%= user.name %>
+    <%= image_tag(current_user.image) %><%= user.name %>
   </div>
   <% end %>
 </div>
