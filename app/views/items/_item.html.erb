@@ -2,26 +2,29 @@
 <% plain ||= false %>
 <div id="item-<%= item.id %>" class="panel panel-default">
   <div class="panel-body">
-    <span class="pull-right">
-      <% if editable %>
-      <%= link_to 'edit', edit_item_path(item),
-                  remote: true %>
-      | <%= link_to "remove", 
-              item_path(item),
-              method: :delete, remote: true, 
-                data: {
-                title: "Remove", 
-                message: "This will remove the item completely. If you have 
-                received any gifts for this item it will be archived.",
-                confirm: "I want to remove this item" } %>
-      <% else %>
-        <%= link_to "purchase", new_want_purchase_path(item.want),
-                  remote: true %>
-        | <%= link_to "view purchases", want_purchases_path(item.want),
-                  remote: true %>
-      <% end unless plain %>
-    </span>
-    ITEM - <%= item.name %>
-    (created <%= local_time(item.created_at) %>)
+    <span class="panel-absolute"><%= icon "barcode" %></span>
+    <div class="offset-small">
+      <span class="pull-right">
+        <% if editable %>
+        <%= link_to 'edit', edit_item_path(item),
+                    remote: true %>
+        | <%= link_to "remove", 
+                item_path(item),
+                method: :delete, remote: true, 
+                  data: {
+                  title: "Remove", 
+                  message: "This will remove the item completely. If you have 
+                  received any gifts for this item it will be archived.",
+                  confirm: "I want to remove this item" } %>
+        <% else %>
+          <%= link_to "purchase", new_want_purchase_path(item.want),
+                    remote: true %>
+          | <%= link_to "view purchases", want_purchases_path(item.want),
+                    remote: true %>
+        <% end unless plain %>
+      </span>
+      <%= item.name %><br>
+      (created <%= local_time(item.created_at) %>)
+    </div>
   </div>
 </div>
