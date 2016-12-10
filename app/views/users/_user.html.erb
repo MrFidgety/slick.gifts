@@ -1,10 +1,7 @@
 <% full_display ||= false %>
 <div class="panel panel-default user-panel">
-  <%= link_to user_path(user) do %>
-  <div class="panel-body">
-    <%= image_tag(user.image) %>
-    <span class="name"><%= user.name %></span>
-    <%= full_display ? 'full display' : 'link display' %>
-  </div>
-  <% end %>
+  <% if full_display %>
+    <%= render "users/user_full", user: user %>
+  <% else %>
+    <%= render "users/user_link", user: user %>
 </div>
