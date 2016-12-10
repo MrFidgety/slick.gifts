@@ -1,7 +1,7 @@
-<% @current_user_profile = @view_access == "edit" %>
+<% current_user_profile = @view_access == "edit" %>
 <p>View access: <%= @view_access %></p>
-<%= render @user, link: false %>
-<% if @current_user_profile %>
+<%= render @user, link: false, current: current_user_profile %>
+<% if current_user_profile %>
 <p>
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-interest-modal">New Interest</button>
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
@@ -11,11 +11,11 @@
 <% unless @view_access == "restricted" %>
 <div id="want-container" class="panel-group">
   <% @wants.each do |want| %>
-    <%= render want.wanted, editable: @current_user_profile %>
+    <%= render want.wanted, editable: current_user_profile %>
   <% end %>
 </div>
 <% end %>
-<% if @current_user_profile %>
+<% if current_user_profile %>
 <%= render 'items/new' %>
 <%= render 'interests/new' %>
 <%= render 'styles/new' %>
