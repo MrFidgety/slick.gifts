@@ -1,13 +1,8 @@
 <% link ||= true %>
 <% current ||= false %>
 <div class="panel panel-default user-panel">
-  <%= link_to user_path(user) do %>
+  <%= link_to_if(link, user_path(user)) do %>
   <div class="panel-body">
-    <% if current %>
-    <span class="pull-right">
-      <%= link_to icon('cog'), settings_path %>
-    </span>
-    <% end %>
     <%= image_tag(user.image) %>
     <span class="name"><%= user.name %></span>
   </div>
