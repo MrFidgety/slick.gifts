@@ -1,7 +1,9 @@
 <div class="panel-body">
   <%= image_tag(user.image) %>
   <% if user == current_user %>
-  <span class="pull-right"><%= link_to icon("cog"), settings_path %></span>
+    <span class="pull-right">
+      <%= link_to icon("cog"), settings_path, class: "settings-icon" %>
+    </span>
   <% end %>
   <span class="name"><%= user.name %></span>
 </div>
