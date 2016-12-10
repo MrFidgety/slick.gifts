@@ -6,7 +6,6 @@ one:
   size: MyText
   image: MyText
   user_id: 
-  archived: false
 
 two:
   name: MyText
@@ -14,4 +13,3 @@ two:
   size: MyText
   image: MyText
   user_id: 
-  archived: false
