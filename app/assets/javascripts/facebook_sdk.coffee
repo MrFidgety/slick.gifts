@@ -1,6 +1,6 @@
 $(document).on "page:change page:restore", ->
 
-  $('#facebook-login').click (e) ->
+  $('.facebook-login-button').click (e) ->
     e.preventDefault()
     FB.login (response) ->
       window.location = '/users/auth/facebook' if response.authResponse

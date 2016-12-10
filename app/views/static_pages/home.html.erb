@@ -7,7 +7,8 @@
     <p class="tagline">Surprise!<br>It's what you wanted.</p>
     <div class="panel-group panel-front">
       <div class="panel panel-default panel-facebook">
-        <%= link_to user_facebook_omniauth_authorize_path do %>
+        <%= link_to user_facebook_omniauth_authorize_path, 
+            class: "facebook-login-button" do %>
         <div class="panel-body">
           <%= icon("facebook", "Continue with Facebook") %><br>
           <small>instant login, connects friends, awesome gifts</small>
