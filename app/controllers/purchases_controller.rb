@@ -82,6 +82,6 @@ class PurchasesController < ApplicationController
     
     # Ensure purchase belongs to current user and is purchased or not_received
     def can_delete
-      redirect_to root_url unless @purchase = current_user.for_statuses([:purchased, :not_received]).find(params[:id])
+      redirect_to root_url unless @purchase = current_user.purchases.for_statuses([:purchased, :not_received]).find(params[:id])
     end
 end
