@@ -7,16 +7,16 @@ html,body {
 
 body {
   @media (max-width: $screen-xs-min) {
-    font-size: 10px;
+    font-size: 14px;
   }
   @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
-    font-size: 11px;
+    font-size: 14px;
   }
   @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    font-size: 12px;
+    font-size: 14px;
   }
   @media (min-width: $screen-md-min) {
-    font-size: 14px;
+    font-size: 16px;
   }
   padding-top: 56px;
 }
