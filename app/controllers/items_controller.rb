@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
     # If any purchases have been received, archive item
     if @item.want.purchases.received.any?
       flash_message :notice, "Item archived"
-      @item.archive
+      @item.want.archive
     # If any purchases are currently 'gifted' notify user
     elsif @item.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this item"

@@ -6,5 +6,8 @@ class Want < ActiveRecord::Base
   def can_edit?
     wanted.created_at > 48.hours.ago
   end
-  
+
+  def archive
+    update_attribute(:archived, true)
+  end
 end

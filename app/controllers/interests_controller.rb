@@ -44,7 +44,7 @@ class InterestsController < ApplicationController
     # If any purchases have been received, archive interest
     if @interest.want.purchases.received.any?
       flash_message :notice, "Interest archived"
-      @interest.archive
+      @interest.want.archive
     # If any purchases are currently 'gifted' notify user
     elsif @interest.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this interest"

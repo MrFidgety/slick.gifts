@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203051747) do
+ActiveRecord::Schema.define(version: 20161210011111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,8 @@ ActiveRecord::Schema.define(version: 20161203051747) do
     t.text     "comment"
     t.text     "image"
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "archived",   default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "interests", ["user_id"], name: "index_interests_on_user_id", using: :btree
@@ -35,10 +34,9 @@ ActiveRecord::Schema.define(version: 20161203051747) do
     t.text     "code"
     t.text     "location"
     t.text     "image"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.boolean  "archived",   default: false
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
@@ -61,7 +59,6 @@ ActiveRecord::Schema.define(version: 20161203051747) do
     t.text     "size"
     t.text     "image"
     t.integer  "user_id"
-    t.boolean  "archived"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,8 +92,9 @@ ActiveRecord::Schema.define(version: 20161203051747) do
     t.integer  "user_id"
     t.integer  "wanted_id"
     t.string   "wanted_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "archived",    default: false
   end
 
   add_index "wants", ["user_id"], name: "index_wants_on_user_id", using: :btree
