@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
   end
   
   # Handle redirect after sign in
-  def after_sign_in_path_for(resource)
-    user_path(current_user)
-  end
+  # def after_sign_in_path_for(resource)
+  #   user_path(current_user)
+  # end
   
   # Only allow signed in users
   def signed_in
