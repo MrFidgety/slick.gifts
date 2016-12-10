@@ -90,7 +90,14 @@ img#home-page-logo {
     }
   }
 }
-
+.panel {
+  border-radius: 0;
+}
+.panel-group {
+  .panel {
+    border-radius: 0;
+  }
+}
 .panel-default {
   color: $dark-gray;
   border: none;
