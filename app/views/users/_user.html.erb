@@ -1,5 +1,6 @@
+<% link ||= true %>
 <div class="panel panel-default user-panel">
-  <%= link_to user_path(user) do %>
+  <%= link_to_if link, user_path(user) do %>
   <div class="panel-body">
     <%= image_tag(user.image) %>
     <span class="name"><%= user.name %></span>

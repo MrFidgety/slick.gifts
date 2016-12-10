@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     redirect_to root_url unless user_signed_in?
   end
   
+  # Allow link_to_if to work with html blocks
+  def link_to_if(*args,&block)
+    args.insert 1, capture(&block) if block_given?
+    super *args
+  end
+  
   # Prepare meta tags
   def prepare_meta_tags(options={})
     site_name   = "Slick.gifts"
