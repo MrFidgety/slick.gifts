@@ -1,4 +1,4 @@
-<% if @style.destroyed? || @style.archived %>
+<% if @style.destroyed? || @style.want.archived %>
 $('#style-<%= @style.id %>').remove()
 <% end %>
 

@@ -1,4 +1,4 @@
-<% if @interest.destroyed? || @interest.archived %>
+<% if @interest.destroyed? || @interest.want.archived %>
 $('#interest-<%= @interest.id %>').remove()
 <% end %>
 

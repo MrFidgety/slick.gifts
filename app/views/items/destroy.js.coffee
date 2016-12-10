@@ -1,4 +1,4 @@
-<% if @item.destroyed? || @item.archived %>
+<% if @item.destroyed? || @item.want.archived %>
 $('#item-<%= @item.id %>').remove()
 <% end %>
 
