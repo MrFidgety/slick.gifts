@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   
   # Prepare meta tags
   before_action :prepare_meta_tags, if: "request.get?"
+  # Store current page for login return
+  before_action :store_current_location, :unless => :devise_controller?
+  
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
   
   # Handle redirect after sign in
   def after_sign_in_path_for(resource)
