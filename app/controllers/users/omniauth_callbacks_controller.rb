@@ -6,7 +6,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def sign_in_with(provider_name)
     @user = User.from_omniauth(request.env["omniauth.auth"])
     @user.read_from_omniauth(request.env["omniauth.auth"])
-    flash_message :notice, "Successfully logged in with Facebook"
+    flash_message :facebook, "Successfully logged in with Facebook"
+    flash_message :notice, "By the way, this is where we show you alerts"
+    flash_message :notice, "They can be dismissed by tapping this bar"
     sign_in_and_redirect @user, :event => :authentication
     remember_me(@user)
   end

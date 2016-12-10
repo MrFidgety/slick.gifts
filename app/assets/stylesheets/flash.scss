@@ -5,10 +5,12 @@
   width: 100%;
   .alert {
     cursor: pointer;
+    color: $light-gray;
     display: none;
     font-weight: 700;
     text-align: center;
     border-radius: 0;
+    min-height: 56px;
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
@@ -16,10 +18,8 @@
 }
 
 .alert-notice {
-  color: white;
   background-color: $slick-dark-blue;
-  a.close {
-    color: white;
-    opacity: 1;
-  }
+}
+.alert-facebook {
+  background-color: $facebook-blue;
 }
