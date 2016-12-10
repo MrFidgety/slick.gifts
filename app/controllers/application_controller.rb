@@ -3,25 +3,20 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
   
-  # Prepare meta tags
   before_action :prepare_meta_tags, if: "request.get?"
-  # Store current page for login return
   before_action :store_current_location, :unless => :devise_controller?
   
+  # Handle redirect after sign in
   def store_current_location
     store_location_for(:user, request.url)
   end
-  
-  # Handle redirect after sign in
-  # def after_sign_in_path_for(resource)
-  #   user_path(current_user)
-  # end
   
   # Only allow signed in users
   def signed_in
     redirect_to root_url unless user_signed_in?
   end
-
+  
+  # Prepare meta tags
   def prepare_meta_tags(options={})
     site_name   = "Slick.gifts"
     title       = options[:title] || [controller_name, action_name].join(" ")

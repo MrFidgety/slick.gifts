@@ -9,7 +9,7 @@ class Interest < ActiveRecord::Base
   
   # Archive the interest
   def archive
-    update_column(archived: true)
+    update_attribute(:archived, true)
   end
   
   private

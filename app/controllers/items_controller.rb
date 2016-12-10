@@ -47,9 +47,9 @@ class ItemsController < ApplicationController
       @item.archive
     # If any purchases are currently 'gifted' notify user
     elsif @item.want.purchases.gifted.any?
-      flash_message :notice, "Unable to delete. There are outstanding gifts for this item"
+      flash_message :notice, "Unable to remove. There are outstanding gifts for this item"
     else
-      flash_message :notice, "Item deleted"
+      flash_message :notice, "Item remove"
       # Otherwise destroy item
       @item.destroy
     end

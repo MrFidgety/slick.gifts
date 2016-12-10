@@ -6,9 +6,14 @@
       <% if editable %>
       <%= link_to 'edit', edit_interest_path(interest),
                   remote: true %>
-      | <%= link_to 'delete', interest_path(interest), 
-                  method: :delete,
-                  remote: true %>
+      | <%= link_to "remove", 
+              interest_path(interest),
+              method: :delete, remote: true, 
+                data: {
+                title: "Remove", 
+                message: "This will remove the interest completely. If you have 
+                received any gifts for this interest it will be archived.",
+                confirm: "I want to remove this interest" } %>
       <% else %>
         <%= link_to "purchase", new_want_purchase_path(interest.want),
                   remote: true %>

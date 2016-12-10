@@ -47,9 +47,9 @@ class StylesController < ApplicationController
       @style.archive
     # If any purchases are currently 'gifted' notify user
     elsif @style.want.purchases.gifted.any?
-      flash_message :notice, "Unable to delete. There are outstanding gifts for this style"
+      flash_message :notice, "Unable to remove. There are outstanding gifts for this style"
     else
-      flash_message :notice, "Style deleted"
+      flash_message :notice, "Style remove"
       # Otherwise destroy style
       @style.destroy
     end

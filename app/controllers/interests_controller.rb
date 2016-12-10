@@ -47,9 +47,9 @@ class InterestsController < ApplicationController
       @interest.archive
     # If any purchases are currently 'gifted' notify user
     elsif @interest.want.purchases.gifted.any?
-      flash_message :notice, "Unable to delete. There are outstanding gifts for this interest"
+      flash_message :notice, "Unable to remove. There are outstanding gifts for this interest"
     else
-      flash_message :notice, "Interest deleted"
+      flash_message :notice, "Interest removed"
       # Otherwise destroy interest
       @interest.destroy
     end
