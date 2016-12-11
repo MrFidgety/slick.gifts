@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   before_action :signed_in
-  before_action :correct_user, except: [:create]
+  before_action :correct_user, except: [:create, :show]
   
   # Prevent flash from appearing twice after AJAX call
   after_filter { flash.discard if request.xhr? }
