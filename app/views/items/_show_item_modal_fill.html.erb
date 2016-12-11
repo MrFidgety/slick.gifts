@@ -1,12 +1,26 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
+      <span class="pull-right"><% icon("pencil-square-o", id: 'edit-item') %></span>
       <h4 class="modal-title">Show Item</h4>
     </div>
     <div class="modal-body">
       <p>View access: <%= @want_view_access %></p>
       <p>Name: <%= item.name %></p>
       <p>Comment: <%= item.comment %></p>
+      <%= form_for item, remote: true do |f| %>
+        <div class="form-group">
+        <%= f.text_field :name, placeholder: 'Name', 
+              class: 'form-control input-lg' %>
+        </div>
+        <div class="form-group">
+        <%= f.text_area :comment, placeholder: 'Comment',
+               class: 'form-control input-lg' %>
+        </div>
+        <%= f.submit 'Update', 
+            class: 'btn btn-success btn-lg', 
+            data: {disable_with: 'Updating'} %>
+      <% end %>
       <% if @want_view_access == "edit" %>
       <%= link_to icon("pencil-square-o"), 
               edit_item_path(item),
