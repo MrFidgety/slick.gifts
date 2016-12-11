@@ -22,7 +22,7 @@ body {
 }
 
 .tagline {
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 300;
   text-align: center;
   color: $dark-gray;
@@ -33,7 +33,7 @@ body {
 }
 
 img#home-page-logo {
-  margin: 2em 0;
+  padding: 2em;
 }
 .btn-facebook {
   margin: 2em 0;
@@ -117,7 +117,6 @@ img#home-page-logo {
   margin: 3em 0;
   .panel-default {
     margin-bottom: 1em;
-    font-size: 1.5em;
   }
   .panel-facebook {
     text-align: center;
