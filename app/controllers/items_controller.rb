@@ -77,15 +77,15 @@ class ItemsController < ApplicationController
         if @item.user == current_user
           @want_view_access = "edit"
         elsif current_user.is_friend?(@item.user)
-          @view_access = "view"
+          @want_view_access = "view"
         else
-          @view_access = "restricted"
+          @want_view_access = "restricted"
         end
       else
-        @view_access = "restricted"
+        @want_view_access = "restricted"
       end
       
       # Currently should not allow view at all if restricted
-      redirect_to root_url if @view_access == "restricted"
+      redirect_to root_url if @want_view_access == "restricted"
     end
 end
