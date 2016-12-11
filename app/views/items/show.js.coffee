@@ -4,7 +4,15 @@ $("#show-modal").html(
   object: @item, as: :item %>")
   
 $("#edit-item").click ->
-  console.log("edit clicked")
+  $("#edit-item").disable(true)
+  if $("#view-want-section").is(':visible')
+    $("#view-want-section").slideUp "fast", () ->
+      $("#edit-want-section").slideDown "fast", () ->
+        $("#edit-item").disable(false)
+  else
+     $("#edit-want-section").slideUp "fast", () ->
+      $("#view-want-section").slideDown "fast", () ->
+        $("#edit-item").disable(false)
 
 # Show the modal
 $('#show-modal').modal('show')
