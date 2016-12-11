@@ -88,9 +88,4 @@ class ItemsController < ApplicationController
       # Currently should not allow view at all if restricted
       redirect_to root_url if @view_access == "restricted"
     end
-        
-        
-        
-      redirect_to root_url unless @item = current_user.items.find_by(id: params[:id])
-    end
 end
