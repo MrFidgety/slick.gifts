@@ -11,7 +11,8 @@
 <%= csrf_meta_tags %>
 <%= render 'layouts/google_analytics' %>
 <%= render 'layouts/shim' %>
-</head>
+<link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
 <body>
   <%= render 'layouts/navigation' %>
   <%= render 'layouts/facebook_sdk' %>
