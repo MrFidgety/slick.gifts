@@ -1,10 +1,16 @@
 .user-panel {
   img {
     object-fit: cover;
-    height: 45px;
-    width: 45px;
     border-radius: 4px;
     vertical-align: top;
+    &.img-small {
+      height: 45px;
+      width: 45px;
+    }
+    &.img-large {
+      height: 120px;
+      width: 120px;
+    }
   }
   span.name {
     margin: 0 1em;
