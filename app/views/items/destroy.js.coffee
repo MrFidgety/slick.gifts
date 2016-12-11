@@ -1,5 +1,9 @@
 <% if @item.destroyed? || @item.want.archived %>
-$('#item-<%= @item.id %>').remove()
+# Hide the item modal
+$('#show-modal').modal('hide')
+$('#show-modal').on "hidden.bs.modal", () ->
+  # Remove the item from the list
+  $('#item-<%= @item.id %>').remove()
 <% end %>
 
 # Render flash
