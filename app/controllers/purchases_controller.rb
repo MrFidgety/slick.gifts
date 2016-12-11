@@ -26,7 +26,10 @@ class PurchasesController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @purchase.save
-        flash_message :notice, "You have purchased something for #{@want.user.name}"
+        flash_message :notice, "You have purchased something for 
+          #{@want.user.name}"
+        flash_message :notice, "Make sure to mark it as gifted 
+          #{view_context.link_to("here", root_path)} when you give it to them"
         format.js 
       else
         format.js   { render json: @purchase.errors, status: :unprocessable_entity }

@@ -1,6 +1,11 @@
 <% name = current_user == purchase.user ? 'You' : 'Someone' %>
 <% if full_display %>
   <%= render purchase.want.wanted, plain: true %>
+  <% if purchase.want.archived? %>
+  <p>ALERT! <%= purchase.want.user.name %> removed this from their list 
+  <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
+  You can still gift it to them or cancel the gift.</p>
+  <% end %>
   <p><%= name %> purchased this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %> for 
   <%= link_to purchase.want.user.name, purchase.want.user %> and marked it as 

@@ -13,8 +13,8 @@
                 method: :delete, remote: true, 
                   data: {
                   title: "Remove", 
-                  message: "This will remove the item completely. If you have 
-                  received any gifts for this item it will be archived.",
+                  message: "This will remove the item completely. This action 
+                  cannot be undone.",
                   confirm: "I want to remove this item" } %>
         <% else %>
           <%= link_to "purchase", new_want_purchase_path(item.want),

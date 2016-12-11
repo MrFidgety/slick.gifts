@@ -13,8 +13,8 @@
                 method: :delete, remote: true, 
                   data: {
                   title: "Remove", 
-                  message: "This will remove the interest completely. If you have 
-                  received any gifts for this interest it will be archived.",
+                  message: "This will remove the interest completely. This 
+                  action cannot be undone.",
                   confirm: "I want to remove this interest" } %>
         <% else %>
           <%= link_to "purchase", new_want_purchase_path(interest.want),
