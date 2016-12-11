@@ -55,7 +55,7 @@ img#home-page-logo {
   margin: 0;
 }
 .navbar-nav.navbar-right:last-child {
-  margin-right: -15px !important;
+  margin-right: -10px !important;
 }
 .navbar-right {
   float: right!important;
@@ -79,8 +79,7 @@ img#home-page-logo {
   border: none;
   .navbar-nav > li > a {
     color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     line-height: inherit;
     transition: opacity 0.3s ease;
     &:hover, &:focus, &:active {
