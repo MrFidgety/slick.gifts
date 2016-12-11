@@ -4,8 +4,10 @@
       <h4 class="modal-title">Show Item</h4>
     </div>
     <div class="modal-body">
+      <p>View access: <%= @view_access %></p>
       <p>Name: <%= item.name %></p>
       <p>Comment: <%= item.comment %></p>
+      <% if @view_access == "edit" %>
       <%= link_to icon("pencil-square-o"), 
               edit_item_path(item),
               remote: true %>
@@ -17,6 +19,7 @@
                 message: "This will remove the item completely. This action 
                 cannot be undone.",
                 confirm: "I want to remove this item" } %>
+      <% end %>
     </div>
   </div>
 </div>

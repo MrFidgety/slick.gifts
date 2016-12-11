@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   
   before_action :signed_in
-  before_action :correct_user, except: [:create, :show]
+  before_action :correct_user, except: :create
+  before_action :determine_view_access, only: :show
   
   # Prevent flash from appearing twice after AJAX call
   after_filter { flash.discard if request.xhr? }
@@ -22,9 +23,6 @@ class ItemsController < ApplicationController
     end
   end
   
-  def show
-  end
-
   def update
     # Respond to AJAX call
     respond_to do |format|
@@ -68,6 +66,31 @@ class ItemsController < ApplicationController
     # Ensure only current user can complete actions
     def correct_user
       # Ensure item belongs to current user
+      redirect_to root_url unless @item = current_user.items.find_by(id: params[:id])
+    end
+    
+    # Ensure only friends can view
+    def determine_view_access
+      @item = Item.find(params[:id])
+      # Determine want view access
+      if user_signed_in?
+        if @item.user == current_user
+          @want_view_access = "edit"
+        elsif current_user.is_friend?(@item.user)
+          @view_access = "view"
+        else
+          @view_access = "restricted"
+        end
+      else
+        @view_access = "restricted"
+      end
+      
+      # Currently should not allow view at all if restricted
+      redirect_to root_url if @view_access == "restricted"
+    end
+        
+        
+        
       redirect_to root_url unless @item = current_user.items.find_by(id: params[:id])
     end
 end
