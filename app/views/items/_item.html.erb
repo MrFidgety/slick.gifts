@@ -1,14 +1,15 @@
 <% editable ||= false %>
 <% plain ||= false %>
 <div id="item-<%= item.id %>" class="panel panel-default">
+  <%= link_to show_item_path(item) do %>
   <div class="panel-body">
     <span class="panel-absolute"><%= icon "barcode" %></span>
     <div class="offset-small">
       <span class="pull-right">
-        <% if editable %>
-        <%= link_to 'edit', edit_item_path(item),
+        <%# if editable %>
+        <%#= link_to 'edit', edit_item_path(item),
                     remote: true %>
-        | <%= link_to "remove", 
+        <%#= link_to "remove", 
                 item_path(item),
                 method: :delete, remote: true, 
                   data: {
@@ -16,12 +17,12 @@
                   message: "This will remove the item completely. This action 
                   cannot be undone.",
                   confirm: "I want to remove this item" } %>
-        <% else %>
-          <%= link_to "purchase", new_want_purchase_path(item.want),
+        <%# else %>
+          <%#= link_to "purchase", new_want_purchase_path(item.want),
                     remote: true %>
-          | <%= link_to "view purchases", want_purchases_path(item.want),
+          <%#= link_to "view purchases", want_purchases_path(item.want),
                     remote: true %>
-        <% end unless plain %>
+        <%# end unless plain %>
       </span>
       <%= item.name %><br>
       <span class="small">

@@ -21,6 +21,9 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  def show
+  end
 
   def update
     # Respond to AJAX call
