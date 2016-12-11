@@ -24,7 +24,9 @@
         <% end unless plain %>
       </span>
       <%= style.name %><br>
-      (created <%= local_time(style.created_at) %>)
+      <span>
+        added <%= local_relative_time(style.created_at, type: 'weekday-or-date') %>
+      </span>
     </div>
   </div>
 </div>

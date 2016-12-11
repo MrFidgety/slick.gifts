@@ -24,7 +24,9 @@
         <% end unless plain %>
       </span>
       <%= interest.name %><br>
-      (created <%= local_time(interest.created_at) %>)
+      <span>
+        added <%= local_relative_time(interest.created_at, type: 'weekday-or-date') %>
+      </span>
     </div>
   </div>
 </div>
