@@ -41,17 +41,17 @@ class InterestsController < ApplicationController
   end
   
   def destroy
-    # If any purchases have been received, archive interest
-    if @interest.want.purchases.received.any?
-      flash_message :notice, "Interest archived"
-      @interest.want.archive
     # If any purchases are currently 'gifted' notify user
-    elsif @interest.want.purchases.gifted.any?
+    if @interest.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this interest"
     else
       flash_message :notice, "Interest removed"
-      # Otherwise destroy interest
-      @interest.destroy
+      # Archive interest if there are any linked purchases
+      if @interest.want.purchases.any?
+        @interest.want.archive
+      else
+        @interest.destroy
+      end
     end
   end
   

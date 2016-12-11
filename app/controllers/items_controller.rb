@@ -41,17 +41,17 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    # If any purchases have been received, archive item
-    if @item.want.purchases.received.any?
-      flash_message :notice, "Item archived"
-      @item.want.archive
     # If any purchases are currently 'gifted' notify user
-    elsif @item.want.purchases.gifted.any?
+    if @item.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this item"
     else
-      flash_message :notice, "Item remove"
-      # Otherwise destroy item
-      @item.destroy
+      flash_message :notice, "Item removed"
+      # Archive item if there are any linked purchases
+      if @item.want.purchases.any?
+        @item.want.archive
+      else
+        @item.destroy
+      end
     end
   end
   

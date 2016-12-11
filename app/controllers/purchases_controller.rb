@@ -53,6 +53,10 @@ class PurchasesController < ApplicationController
   end
   
   def destroy
+    # Check if this purchase is linked to an archived want, and this is the only purchase
+    if @purchase.want.archived? && @purchase.want.purchases.size == 1
+      @purchase.want.destroy
+    end
     flash_message :notice, "Purchase successfully cancelled"
     @purchase.destroy
   end

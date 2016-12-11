@@ -41,17 +41,17 @@ class StylesController < ApplicationController
   end
   
   def destroy
-    # If any purchases have been received, archive style
-    if @style.want.purchases.received.any?
-      flash_message :notice, "Style archived"
-      @style.want.archive
     # If any purchases are currently 'gifted' notify user
-    elsif @style.want.purchases.gifted.any?
+    if @style.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this style"
     else
-      flash_message :notice, "Style remove"
-      # Otherwise destroy style
-      @style.destroy
+      flash_message :notice, "Style removed"
+      # Archive style if there are any linked purchases
+      if @style.want.purchases.any?
+        @style.want.archive
+      else
+        @style.destroy
+      end
     end
   end
   
