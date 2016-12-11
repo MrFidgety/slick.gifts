@@ -4,15 +4,15 @@ $("#show-modal").html(
   object: @item, as: :item %>")
   
 $("#edit-item").click ->
-  $("#edit-item").disable(true)
+  $("#edit-item").attr('disabled','disabled')
   if $("#view-want-section").is(':visible')
     $("#view-want-section").slideUp "fast", () ->
       $("#edit-want-section").slideDown "fast", () ->
-        $("#edit-item").disable(false)
+        $("#edit-item").removeAttr('disabled')
   else
      $("#edit-want-section").slideUp "fast", () ->
       $("#view-want-section").slideDown "fast", () ->
-        $("#edit-item").disable(false)
+        $("#edit-item").removeAttr('disabled')
 
 # Show the modal
 $('#show-modal').modal('show')
