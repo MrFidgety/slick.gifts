@@ -3,7 +3,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">New Style</h4>
+        <h4 class="modal-title">
+          <span class="absolute">
+            <%= icon("tags") %>
+          </span>
+          <span class="offset-small">
+            Style
+          </span>  
+        </h4>
       </div>
       <div class="modal-body">
         <%= form_for @style, remote: true do |f| %>
