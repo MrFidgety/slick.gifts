@@ -26,6 +26,8 @@ class ItemsController < ApplicationController
   def show
     # Set up new purchase for item
     @purchase = @item.want.purchases.new if @want_view_access == "view"
+    @purchases = @item.want.purchases.order(updated_at: :desc) if @want_view_access == "view"
+    @purchases = @item.want.purchases.for_statuses([:received, :gifted]).order(updated_at: :desc) if @want_view_access == "edit"
   end
   
   def update

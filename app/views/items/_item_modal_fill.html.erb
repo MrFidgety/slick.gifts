@@ -28,6 +28,7 @@
           <%= render 'items/item_modal_fill_show', item: item %>
         </div>
         <div id="want-purchases-section">
+          <%= render @purchases %>
         </div>
       </div>
       <% if @want_view_access == "edit" %>
