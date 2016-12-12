@@ -3,21 +3,47 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">New Item</h4>
+        <h4 class="modal-title">
+          <span class="absolute">
+            <%= icon("barcode") %>
+          </span>
+          <span class="offset-small">
+            Item
+          </span>
+        </h4>
       </div>
       <div class="modal-body">
         <%= form_for @item, remote: true do |f| %>
           <div class="form-group">
-          <%= f.text_field :name, placeholder: 'Name', 
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: 'Battlefield 1, Sunglasses, New phone ...', 
                 class: 'form-control' %>
           </div>
           <div class="form-group">
-          <%= f.text_area :comment, placeholder: 'Comment',
+          <%= f.label :comment %>
+          <%= f.text_area :comment, placeholder: 'PS4 version please, Anything Ray Ban thanks!, Pixel looks nice ... ',
                  class: 'form-control' %>
           </div>
-          <%= f.submit 'Save', 
-              class: 'btn btn-success', 
-              data: {disable_with: 'Saving'} %>
+          <div class="form-group">
+          <%= f.label :link %>
+          <%= f.text_field :link, placeholder: 'Have a link to the item? Pop it here', 
+                class: 'form-control' %>
+          </div>
+          <div class="form-group">
+          <%= f.label :code %>
+          <%= f.text_field :code, placeholder: 'Worried about getting the wrong thing? Put the product code here', 
+                class: 'form-control' %>
+          </div>
+          <div class="form-group">
+          <%= f.label :location %>
+          <%= f.text_field :location, placeholder: 'Where did you see this item?', 
+                class: 'form-control' %>
+          </div>
+          <%= button_tag(type: 'submit', 
+                class: 'btn btn-link btn-block blue', 
+                data: {disable_with: 'Adding'}) do
+            icon('plus', 'Add to my list')
+          end %>
         <% end %>
       </div>
     </div>
