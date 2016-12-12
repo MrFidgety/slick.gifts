@@ -6,13 +6,17 @@ $("#show-modal").html(
 $("#edit-item").click ->
   $("#edit-item").attr('disabled','disabled')
   if $("#view-want-section").is(':visible')
-    $("#view-want-section").slideUp "fast", () ->
-      $("#edit-want-section").slideDown "fast", () ->
-        $("#edit-item").removeAttr('disabled')
+    # $("#view-want-section").slideUp "fast", () ->
+    #   $("#edit-want-section").slideDown "fast", () ->
+    #     $("#edit-item").removeAttr('disabled')
+    $("#view-want-section").hide()
+    $("#edit-want-section").show()
   else
-     $("#edit-want-section").slideUp "fast", () ->
-      $("#view-want-section").slideDown "fast", () ->
-        $("#edit-item").removeAttr('disabled')
+    # $("#edit-want-section").slideUp "fast", () ->
+    #   $("#view-want-section").slideDown "fast", () ->
+    #     $("#edit-item").removeAttr('disabled')
+    $("#edit-want-section").hide()
+    $("#view-want-section").show()
 
 # Show the modal
 $('#show-modal').modal('show')
