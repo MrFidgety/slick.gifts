@@ -3,7 +3,7 @@ $('#item-<%= @item.id %>').replaceWith(
   "<%= j render @item, editable: true %>")
   
 # Replace item in modal
-$('#show-want-section').replaceWith(
+$('#show-want-section').html(
   "<%= j render 'items/item_modal_fill_show', item: @item %>")
   
 # Return to show in modal

@@ -4,14 +4,11 @@ $("#show-modal").html(
   object: @item, as: :item %>")
   
 $("#edit-item").click ->
-  console.log('edit button clicked')
   if $("#show-want-section").is(':visible')
-    console.log('show edit')
     $("#show-want-section").hide()
     $("#edit-want-section").show()
     $("#edit-item").html("<%= j icon('undo') %>")
   else
-    console.log('hide edit')
     $("#edit-want-section").hide()
     $("#show-want-section").show()
     $("#edit-item").html("<%= j icon('pencil-square-o') %>")
