@@ -4,18 +4,12 @@ $("#show-modal").html(
   object: @item, as: :item %>")
   
 $("#edit-item").click ->
-  # $("#edit-item").attr('disabled','disabled')
+  console.log('edit button clicked')
   if $("#show-want-section").is(':visible')
-    # $("#view-want-section").slideUp "fast", () ->
-    #   $("#edit-want-section").slideDown "fast", () ->
-    #     $("#edit-item").removeAttr('disabled')
     $("#show-want-section").hide()
     $("#edit-want-section").show()
     $("#edit-item").html("<%= j icon('undo') %>")
   else
-    # $("#edit-want-section").slideUp "fast", () ->
-    #   $("#view-want-section").slideDown "fast", () ->
-    #     $("#edit-item").removeAttr('disabled')
     $("#edit-want-section").hide()
     $("#show-want-section").show()
     $("#edit-item").html("<%= j icon('pencil-square-o') %>")
