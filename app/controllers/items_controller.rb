@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
     end
   end
   
+  def show
+    # Set up new purchase for item
+    @purchase = @item.want.purchases.new if @want_view_access == "view"
+  end
+  
   def update
     # Respond to AJAX call
     respond_to do |format|

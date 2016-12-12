@@ -8,8 +8,8 @@
         </button>
         <% end %>
         <% if @want_view_access == "view" %>
-        <button id="purchase-want" class="btn-default">
-          I've got this
+        <button id="purchase-want" class="btn btn-default">
+          <%= icon("gift") %> I've got this
         </button>
         <% end %>
       </span>
@@ -28,6 +28,9 @@
       </div>
       <div id="edit-want-section" class="start-hidden">
         <%= render 'items/item_modal_fill_edit', item: item %>
+      </div>
+      <div id="purchase-want-section" class="start-hidden">
+        <%= render 'purchase/new', item: item %>
       </div>
     </div>
   </div>
