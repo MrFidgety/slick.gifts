@@ -2,7 +2,9 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="pull-right">
-        <button id="edit-item"><%= icon("pencil-square-o") %></button>
+        <button id="edit-item" class="btn btn-link">
+          <%= icon("pencil-square-o") %>
+          </button>
       </span>
       <h4 class="modal-title">Show Item</h4>
     </div>
@@ -22,9 +24,11 @@
           <%= f.text_area :comment, placeholder: 'Comment',
                  class: 'form-control input-lg' %>
           </div>
-          <%= f.submit 'Update', 
+          <span class="pull-right">
+            <%= f.submit 'Update', 
               class: 'btn btn-success btn-lg', 
               data: {disable_with: 'Updating'} %>
+          </span>
         <% end %>
         <%= link_to icon("trash"), 
               item_path(item),
