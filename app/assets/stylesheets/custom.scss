@@ -174,11 +174,21 @@ button, .btn {
 }
 
 .btn-link {
-  color: $slick-blue;
-  text-decoration: inherit;
-  &:hover, &:active, &:focus {
+  &.blue {
     color: $slick-blue;
     text-decoration: inherit;
+    &:hover, &:active, &:focus {
+      color: $slick-blue;
+      text-decoration: inherit;
+    }
+  }
+  &.gray {
+    color: $dark-gray;
+    text-decoration: inherit;
+    &:hover, &:active, &:focus {
+      color: $dark-gray;
+      text-decoration: inherit;
+    }
   }
 }
 
