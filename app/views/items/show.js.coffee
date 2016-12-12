@@ -4,7 +4,7 @@ $("#show-modal").html(
   object: @item, as: :item %>")
   
 $("#edit-item").click ->
-  $("#edit-item").attr('disabled','disabled')
+  # $("#edit-item").attr('disabled','disabled')
   if $("#view-want-section").is(':visible')
     # $("#view-want-section").slideUp "fast", () ->
     #   $("#edit-want-section").slideDown "fast", () ->
