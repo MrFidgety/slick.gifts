@@ -13,15 +13,15 @@ $("#edit-want").click ->
     $("#show-want-section").show()
     $("#edit-want").html("<%= j icon('pencil-square-o') %>")
     
-# $("#purchase-want").click ->
-#   if $("#show-want-section").is(':visible')
-#     $("#show-want-section").hide()
-#     $("#purchase-want-section").show()
-#     $("#purchase-want").html("<%= j icon('undo') %>")
-#   else
-#     $("#purchase-want-section").hide()
-#     $("#show-want-section").show()
-#     $("#purchase-want").html("j <%= icon('gift') %>")
+$("#purchase-want").click ->
+  if $("#show-want-section").is(':visible')
+    $("#show-want-section").hide()
+    $("#purchase-want-section").show()
+    $("#purchase-want").html("<%= j icon('undo') %>")
+  else
+    $("#purchase-want-section").hide()
+    $("#show-want-section").show()
+    $("#purchase-want").html("I've got this!")
 
 # Show the modal
 $('#show-modal').modal('show')
