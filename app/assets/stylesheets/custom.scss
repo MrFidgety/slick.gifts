@@ -173,4 +173,9 @@ img#home-page-logo {
 }
 
 // Remove button outline
-button:focus {outline:0;}
+button, .btn {
+  &:focus {
+    outline: 0;
+  }
+}
+

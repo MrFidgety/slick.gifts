@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
     # If any purchases are currently 'gifted' notify user
     if @item.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this item"
+      flash_message :notice, "Manage your gifts #{view_context.link_to("here", root_path)}"
     else
       flash_message :notice, "Item removed"
       # Archive item if there are any linked purchases
