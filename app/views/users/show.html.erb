@@ -2,21 +2,21 @@
 <p>View access: <%= @view_access %></p>
 <%= render @user, full_display: true %>
 <% if current_user_profile %>
-<div class="row">
+<div class="row margin-bottom">
   <div class="col-xs-4">
-    <button type="button" class="btn btn-default" 
+    <button type="button" class="btn btn-default btn-block" 
             data-toggle="modal" data-target="#new-interest-modal"> 
       <%= icon("plus") %> Interest
     </button>
   </div>
   <div class="col-xs-4">
-    <button type="button" class="btn btn-default" 
+    <button type="button" class="btn btn-default btn-block" 
             data-toggle="modal" data-target="#new-item-modal">
       <%= icon("plus") %> Item
     </button>
   </div>
   <div class="col-xs-4">
-    <button type="button" class="btn btn-default" 
+    <button type="button" class="btn btn-default btn-block" 
             data-toggle="modal" data-target="#new-style-modal">
       <%= icon("plus") %> Style
     </button>
