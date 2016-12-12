@@ -3,9 +3,9 @@
 <%= render @user, full_display: true %>
 <% if current_user_profile %>
 <p>
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-interest-modal">New Interest</button>
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-item-modal">New Item</button>
-  <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-style-modal">New Style</button>
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-interest-modal">New Interest</button>
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-item-modal">New Item</button>
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-style-modal">New Style</button>
 </p>
 <% end %>
 <% unless @view_access == "restricted" %>
