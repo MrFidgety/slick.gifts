@@ -1,32 +1,15 @@
 <% editable ||= false %>
 <% plain ||= false %>
 <div id="style-<%= style.id %>" class="panel panel-default">
+  <%= link_to style_path(style), remote: true do %>
   <div class="panel-body">
     <span class="absolute"><%= icon "tags" %></span>
     <div class="offset-small">
-      <span class="pull-right">
-        <% if editable %>
-        <%= link_to 'edit', edit_style_path(style),
-                    remote: true %>
-        | <%= link_to "remove", 
-                style_path(style),
-                method: :delete, remote: true, 
-                  data: {
-                  title: "Remove", 
-                  message: "This will remove the style completely. This action 
-                  cannot be undone.",
-                  confirm: "I want to remove this style" } %>
-        <% else %>
-          <%= link_to "purchase", new_want_purchase_path(style.want),
-                    remote: true %>
-          | <%= link_to "view purchases", want_purchases_path(style.want),
-                    remote: true %>
-        <% end unless plain %>
-      </span>
       <%= style.name %><br>
       <span class="small">
         added <%= local_relative_time(style.created_at, type: 'weekday-or-date') %>
       </span>
     </div>
   </div>
+  <% end %>
 </div>

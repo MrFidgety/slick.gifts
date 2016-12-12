@@ -46,7 +46,7 @@ class PurchasesController < ApplicationController
   end
   
   def receive
-    flash_message :notice, "#{@purchase.user.name} says Surprise! It's what you wanted"
+    flash_message :notice, "#{@purchase.user.name} says.. Surprise! It's what you wanted"
     # Update status to received or not-received
     @purchase.set_status(:received)
   end
