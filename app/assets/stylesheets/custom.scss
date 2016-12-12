@@ -92,6 +92,10 @@ img#home-page-logo {
 }
 .panel {
   border-radius: 0;
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
 }
 .panel-group {
   .panel {
