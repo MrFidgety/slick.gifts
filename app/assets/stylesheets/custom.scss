@@ -152,7 +152,7 @@ img#home-page-logo {
 
 // Create bottom margin for bootstrap rows
 .row.margin-bottom {
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
 }
 
 // Adjust modal position so any flash is visible
@@ -180,4 +180,14 @@ button, .btn {
     color: $dark-gray;
     text-decoration: inherit;
   }
+}
+
+.new-wants {
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.no-padding {
+  padding: 0;
 }
