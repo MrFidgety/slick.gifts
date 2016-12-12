@@ -191,3 +191,8 @@ button, .btn {
 .no-padding {
   padding: 0;
 }
+
+// No radius on modals
+.modal-content {
+  border-radius: 0;
+}
