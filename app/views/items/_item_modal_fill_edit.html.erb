@@ -14,9 +14,9 @@
   </span>
 <% end %>
 <%= button_tag icon("trash"), id: "delete-item", class: "btn btn-link" %>
-<div id="delete-confirm" class="start-hidden">
+<span id="delete-confirm" class="start-hidden">
   Permanently remove. Are you sure? 
   <%= link_to 'Yes', 
       item_path(item),
       method: :delete, remote: true %>
-</div>
+</span>
