@@ -1,7 +1,8 @@
 class InterestsController < ApplicationController
   
   before_action :signed_in
-  before_action :correct_user, except: [:create]
+  before_action :correct_user, except: [:create, :show]
+  before_action :determine_view_access, only: :show
   
   # Prevent flash from appearing twice after AJAX call
   after_filter { flash.discard if request.xhr? }
@@ -20,6 +21,13 @@ class InterestsController < ApplicationController
         format.js   { render json: @interest.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def show
+    # Set up new purchase for interest
+    @purchase = @interest.want.purchases.new if @want_view_access == "view"
+    @purchases = @interest.want.purchases.order(updated_at: :desc) if @want_view_access == "view"
+    @purchases = @interest.want.purchases.received.order(updated_at: :desc) if @want_view_access == "edit"
   end
 
   def update
@@ -44,6 +52,7 @@ class InterestsController < ApplicationController
     # If any purchases are currently 'gifted' notify user
     if @interest.want.purchases.gifted.any?
       flash_message :notice, "Unable to remove. There are outstanding gifts for this interest"
+      flash_message :notice, "Manage your gifts #{view_context.link_to("here", root_path)}"
     else
       flash_message :notice, "Interest removed"
       # Archive interest if there are any linked purchases
@@ -66,5 +75,25 @@ class InterestsController < ApplicationController
     def correct_user
       # Ensure interest belongs to current user
       redirect_to root_url unless @interest = current_user.interests.find_by(id: params[:id])
+    end
+    
+    # Ensure only friends can view
+    def determine_view_access
+      @interest = Interest.find(params[:id])
+      # Determine want view access
+      if user_signed_in?
+        if @interest.user == current_user
+          @want_view_access = "edit"
+        elsif current_user.is_friend?(@interest.user)
+          @want_view_access = "view"
+        else
+          @want_view_access = "restricted"
+        end
+      else
+        @want_view_access = "restricted"
+      end
+      
+      # Currently should not allow view at all if restricted
+      redirect_to root_url if @want_view_access == "restricted"
     end
 end

@@ -38,7 +38,7 @@
       <% end %>
       <% if @want_view_access == "view" %>
       <div id="purchase-want-section" class="start-hidden">
-        <%= render 'purchases/new', item: item %>
+        <%= render 'purchases/new', want: item.want, purchase: @purchase %>
       </div>
       <% end %>
     </div>
