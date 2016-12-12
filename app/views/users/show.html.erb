@@ -1,8 +1,8 @@
 <% current_user_profile = @view_access == "edit" %>
 <%= render @user, full_display: true %>
 <% if current_user_profile %>
-<div class="row margin-bottom">
-  <div class="col-xs-4 new-wants">
+<div class="row margin-bottom new-wants">
+  <div class="col-xs-4">
     <button type="button" class="btn btn-link btn-lg btn-block" 
             data-toggle="modal" data-target="#new-interest-modal"> 
       <%= icon("gamepad") %> Interest
