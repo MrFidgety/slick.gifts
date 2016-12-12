@@ -9,7 +9,7 @@ $('#show-want-section').html(
 # Return to show in modal
 $("#edit-want-section").hide()
 $("#show-want-section").show()
-$("#edit-item").html("<%= j icon('pencil-square-o') %>")
+$("#edit-want").html("<%= j icon('pencil-square-o') %>")
 
 # Render flash
 $("#flash-container").html("<%= j render 'layouts/flash' %>")

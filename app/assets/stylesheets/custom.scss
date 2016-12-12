@@ -160,8 +160,17 @@ img#home-page-logo {
   margin-top: 71px;
 }
 
-.show-modal {
+#show-modal {
   h1 {
     margin-top: 0;
   }
+}
+
+// Remove button outline
+button:focus {outline:0;}
+
+#edit-want {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
 }
