@@ -29,9 +29,11 @@
           <%= f.text_area :comment, placeholder: 'No v-necks, Love colorful shoes, Prefer blue ...',
                  class: 'form-control' %>
           </div>
-          <%= f.submit 'Add to my list', 
-              class: 'btn btn-link btn-block blue', 
-              data: {disable_with: 'Adding'} %>
+          <%= button_tag(type: 'submit', 
+                class: 'btn btn-link btn-block blue', 
+                data: {disable_with: 'Adding'}) do
+            icon('plus', 'Add to my list')
+          end %>
         <% end %>
       </div>
     </div>
