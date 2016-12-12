@@ -6,7 +6,7 @@ $(document).on "page:change page:restore", ->
       'error-message',
       $.parseJSON(data.responseText))
   
-  # Render edit form errors
+  # Render edit item form errors
   $("#show-modal").on "ajax:error", ".edit_item", 
   (e, data, status, xhr) ->
     $("form.edit_item").render_form_errors('item', 
@@ -15,5 +15,4 @@ $(document).on "page:change page:restore", ->
      
   # Clear new item form errors when submitting    
   $("#new_item").on "submit", ->
-    console.log('clear errors on new item')
     $("form#new_item").clear_form_errors()
