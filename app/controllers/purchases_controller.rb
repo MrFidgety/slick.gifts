@@ -26,6 +26,8 @@ class PurchasesController < ApplicationController
     # Respond to AJAX call
     respond_to do |format|
       if @purchase.save
+        # Create another new purchase in case user wants to immediately add another purchase
+        @purchase_new = @want.purchases.new
         flash_message :notice, "You have purchased something for 
           #{@want.user.name}"
         flash_message :notice, "Make sure to mark it as gifted 
