@@ -1,0 +1,21 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="pull-right">
+        <button id="edit-item" class="btn btn-link">
+          <%= icon("pencil-square-o") %>
+          </button>
+      </span>
+      <h4 class="modal-title">Show Item</h4>
+    </div>
+    <div class="modal-body">
+      <p>View access: <%= @want_view_access %></p>
+      <div id="show-want-section">
+        <%= render 'items/show_item_modal_fill', item: item %>
+      </div>
+      <div id="edit-want-section">
+        <%= render 'items/edit_item_modal_fill', item: item %>
+      </div>
+    </div>
+  </div>
+</div>

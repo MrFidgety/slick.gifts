@@ -139,10 +139,17 @@ img#home-page-logo {
   line-height: 1.2em;
 }
 
+// Hide edit section by default
 #edit-want-section {
   display: none;
 }
 
+// Create bottom margin for bootstrap rows
 .row.margin-bottom {
   margin-bottom: 20px;
+}
+
+// Adjust modal position so any flash is visible
+.modal-dialog {
+  margin-top: 71px;
 }
