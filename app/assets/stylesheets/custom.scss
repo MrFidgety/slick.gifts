@@ -225,9 +225,34 @@ label {
 }
 
 // Input placeholder
-input::-webkit-input-placeholder, input:-moz-placeholder, 
-input::-moz-placeholder, input:-ms-input-placeholder,
-textarea::-webkit-input-placeholder, textarea:-moz-placeholder, 
-textarea::-moz-placeholder, textarea:-ms-input-placeholder {
-  color: $gray !important;
+input::-webkit-input-placeholder {
+color: $gray !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: $gray !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: $gray !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: $gray !important;  
+}
+
+textarea::-webkit-input-placeholder {
+color: $gray !important;
+}
+ 
+textarea:-moz-placeholder { /* Firefox 18- */
+color: $gray !important;  
+}
+ 
+textarea::-moz-placeholder {  /* Firefox 19+ */
+color: $gray !important;  
+}
+ 
+textarea:-ms-input-placeholder {  
+color: $gray !important;  
 }
