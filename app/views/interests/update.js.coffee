@@ -4,7 +4,7 @@ $('#interest-<%= @interest.id %>').replaceWith(
   
 # Replace interest in modal
 $('#want-details-section').html(
-  "<%= j render 'interest/interest_modal_fill_show', interest: @interest %>")
+  "<%= j render 'interests/interest_modal_fill_show', interest: @interest %>")
   
 # Return to show in modal
 $("#edit-want-section").hide()
