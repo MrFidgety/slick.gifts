@@ -11,14 +11,14 @@ $("#edit-item").click ->
     #     $("#edit-item").removeAttr('disabled')
     $("#view-want-section").hide()
     $("#edit-want-section").show()
-    $("#edit-item").html("<%= icon('undo') %>")
+    $("#edit-item").html("<%= j icon('undo') %>")
   else
     # $("#edit-want-section").slideUp "fast", () ->
     #   $("#view-want-section").slideDown "fast", () ->
     #     $("#edit-item").removeAttr('disabled')
     $("#edit-want-section").hide()
     $("#view-want-section").show()
-    $("#edit-item").html("<%= icon('pencil-square-o') %>")
+    $("#edit-item").html("<%= j icon('pencil-square-o') %>")
 
 # Show the modal
 $('#show-modal').modal('show')
