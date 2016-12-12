@@ -7,7 +7,7 @@ module UsersHelper
     interest_name = want_interest.wanted.name if want_interest
     # Find an active item
     want_item = user.wants.where(wanted_type: "Item", archived: false).order("RANDOM()").first
-    item_name = want_interest.wanted.name if want_item
+    item_name = want_item.wanted.name if want_item
     
     bio = "Interested in #{interest_name} and wants #{item_name}"
   end
