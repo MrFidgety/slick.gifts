@@ -10,8 +10,8 @@ module UsersHelper
     item_name = want_item.wanted.name if want_item
     
     bio = Array.new 
-    bio.push "interested in #{interest_name}" if interest_name
-    bio.push "wants #{item_name}" if item_name
+    bio.push "interested in #{interest_name.downcase}" if interest_name
+    bio.push "wants #{item_name.downcase}" if item_name
     bio.to_sentence
   end
 end
