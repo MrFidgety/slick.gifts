@@ -1,5 +1,4 @@
 <% current_user_profile = @view_access == "edit" %>
-<p>View access: <%= @view_access %></p>
 <%= render @user, full_display: true %>
 <% if current_user_profile %>
 <div class="row margin-bottom">
