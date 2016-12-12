@@ -139,6 +139,11 @@ img#home-page-logo {
   line-height: 1.2em;
 }
 
+#delete-confirm {
+  display: inline;
+  font-size: 0.8em;
+}
+
 .start-hidden {
   display: none;
 }
@@ -151,9 +156,4 @@ img#home-page-logo {
 // Adjust modal position so any flash is visible
 .modal-dialog {
   margin-top: 71px;
-}
-
-#delete-confirm {
-  display: inline;
-  font-size: 0.8em;
 }
