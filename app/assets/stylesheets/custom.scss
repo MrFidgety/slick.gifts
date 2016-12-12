@@ -215,3 +215,11 @@ button, .btn {
 label {
   font-weight: 300;
 }
+
+.has-error .form-control {
+  border-color: $slick-red;
+}
+.error-message {
+  color: $slick-red;
+  font-size: 0.7em;
+}
