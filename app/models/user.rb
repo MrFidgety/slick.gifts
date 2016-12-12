@@ -33,4 +33,5 @@ class User < ActiveRecord::Base
     @graph = Koala::Facebook::API.new(oauth_token)
     @graph.get_connections("me", "friends/#{user.uid}").present?
   end
+  
 end
