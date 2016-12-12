@@ -223,3 +223,11 @@ label {
   color: $slick-red;
   font-size: 0.7em;
 }
+
+// Input placeholder
+input::-webkit-input-placeholder, input:-moz-placeholder, 
+input::-moz-placeholder, input:-ms-input-placeholder,
+textarea::-webkit-input-placeholder, textarea:-moz-placeholder, 
+textarea::-moz-placeholder, textarea:-ms-input-placeholder {
+  color: $gray !important;
+}
