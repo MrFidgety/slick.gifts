@@ -2,12 +2,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="pull-right">
-        <%= if @want_view_access == "edit" %>
+        <% if @want_view_access == "edit" %>
         <button id="edit-want" class="btn-link">
           <%= icon("pencil-square-o") %>
         </button>
         <% end %>
-        <%= if @want_view_access == "view" %>
+        <% if @want_view_access == "view" %>
         <button id="purchase-want" class="btn-default">
           I've got this
         </button>
