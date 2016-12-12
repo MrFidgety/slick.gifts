@@ -8,16 +8,20 @@
       <div class="modal-body">
         <%= form_for @style, remote: true do |f| %>
           <div class="form-group">
-          <%= f.text_field :name, placeholder: 'Name', 
+          <%= f.text_field :name, placeholder: 'T-Shirts, Dresses, Shoes ...', 
                 class: 'form-control' %>
           </div>
           <div class="form-group">
-          <%= f.text_area :comment, placeholder: 'Comment',
+          <%= f.text_field :size, placeholder: 'Small, Medium, Large ...', 
+                class: 'form-control' %>
+          </div>
+          <div class="form-group">
+          <%= f.text_area :comment, placeholder: 'No v-necks, Love colorful shoes, Prefer blue',
                  class: 'form-control' %>
           </div>
-          <%= f.submit 'Save', 
+          <%= f.submit 'Add to my list', 
               class: 'btn btn-success', 
-              data: {disable_with: 'Saving'} %>
+              data: {disable_with: 'Adding'} %>
         <% end %>
       </div>
     </div>
