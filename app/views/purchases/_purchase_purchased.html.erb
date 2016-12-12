@@ -34,7 +34,7 @@
   <p><%= name %> purchased this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
   <% if purchase.comment.present? %>
-    <p><strong>"<%= purchase.comment %>"</strong></p>
+    <p><strong><%= purchase.comment %></strong></p>
   <% end %>
   <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>

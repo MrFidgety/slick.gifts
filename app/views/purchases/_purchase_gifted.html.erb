@@ -4,7 +4,7 @@
   <p><%= link_to purchase.user.name, purchase.user %> purchased this for you and 
   has gifted it to you.</p>
   <% if purchase.comment.present? %>
-    <p><strong>"<%= purchase.comment %>"</strong></p>
+    <p><strong><%= purchase.comment %></strong></p>
   <% end %>
   <%= link_to "I have received this from #{purchase.user.name}", 
       receive_want_purchase_path(purchase.want, purchase),

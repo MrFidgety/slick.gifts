@@ -11,7 +11,7 @@
   <p><%= name %> purchased this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
   <% if purchase.comment.present? %>
-    <p><strong>"<%= purchase.comment %>"</strong></p>
+    <p><strong><%= purchase.comment %></strong></p>
   <% end %>
   <p><%= purchase.want.user.name %> received this as of 
   <%= local_relative_time(purchase.updated_at, type: 'weekday-or-date') %></p>
