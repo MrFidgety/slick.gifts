@@ -11,9 +11,6 @@ $("#edit-want-section").hide()
 $("#show-want-section").show()
 $("#edit-item").html("<%= j icon('pencil-square-o') %>")
 
-# Clear any edit form errors
-$(".edit_item form").clear_form_errors()
-  
 # Render flash
 $("#flash-container").html("<%= j render 'layouts/flash' %>")
 # Display any flash
