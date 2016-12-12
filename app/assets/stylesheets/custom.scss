@@ -166,8 +166,8 @@ img#home-page-logo {
   }
 }
 
-// Remove button outline
 button, .btn {
+  border-radius: 0;
   &:focus, &:hover, &:active {
     outline: 0;
   }
@@ -183,6 +183,11 @@ button, .btn {
 }
 
 .new-wants {
+  .btn {
+    &:hover, &:active, &:focus {
+      background: #d8d8d8;
+    } 
+  }
   .fa {
     margin-right: 5px;
   }
