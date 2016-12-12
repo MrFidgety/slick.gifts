@@ -12,10 +12,14 @@
     &.img-small {
       height: 45px;
       width: 45px;
+      float: left;
+      margin-right: 1em;
     }
     &.img-large {
       height: 120px;
       width: 120px;
+      float: left;
+      margin-right: 1em;
     }
   }
   p.name {
@@ -27,8 +31,4 @@
     text-decoration: inherit;
     color: inherit;
   }
-}
-.user-info {
-  display: inline-block;
-  padding-left: 1em;
 }
