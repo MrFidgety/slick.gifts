@@ -13,7 +13,9 @@
       data: {disable_with: 'Updating'} %>
   </span>
 <% end %>
-<%= button_tag icon("trash"), id: "delete-item", class: "btn btn-link" %>
+<button id="delete-item" class="btn-link">
+  <%= button_tag icon("trash") %>
+</button>
 <span id="delete-confirm" class="start-hidden">
   Permanently remove. Are you sure? 
   <%= link_to 'Yes', 

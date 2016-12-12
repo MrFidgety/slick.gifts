@@ -164,6 +164,12 @@ img#home-page-logo {
   h1 {
     margin-top: 0;
   }
+  .btn-link {
+    color: $dark-gray;
+    &:hover, &:active, &:focus {
+      color: $dark-gray;
+    }
+  }
 }
 
 // Remove button outline
