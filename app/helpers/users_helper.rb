@@ -9,6 +9,9 @@ module UsersHelper
     want_item = user.wants.where(wanted_type: "Item", archived: false).order("RANDOM()").first
     item_name = want_item.wanted.name if want_item
     
-    bio = "Interested in #{interest_name} and wants #{item_name}"
+    bio = Array.new 
+    bio.push "interested in #{interest_name}" if interest_name
+    bio.push "wants #{item_name}" if item_name
+    bio.to_sentence
   end
 end
