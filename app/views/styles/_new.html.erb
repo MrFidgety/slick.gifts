@@ -15,14 +15,17 @@
       <div class="modal-body">
         <%= form_for @style, remote: true do |f| %>
           <div class="form-group">
+          <%= f.label :name %>
           <%= f.text_field :name, placeholder: 'T-Shirts, Dresses, Shoes ...', 
                 class: 'form-control' %>
           </div>
           <div class="form-group">
+            <%= f.label :size %>
           <%= f.text_field :size, placeholder: 'Small, Medium, Large ...', 
                 class: 'form-control' %>
           </div>
           <div class="form-group">
+          <%= f.label :comment %>
           <%= f.text_area :comment, placeholder: 'No v-necks, Love colorful shoes, Prefer blue',
                  class: 'form-control' %>
           </div>
