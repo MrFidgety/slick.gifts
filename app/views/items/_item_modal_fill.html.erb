@@ -3,7 +3,7 @@
     <div class="modal-header">
       <span class="pull-right">
         <% if @want_view_access == "edit" %>
-        <button id="edit-want" class="btn-link">
+        <button id="edit-want" class="btn btn-default">
           <%= icon("pencil-square-o") %>
         </button>
         <% end %>
@@ -24,7 +24,11 @@
     </div>
     <div class="modal-body">
       <div id="show-want-section">
-        <%= render 'items/item_modal_fill_show', item: item %>
+        <div id="want-details-section">
+          <%= render 'items/item_modal_fill_show', item: item %>
+        </div>
+        <div id="want-purchases-section">
+        </div>
       </div>
       <% if @want_view_access == "edit" %>
         <div id="edit-want-section" class="start-hidden">
