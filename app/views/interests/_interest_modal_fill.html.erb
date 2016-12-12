@@ -1,0 +1,46 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="pull-right">
+        <% if @want_view_access == "edit" %>
+        <button id="edit-want" class="btn btn-default">
+          <%= icon("pencil-square-o") %>
+        </button>
+        <% end %>
+        <% if @want_view_access == "view" %>
+        <button id="purchase-want" class="btn btn-default">
+          I've got this!
+        </button>
+        <% end %>
+      </span>
+      <h4 class="modal-title">
+        <span class="absolute">
+          <%= icon("gamepad") %>
+        </span>
+        <span class="offset-small">
+          Interest
+        </span>
+      </h4>
+    </div>
+    <div class="modal-body">
+      <div id="show-want-section">
+        <div id="want-details-section">
+          <%= render 'interests/interest_modal_fill_show', interest: interest %>
+        </div>
+        <div id="want-purchases-section">
+          <%= render @purchases %>
+        </div>
+      </div>
+      <% if @want_view_access == "edit" %>
+        <div id="edit-want-section" class="start-hidden">
+          <%= render 'interest/interest_modal_fill_edit', interest: interest %>
+        </div>
+      <% end %>
+      <% if @want_view_access == "view" %>
+      <div id="purchase-want-section" class="start-hidden">
+        <%= render 'purchases/new', want: interest.want, purchase: @purchase %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
