@@ -1,4 +1,10 @@
 .user-panel {
+  &.selectable {
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
   img {
     object-fit: cover;
     border-radius: 4px;

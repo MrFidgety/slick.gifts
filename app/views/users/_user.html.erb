@@ -1,5 +1,5 @@
 <% full_display ||= false %>
-<div class="panel panel-default user-panel">
+<div class="panel panel-default user-panel <%= 'selectable' unless full_display %>">
   <% if full_display %>
     <%= render "users/user_full", user: user %>
   <% else %>
