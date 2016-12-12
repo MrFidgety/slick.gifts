@@ -4,7 +4,7 @@ $('#item-<%= @item.id %>').replaceWith(
   
 # Replace item in modal
 $('#show-want-section').replaceWith(
-  "<%= j render 'items/show_item_modal_fill', item: @item %>")
+  "<%= j render 'items/item_modal_fill_show', item: @item %>")
   
 # Return to show in modal
 $("#edit-want-section").hide()
