@@ -10,6 +10,8 @@ $('#show-want-section').html(
 $("#edit-want-section").hide()
 $("#show-want-section").show()
 $("#edit-item").html("<%= j icon('pencil-square-o') %>")
+
+# Clear any edit form errors
   
 # Render flash
 $("#flash-container").html("<%= j render 'layouts/flash' %>")
