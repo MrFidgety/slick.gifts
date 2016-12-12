@@ -2,11 +2,20 @@
 <p>View access: <%= @view_access %></p>
 <%= render @user, full_display: true %>
 <% if current_user_profile %>
-<p>
-  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-interest-modal">New Interest</button>
-  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-item-modal">New Item</button>
-  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-style-modal">New Style</button>
-</p>
+<div class="row">
+  <button type="button" class="btn btn-default col-xs-4" 
+          data-toggle="modal" data-target="#new-interest-modal"> 
+    <%= icon("plus") %> Interest
+  </button>
+  <button type="button" class="btn btn-default col-xs-4" 
+          data-toggle="modal" data-target="#new-item-modal">
+    <%= icon("plus") %> Item
+  </button>
+  <button type="button" class="btn btn-default col-xs-4" 
+          data-toggle="modal" data-target="#new-style-modal">
+    <%= icon("plus") %> Style
+  </button>
+</div>
 <% end %>
 <% unless @view_access == "restricted" %>
 <div id="want-container" class="panel-group">
