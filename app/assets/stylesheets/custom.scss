@@ -175,7 +175,15 @@ button, .btn {
 
 .btn-link {
   color: $dark-gray;
+  text-decoration: inherit;
   &:hover, &:active, &:focus {
     color: $dark-gray;
+    text-decoration: inherit;
+  }
+}
+
+.new-wants {
+  .fa {
+    margin-right: 5px;
   }
 }
