@@ -168,7 +168,7 @@ img#home-page-logo {
 
 // Remove button outline
 button, .btn {
-  &:focus {
+  &:focus, &:hover, &:active {
     outline: 0;
   }
 }
@@ -179,11 +179,5 @@ button, .btn {
   &:hover, &:active, &:focus {
     color: $dark-gray;
     text-decoration: inherit;
-  }
-}
-
-.new-wants {
-  .fa {
-    margin-right: 5px;
   }
 }
