@@ -1,6 +1,6 @@
-<% linked ||= true %>
+<% plain ||= false %>
 <div id="style-<%= style.id %>" class="panel panel-default">
-  <%= link_to_if(linked, style_path(style), remote: true) do %>
+  <%= link_to_if(!plain, style_path(style), remote: true) do %>
   <div class="panel-body">
     <span class="absolute"><%= icon "tags" %></span>
     <div class="offset-small">
