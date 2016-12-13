@@ -51,7 +51,7 @@ module UsersHelper
   # Get user gifted icons
   def user_gifted_icons(user)
     gifted_count = user.purchases.received.size
-    gifted_count = 382
+    gifted_count = 3682
     gifted_array = gifted_count.to_s.chars.map(&:to_i)
     gifted_icon_array = Array.new
     
