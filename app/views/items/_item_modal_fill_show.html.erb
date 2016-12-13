@@ -4,17 +4,35 @@
     <%= item.comment %>
   </p>
 </blockquote>
-<ul>
+<ul class="want-details-list">
   <% if item.link %>
-  <li><%= icon("globe", "Link") %>
-  <%= link_to "Here's the item online", item.link %></li>
+  <li>
+    <span class="absolute">
+      <%= icon("globe", "Link") %>
+    </span>
+    <div class="offset-small">
+      <%= link_to "Here's the item online", item.link %>
+    </div>
+  </li>
   <% end %>
   <% if item.code %>
-  <li><%= icon("code", "Code") %>
-  <%= item.location %></li>
+  <li>
+    <span class="absolute">
+      <%= icon("code", "Code") %>
+    </span>
+    <div class="offset-small">
+      <%= item.code %>
+    </div>
+  </li>
   <% end %>
   <% if item.location %>
-  <li><%= icon("map-marker", "Location") %>
-  <%= item.location %></li>
+  <li>
+    <span class="absolute">
+      <%= icon("map-marker", "Location") %>
+    </span>
+    <div class="offset-small">
+      <%= item.location %>
+    </div>
+  </li>
   <% end %>
 </ul>

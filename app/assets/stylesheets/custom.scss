@@ -292,3 +292,9 @@ color: $gray !important;
 textarea:-ms-input-placeholder {  
 color: $gray !important;  
 }
+
+ul.want-details-list {
+  li {
+    list-style-type: none;
+  }
+}
