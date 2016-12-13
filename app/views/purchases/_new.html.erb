@@ -1,10 +1,11 @@
 <% submit_button = icon('check', 'Confirm') %>
 <% submitting = "Confirming" %>
+<p>This will let everyone know that a gift has been organised for this 
+<%= want.wanted_type %>. They won't see its from you until <%= want.user.name %> 
+has received it.</p>
 <%= form_for [want, purchase], remote: true do |f| %>
   <div class="form-group">
-  <%= f.text_area :comment, placeholder: "Add any information here about what 
-  you have gotten for #{want.user.name}, such as what occasion it is for (birthday, christmas, etc), 
-  any details about the gift. This will be visible to everyone so they know not to get the same thing!", 
+  <%= f.text_area :comment, placeholder: "Add any information here about what you have gotten for #{want.user.name}, such as what occasion it is for (birthday, christmas, etc), any details about the gift. This will be visible to everyone so they know not to get the same thing!", 
         class: 'form-control' %>
   </div>
     <%= button_tag(type: 'submit', 
