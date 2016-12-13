@@ -12,6 +12,7 @@ $(document).on "page:change page:restore", ->
   $.rails.showConfirmDialog = (link) ->
     title = link.attr 'data-title'
     icon = link.attr 'data-icon'
+    color = link.attr 'data-color'
     message = link.attr 'data-message'
     confirm = link.attr 'data-confirm'
     html = 
@@ -26,7 +27,7 @@ $(document).on "page:change page:restore", ->
               <p>#{message}</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-link blue btn-block confirm-modal-button">#{confirm}</button>
+              <button type="button" class="btn btn-link #{color} btn-block confirm-modal-button">#{confirm}</button>
             </div>
           </div>
         </div>
