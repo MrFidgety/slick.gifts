@@ -1,18 +1,7 @@
-<%= form_for item, remote: true do |f| %>
-  <div class="form-group">
-  <%= f.text_field :name, placeholder: 'Name', 
-        class: 'form-control' %>
-  </div>
-  <div class="form-group">
-  <%= f.text_area :comment, placeholder: 'Comment',
-         class: 'form-control' %>
-  </div>
-  <span class="pull-right">
-    <%= f.submit 'Update', 
-      class: 'btn btn-success', 
-      data: {disable_with: 'Updating'} %>
-  </span>
-<% end %>
+<% submit_button = icon('check', 'Update') %>
+<% submitting = "Updating" %>
+<%= render 'items/form', item: item, 
+      submit_button: submit_button, submitting: submitting %>
 <button id="delete-item" class="btn-link">
   <%= icon("trash") %>
 </button>
