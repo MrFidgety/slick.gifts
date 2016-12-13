@@ -7,7 +7,7 @@
   You can still gift it to them or cancel the gift.</p>
   <% end %>
 <% end %>
-<%= render 'purchases/purchase_details', name: name, recipient: purchase.want.user %>
+<%= render 'purchases/purchase_details', purchase: purchase, name: name, recipient: purchase.want.user %>
 <% if full_display %>
   <%= link_to "I have gifted this to #{purchase.want.user.name}", 
         gift_want_purchase_path(purchase.want, purchase),
