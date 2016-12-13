@@ -33,6 +33,8 @@ module UsersHelper
   def user_received_icons(user)
     # Get number of each type
     received_count = Purchase.includes(:want).where(wants: {user_id: user.id}, status: Purchase.statuses[:received]).size
+    
+    received_count = 2148
     # Map each number to an array 123 => [1,2,3]
     received_array = received_count.to_s.chars.map(&:to_i)
     received_icon_array = Array.new
@@ -48,7 +50,9 @@ module UsersHelper
   
   # Get user gifted icons
   def user_gifted_icons(user)
-    gifted_array = user.purchases.received.size.to_s.chars.map(&:to_i)
+    gifted_count = user.purchases.received.size
+    gifted_count = 382
+    gifted_array = gifted_count.to_s.chars.map(&:to_i)
     gifted_icon_array = Array.new
     
     gifted_array.each_with_index  do |number, index|
