@@ -2,12 +2,14 @@
 <% submitting = "Updating" %>
 <%= render 'items/form', item: item, 
       submit_button: submit_button, submitting: submitting %>
-<button id="delete-item" class="btn-link">
-  <%= icon("trash") %>
-</button>
-<span id="delete-confirm" class="start-hidden">
-  Permanently remove. Are you sure? 
-  <%= link_to 'Yes', 
-      item_path(item),
-      method: :delete, remote: true %>
-</span>
+<div class="absolute">
+  <button id="delete-item" class="btn-link">
+    <%= icon("trash") %>
+  </button>
+  <span id="delete-confirm" class="start-hidden">
+    Permanently remove. Are you sure? 
+    <%= link_to 'Yes', 
+        item_path(item),
+        method: :delete, remote: true %>
+  </span>
+</div>
