@@ -29,7 +29,7 @@ module UsersHelper
     wants.any? ? "has #{wants.to_sentence}" : "is going to add something to their list, I'm sure of it"
   end
   
-  # Get user received and gifted sentence
+  # Get user received icons
   def user_received_icons(user)
     # Get number of each type
     received_count = Purchase.includes(:want).where(wants: {user_id: user.id}, status: Purchase.statuses[:received]).size
@@ -43,9 +43,10 @@ module UsersHelper
       } if number > 0
     end
     
-    received_icon_array.join("")
+    received_icon_array.join("").html_safe
   end
   
+  # Get user gifted icons
   def user_gifted_icons(user)
     gifted_array = user.purchases.received.size.to_s.chars.map(&:to_i)
     gifted_icon_array = Array.new
@@ -57,6 +58,6 @@ module UsersHelper
       } if number > 0
     end
     
-    gifted_icon_array.join("")
+    gifted_icon_array.join("").html_safe
   end
 end
