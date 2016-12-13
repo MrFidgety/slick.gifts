@@ -1,0 +1,12 @@
+<p>
+  <%= name %> purchased this 
+  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %>
+  <%= "for #{recipient}" if recipient %>
+</p>
+<% if purchase.comment.present? %>
+<blockquote>
+  <p>
+    <%= item.comment %>
+  </p>
+</blockquote>
+<% end %>

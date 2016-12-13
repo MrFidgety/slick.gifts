@@ -31,10 +31,6 @@
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
 <% else %>
-  <p><%= name %> purchased this 
-  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
-  <% if purchase.comment.present? %>
-    <p><strong><%= purchase.comment %></strong></p>
-  <% end %>
+  <%= render 'purchases/purchase_details', name: name %>
   <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>
