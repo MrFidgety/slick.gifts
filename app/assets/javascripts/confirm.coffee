@@ -25,8 +25,6 @@ $(document).on "page:change page:restore", ->
             </div>
             <div class="modal-body">
               <p>#{message}</p>
-            </div>
-            <div class="modal-footer">
               <button type="button" class="btn btn-link #{color} btn-block confirm-modal-button">#{confirm}</button>
             </div>
           </div>
