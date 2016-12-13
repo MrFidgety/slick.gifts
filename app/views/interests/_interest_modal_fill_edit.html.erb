@@ -1,24 +1,15 @@
-<%= form_for interest, remote: true do |f| %>
-  <div class="form-group">
-  <%= f.text_field :name, placeholder: 'Name', 
-        class: 'form-control' %>
-  </div>
-  <div class="form-group">
-  <%= f.text_area :comment, placeholder: 'Comment',
-         class: 'form-control' %>
-  </div>
-  <span class="pull-right">
-    <%= f.submit 'Update', 
-      class: 'btn btn-success', 
-      data: {disable_with: 'Updating'} %>
+<% submit_button = icon('check', 'Update') %>
+<% submitting = "Updating" %>
+<%= render 'interests/form', interest: interest, 
+      submit_button: submit_button, submitting: submitting %>
+<div id="delete-want" class="absolute">
+  <button id="delete-interest" class="btn-link red">
+    <%= icon("trash") %>
+  </button>
+  <span id="delete-confirm" class="start-hidden">
+    Permanently remove. Are you sure? 
+    <%= link_to 'Yes', 
+        interest_path(interest),
+        method: :delete, remote: true %>
   </span>
-<% end %>
-<button id="delete-interest" class="btn-link">
-  <%= icon("trash") %>
-</button>
-<span id="delete-confirm" class="start-hidden">
-  Permanently remove. Are you sure? 
-  <%= link_to 'Yes', 
-      interest_path(interest),
-      method: :delete, remote: true %>
-</span>
+</div>
