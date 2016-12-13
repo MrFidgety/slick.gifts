@@ -6,8 +6,8 @@
   </p>
 </blockquote>
 <% end %>
+<% if style.size.present? %>
 <ul class="want-details-list">
-  <% if style.size.present? %>
   <li>
     <%= icon("sliders") %>
     <div class="offset-small">
@@ -15,3 +15,4 @@
     </div>
   </li>
 </ul>
+<% end %>
