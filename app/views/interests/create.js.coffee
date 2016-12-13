@@ -1,6 +1,9 @@
 # Add the new interest to the users list
 $("<%= j render @interest, editable: true %>").prependTo('#want-container')
 
+# Update the users wants sentence
+$("#wants-sentence").html("<%= j user_wants_sentence(@interest.user) %>")
+
 # Hide new interest modal
 $('#new-interest-modal').modal('hide')
 

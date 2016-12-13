@@ -3,6 +3,8 @@
 $('#show-modal').modal('hide')
 # Remove the item from the list
 $('#item-<%= @item.id %>').remove()
+# Update the users wants sentence
+$("#wants-sentence").html("<%= j user_wants_sentence(@item.user) %>")
 <% end %>
 # Render flash
 $("#flash-container").html("<%= j render 'layouts/flash' %>")
