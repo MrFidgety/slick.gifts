@@ -1,7 +1,7 @@
 <% name = current_user == purchase.user ? 'You' : 'Someone' %>
 <% if full_display %>
 <% if purchase.want.archived? %>
-<p class="alert-text">
+<p class="alert-red">
   <%= icon("exclamation-circle") %> <%= purchase.want.user.name %> removed 
   this from their list 
   <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.

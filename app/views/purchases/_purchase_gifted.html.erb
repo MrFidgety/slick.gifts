@@ -1,33 +1,45 @@
 <% name = current_user == purchase.user ? 'You' : 'Someone' %>
 <% if full_display %>
-  <%= render purchase.want.wanted, plain: true %>
-  <p><%= link_to purchase.user.name, purchase.user %> purchased this for you and 
-  has gifted it to you.</p>
-  <% if purchase.comment.present? %>
-  <blockquote>
-    <p>
-      <%= purchase.comment %>
-    </p>
-  </blockquote>
-  <% end %>
-  <%= link_to "I have received this from #{purchase.user.name}", 
-      receive_want_purchase_path(purchase.want, purchase),
-      class: "btn btn-default",
-      method: :post, remote: true, 
-      data: {
-        title: "Received", 
-        message: "Only select this when you have received the gift from 
-                #{purchase.user.name}.",
+<%= render purchase.want.wanted, plain: true %>
+<p>
+  <%= link_to purchase.user.name, purchase.user %> got this for you and 
+  has gifted it to you!
+</p>
+<% if purchase.comment.present? %>
+<blockquote>
+  <p>
+    <%= purchase.comment %>
+  </p>
+</blockquote>
+<% end %>
+<div class="row">
+  <div class="col-xs-6">
+    <%= link_to icon("check", "Received"), 
+        receive_want_purchase_path(purchase.want, purchase),
+        class: "btn btn-link blue btn-block",
+        method: :post, remote: true, 
+        data: {
+          title: "Received", 
+          icon: "check",
+          color: "blue",
+          message: "Only select this when you have received the gift from 
+                  #{purchase.user.name}.",
         confirm: "I have received this" } %>
-  <%= link_to "I have not received this", 
-      not_receive_want_purchase_path(purchase.want, purchase),
-      class: "btn btn-default",
-      method: :post, remote: true, 
-      data: {
-        title: "Not Received", 
-        message: "This will let #{purchase.user.name} know that you 
-                haven't received their gift.",
-        confirm: "I have not received this" } %>
+  </div>
+  <div class="col-xs-6">
+    <%= link_to icon("times", "Not Received"), 
+        not_receive_want_purchase_path(purchase.want, purchase),
+        class: "btn btn-link red btn-block",
+        method: :post, remote: true, 
+        data: {
+          title: "Not Received",
+          icon: "times",
+          color: "red",
+          message: "This will let #{purchase.user.name} know that you 
+                  haven't received their gift.",
+          confirm: "I have not received this" } %>
+  </div>
+</div>
 <% else %>
   <%= render 'purchases/purchase_details', purchase: purchase, name: name %>
 <% end %>
