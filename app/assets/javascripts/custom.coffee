@@ -1,7 +1,7 @@
 $(document).on "page:change page:restore", ->
   
   # Display loader when loading a want
-  $(".show-want").click ->
+  $("#want-container").on 'click',".show-want", ->
     $("#show-modal").html('<div class="modal-loader"><i class="fa fa-cog fa-spin fa-2x fa-fw"></i></div>')
     # Show the modal
     $('#show-modal').modal('show')
