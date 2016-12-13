@@ -17,6 +17,14 @@ module UsersHelper
   
   # Get user wants info
   def user_wants(user)
-    "#{user.interests.size.humanize} interests"
+    interest_count = user.interests.includes(:want).where(wants: {archived: false}).size
+    item_count = user.items.includes(:want).where(wants: {archived: false}).size
+    style_count = user.styles.includes(:want).where(wants: {archived: false}).size
+    
+    wants = Array.new
+    wants.push "#{item_count.humanize} #{"item".pluralize(item_count)}" if item_count > 0
+    wants.push "#{interest_count.humanize} #{"interest".pluralize(interest_count)}" if interest_count > 0
+    wants.push "#{style_count.humanize} #{"style".pluralize(style_count)}" if style_count > 0
+    "has #{wants.to_sentence}"
   end
 end
