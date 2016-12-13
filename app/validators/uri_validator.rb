@@ -14,7 +14,7 @@ class UriValidator < ActiveModel::EachValidator
   private
 
   def generic_failure_message
-    options[:message] || "is an invalid link"
+    options[:message] || "is an invalid link, make sure to include http://"
   end
 
   def allowed_protocols_humanized
