@@ -1,6 +1,6 @@
 <% plain ||= false %>
 <div id="interest-<%= interest.id %>" class="panel panel-default">
-  <%= link_to_if(!plain, interest_path(interest), remote: true do %>
+  <%= link_to_if(!plain, interest_path(interest), remote: true) do %>
   <div class="panel-body">
     <span class="absolute"><%= icon "gamepad" %></span>
     <div class="offset-small">
