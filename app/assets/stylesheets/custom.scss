@@ -343,10 +343,19 @@ ul.want-details-list {
 .fa.gifted, .fa.received {
   margin: 1px;
 }
-
+#user-received-icons, #user-gifted-icons {
+  a {
+    text-decoration: inherit;
+    color: inherit;
+    &:hover, &:focus, &:active {
+      text-decoration: inherit;
+      color: inherit;
+    }
+  }
+}
 .gifted {
   &.value-1 {
-    color: #AAEC43;
+    color: #94E658;
   }
   &.value-10 {
     color: #13D8C7;

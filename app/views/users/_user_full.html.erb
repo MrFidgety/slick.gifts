@@ -8,7 +8,15 @@
   <div class="user-info">
     <p class="name"><%= user.name %></p>
     <p><%= user_wants_sentence(user) %></p>
-    <p class="no-margin"><%= user_received_icons(user) %></p>
-    <p class="no-margin"><%= user_gifted_icons(user) %></p>
+    <p id="user-gifted-icons" class="no-margin">
+      <%= link_to gifted_user_path(user) do %>
+        <%= user_gifted_icons(user) %>
+      <% end %>
+    </p>
+    <p id="user-received-icons" class="no-margin">
+      <%= link_to receieved_user_path(user) do %>
+        <%= user_received_icons(user) %>
+      <% end %>
+    </p>
   </div>
 </div>
