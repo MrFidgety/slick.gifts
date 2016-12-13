@@ -6,12 +6,9 @@
   <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
   You can still gift it to them or cancel the gift.</p>
   <% end %>
-  <p><%= name %> purchased this 
-  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %> for 
-  <%= link_to purchase.want.user.name, purchase.want.user %>.</p>
-  <% if purchase.comment.present? %>
-    <p><strong>"<%= purchase.comment %>"</strong></p>
-  <% end %>
+<% end %>
+<%= render 'purchases/purchase_details', name: name, recipient: purchase.want.user %>
+<% if full_display %>
   <%= link_to "I have gifted this to #{purchase.want.user.name}", 
         gift_want_purchase_path(purchase.want, purchase),
         class: "btn btn-default",
@@ -31,6 +28,5 @@
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
 <% else %>
-  <%= render 'purchases/purchase_details', name: name %>
   <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>
