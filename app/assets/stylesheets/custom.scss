@@ -383,10 +383,9 @@ ul.want-details-list {
 }
 
 .modal-loader {
-  color: white;
-  position: absolute;
-  top: 112px;
-  left: 50%;
-  margin-left: -2em;
-  //transform: translateX(-50%);
+  text-align:center;
+  .fa {
+    color: white;
+    margin-top: 112px;
+  }
 }
