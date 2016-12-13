@@ -9,32 +9,11 @@
           </span>
           <span class="offset-small">
             Style
-          </span>  
+          </span>
         </h4>
       </div>
       <div class="modal-body">
-        <%= form_for @style, remote: true do |f| %>
-          <div class="form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, placeholder: 'T-Shirts, Dresses, Shoes ...', 
-                class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :size %>
-          <%= f.text_field :size, placeholder: 'Small, Medium, Large ...', 
-                class: 'form-control' %>
-          </div>
-          <div class="form-group">
-          <%= f.label :comment %>
-          <%= f.text_area :comment, placeholder: 'No v-necks, Prefer blue, Love colorful shoes ...',
-                 class: 'form-control' %>
-          </div>
-          <%= button_tag(type: 'submit', 
-                class: 'btn btn-link btn-block blue', 
-                data: {disable_with: 'Adding'}) do
-            icon('plus', 'Add to my list')
-          end %>
-        <% end %>
+        <%= render 'styles/form', style: @style %>
       </div>
     </div>
   </div>
