@@ -1,10 +1,10 @@
 <p>
   <%= name %> got this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %>
-  <%= "for #{recipient.name}" if recipient %>
+  for <%= purchase.want.user.name %>
 </p>
 <p class="purchase-alert">
-<% if received %>
+<% if purchase.received? %>
 <%= icon("gift") %>
 <%= purchase.want.user.name %> received this as of 
 <%= local_relative_time(purchase.updated_at, type: 'weekday-or-date') %>

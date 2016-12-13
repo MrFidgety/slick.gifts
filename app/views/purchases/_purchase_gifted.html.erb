@@ -29,6 +29,5 @@
                 haven't received their gift.",
         confirm: "I have not received this" } %>
 <% else %>
-  <%= render 'purchases/purchase_details', purchase: purchase, 
-      name: name, recipient: purchase.want.user, received: false %>
+  <%= render 'purchases/purchase_details', purchase: purchase, name: name %>
 <% end %>

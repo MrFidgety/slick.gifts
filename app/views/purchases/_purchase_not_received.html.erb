@@ -39,8 +39,7 @@
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
 <% else %>
-  <%= render 'purchases/purchase_details', purchase: purchase, 
-      name: name, recipient: purchase.want.user %>
+  <%= render 'purchases/purchase_details', purchase: purchase, name: name %>
   <p class="purchase-alert"><%= icon("exclamation-circle") %>
   Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>
