@@ -323,7 +323,8 @@ ul.want-details-list {
   }
 }
 
-.confirm-modal {
+#confirm-modal {
+  color: $dark-gray;
   .modal-body {
     font-weight: 300;
   }
