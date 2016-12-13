@@ -12,6 +12,8 @@
   <% if item.code %>
   <li><%= icon("code", "Code") %>
   <%= item.location %></li>
+  <% end %>
+  <% if item.location %>
   <li><%= icon("map-marker", "Location") %>
   <%= item.location %></li>
   <% end %>
