@@ -2,8 +2,8 @@
 <% submitting = "Updating" %>
 <%= render 'items/form', item: item, 
       submit_button: submit_button, submitting: submitting %>
-<div class="absolute">
-  <button id="delete-item" class="btn-link">
+<div id="delete-want" class="absolute">
+  <button id="delete-item" class="btn-link red">
     <%= icon("trash") %>
   </button>
   <span id="delete-confirm" class="start-hidden">

@@ -144,6 +144,19 @@ img#home-page-logo {
 
 #delete-confirm {
   font-size: 0.6em;
+  color: white;
+  a {
+    color: $slick-red;
+    text-decoration: inherit;
+    &:hover, &:active, &:focus {
+      color: $slick-red;
+      text-decoration: inherit;
+    }
+  }
+}
+
+#delete-want {
+  bottom: -40px;
 }
 
 .start-hidden {
@@ -176,6 +189,14 @@ button, .btn {
 .btn-link {
   font-weight: 300;
   font-size: 1em;
+  &.red {
+    color: $slick-red;
+    text-decoration: inherit;
+    &:hover, &:active, &:focus {
+      color: $slick-red;
+      text-decoration: inherit;
+    }
+  }
   &.blue {
     color: $slick-blue;
     text-decoration: inherit;
