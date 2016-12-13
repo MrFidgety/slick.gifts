@@ -14,11 +14,11 @@ class UriValidator < ActiveModel::EachValidator
   private
 
   def generic_failure_message
-    options[:message] || "is an invalid URL"
+    options[:message] || "is an invalid link"
   end
 
   def allowed_protocols_humanized
-    allowed_protocols.to_sentence(:two_words_connector => 'or')
+    allowed_protocols.to_sentence(:two_words_connector => ' or ')
   end
 
   def allowed_protocols
