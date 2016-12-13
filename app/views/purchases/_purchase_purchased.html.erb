@@ -26,7 +26,8 @@
         class: "btn btn-link blue btn-block",
         method: :post, remote: true, 
           data: {
-          title: icon("gift", "Gifted").html_safe, 
+          title: "Gifted", 
+          icon: "gift",
           message: "Only select this when you have given the gift to 
                   #{purchase.want.user.name}. They will confirm it has
                   been received.",
@@ -38,7 +39,8 @@
         class: "btn btn-link red btn-block",
         method: :delete, remote: true, 
           data: {
-          title: icon("times", "Cancel").html_safe, 
+          title: "Cancel", 
+          icon: "times",
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
   </div>

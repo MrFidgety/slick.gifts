@@ -11,6 +11,7 @@ $(document).on "page:change page:restore", ->
 
   $.rails.showConfirmDialog = (link) ->
     title = link.attr 'data-title'
+    icon = link.attr 'data-icon'
     message = link.attr 'data-message'
     confirm = link.attr 'data-confirm'
     html = 
@@ -19,7 +20,7 @@ $(document).on "page:change page:restore", ->
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">#{title}</h4>
+              <h4 class="modal-title">#{icon(icon)} #{title}</h4>
             </div>
             <div class="modal-body">
               <p>#{message}</p>
