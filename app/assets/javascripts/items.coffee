@@ -18,6 +18,6 @@ $(document).on "page:change page:restore", ->
     $("form#new_item").clear_form_errors()
     
   $(".show-item").click ->
-    $("#show-modal").html('<div class="loader"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></div>')
+    $("#show-modal").html('<i class="modal-loader fa fa-cog fa-spin fa-3x fa-fw"></i>')
     # Show the modal
     $('#show-modal').modal('show')
