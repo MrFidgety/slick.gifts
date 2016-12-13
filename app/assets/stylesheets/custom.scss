@@ -387,5 +387,6 @@ ul.want-details-list {
   position: absolute;
   top: 112px;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -2em;
+  //transform: translateX(-50%);
 }
