@@ -4,7 +4,11 @@
   <p><%= link_to purchase.user.name, purchase.user %> purchased this for you and 
   has gifted it to you.</p>
   <% if purchase.comment.present? %>
-    <p><strong><%= purchase.comment %></strong></p>
+  <blockquote>
+    <p>
+      <%= purchase.comment %>
+    </p>
+  </blockquote>
   <% end %>
   <%= link_to "I have received this from #{purchase.user.name}", 
       receive_want_purchase_path(purchase.want, purchase),
@@ -25,10 +29,8 @@
                 haven't received their gift.",
         confirm: "I have not received this" } %>
 <% else %>
-  <p><%= name %> purchased this 
-  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
-  <% if purchase.comment.present? %>
-    <p><strong>"<%= purchase.comment %>"</strong></p>
-  <% end %>
-  <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
+  <%= render 'purchases/purchase_details', purchase: purchase, 
+      name: name, recipient: purchase.want.user %>
+  <p class="purchase-alert"><%= icon("exclamation-circle") %>
+  Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>

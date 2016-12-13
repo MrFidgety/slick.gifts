@@ -2,13 +2,12 @@
 <% if full_display %>
   <%= render purchase.want.wanted, plain: true %>
   <% if purchase.want.archived? %>
-  <p>ALERT! <%= purchase.want.user.name %> removed this from their list 
-  <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
-  You can still gift it to them or cancel the gift.</p>
+    <p>ALERT! <%= purchase.want.user.name %> removed this from their list 
+    <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
+    You can still gift it to them or cancel the gift.</p>
   <% end %>
-<% end %>
-<%= render 'purchases/purchase_details', purchase: purchase, name: name, recipient: purchase.want.user %>
-<% if full_display %>
+  <%= render 'purchases/purchase_details', purchase: purchase, name: name, 
+    recipient: purchase.want.user %>
   <%= link_to "I have gifted this to #{purchase.want.user.name}", 
         gift_want_purchase_path(purchase.want, purchase),
         class: "btn btn-default",
@@ -28,5 +27,8 @@
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
 <% else %>
-  <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
+  <%= render 'purchases/purchase_details', purchase: purchase, name: name, 
+    recipient: purchase.want.user %>
+  <p class="purchase-alert"><%= icon("exclamation-circle") %> 
+  Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>

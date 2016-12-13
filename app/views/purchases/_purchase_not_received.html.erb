@@ -2,18 +2,13 @@
 <% if full_display %>
   <%= render purchase.want.wanted, plain: true %>
   <% if purchase.want.archived? %>
-  <p>ALERT! <%= purchase.want.user.name %> removed this from their list 
-  <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
-  You can still gift it to them or cancel the gift.</p>
+    <p>ALERT! <%= purchase.want.user.name %> removed this from their list 
+    <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
+    You can still gift it to them or cancel the gift.</p>
   <% end %>
-  <p><%= name %> purchased this 
-  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %> for 
-  <%= link_to purchase.want.user.name, purchase.want.user %> and marked it as 
-  gifted. They did not receive the gift!</p>
-  <% if purchase.comment.present? %>
-    <p><strong>"<%= purchase.comment %>"</strong></p>
-  <% end %>
-  <p></p>
+  <%= render 'purchases/purchase_details', purchase: purchase, name: name, 
+    recipient: purchase.want.user %>
+  <p>You marked this as gifted. However, <%= purchase.want.user.name %> did not receive the gift!</p>
   <%= link_to "I have gifted this to #{purchase.want.user.name}", 
         gift_want_purchase_path(purchase.want, purchase),
         class: "btn btn-default",
@@ -33,10 +28,8 @@
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
 <% else %>
-  <p><%= name %> purchased this 
-  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %></p>
-  <% if purchase.comment.present? %>
-    <p><strong><%= purchase.comment %></strong></p>
-  <% end %>
-  <p>Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
+  <%= render 'purchases/purchase_details', purchase: purchase, 
+      name: name, recipient: purchase.want.user %>
+  <p class="purchase-alert"><%= icon("exclamation-circle") %>
+  Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
 <% end %>
