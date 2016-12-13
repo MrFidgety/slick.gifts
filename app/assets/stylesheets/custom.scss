@@ -296,5 +296,13 @@ color: $gray !important;
 ul.want-details-list {
   li {
     list-style-type: none;
+    font-weight: 300;
+    .fa {
+      position: absolute;
+      left: 0;
+      line-height: inherit;
+      width: 20px;
+      text-align: center;
+    }
   }
 }

@@ -7,9 +7,7 @@
 <ul class="want-details-list">
   <% if item.link %>
   <li>
-    <span class="absolute">
-      <%= icon("globe", "Link") %>
-    </span>
+    <%= icon("globe", "Link") %>
     <div class="offset-small">
       <%= link_to "Here's the item online", item.link %>
     </div>
@@ -17,9 +15,7 @@
   <% end %>
   <% if item.code %>
   <li>
-    <span class="absolute">
-      <%= icon("code", "Code") %>
-    </span>
+    <%= icon("code", "Code") %>
     <div class="offset-small">
       <%= item.code %>
     </div>
@@ -27,9 +23,7 @@
   <% end %>
   <% if item.location %>
   <li>
-    <span class="absolute">
-      <%= icon("map-marker", "Location") %>
-    </span>
+    <%= icon("map-marker", "Location") %>
     <div class="offset-small">
       <%= item.location %>
     </div>
