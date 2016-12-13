@@ -14,4 +14,9 @@ module UsersHelper
     bio.push "wants #{item_name.downcase}" if item_name
     bio.to_sentence
   end
+  
+  # Get user wants info
+  def user_wants(user)
+    "#{user.interests.size.humanize} interests"
+  end
 end

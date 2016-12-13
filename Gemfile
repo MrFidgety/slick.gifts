@@ -22,6 +22,7 @@ gem 'meta-tags'
 gem 'local_time'
 gem 'font-awesome-sass'
 gem 'serviceworker-rails'
+gem 'humanize'
 gem 'sdoc',                       '0.4.0', group: :doc
 
 group :development, :test do
