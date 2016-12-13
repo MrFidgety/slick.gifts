@@ -1,6 +1,6 @@
 <% name = current_user == purchase.user ? 'You' : purchase.user.name %>
 <% if full_display %>
-  <%= render purchase.want.wanted, plain: true %>
+  <%= render purchase.want.wanted %>
   <p><%= name %> purchased this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %> for 
   <%= link_to purchase.want.user.name, purchase.want.user %>.</p>

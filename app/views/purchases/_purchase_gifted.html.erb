@@ -1,6 +1,6 @@
 <% name = current_user == purchase.user ? 'You' : 'Someone' %>
 <% if full_display %>
-  <%= render purchase.want.wanted, plain: true %>
+  <%= render purchase.want.wanted, linked: false %>
   <p><%= link_to purchase.user.name, purchase.user %> purchased this for you and 
   has gifted it to you.</p>
   <% if purchase.comment.present? %>
