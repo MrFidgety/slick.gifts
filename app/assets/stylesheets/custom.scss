@@ -336,3 +336,36 @@ ul.want-details-list {
 .alert-blue {
   color: $slick-blue;
 }
+
+.fa.gifted, .fa.received {
+  margin: 1px;
+}
+
+.gifted {
+  &.value-1 {
+    color: #72E268;
+  }
+  &.value-10 {
+    color: #13D897;
+  }
+  &.value-100 {
+    color: #3CB4D8;
+  }
+  &.value-1000 {
+    color: #5A58E2;
+  }
+}
+.received {
+  &.value-1 {
+    color: #F271B8;
+  }
+  &.value-10 {
+    color: #FF5B63;
+  }
+  &.value-100 {
+    color: #FF934C;
+  }
+  &.value-1000 {
+    color: #FFDF54;
+  }
+}

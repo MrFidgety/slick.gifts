@@ -39,7 +39,7 @@ module UsersHelper
     
     received_array.each_with_index  do |number, index|
       number.times {
-        received_icon_array.push icon('gift', class: "received #{(10**(received_array.size-index-1)).humanize}")
+        received_icon_array.push icon('gift', class: "received value-#{10**(received_array.size-index-1)}")
       } if number > 0
     end
     
@@ -54,7 +54,7 @@ module UsersHelper
     gifted_array.each_with_index  do |number, index|
       number.times {
         gifted_icon_array.push icon('gift', 
-          class: "gifted #{(10**(gifted_array.size-index-1)).humanize}")
+          class: "gifted value-#{10**(gifted_array.size-index-1)}")
       } if number > 0
     end
     
