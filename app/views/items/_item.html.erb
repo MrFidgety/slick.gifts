@@ -1,7 +1,7 @@
 <% editable ||= false %>
 <% plain ||= false %>
 <div id="item-<%= item.id %>" class="panel panel-default">
-  <%= link_to item_path(item), remote: true do %>
+  <%= link_to_if(!plain, item_path(item), remote: true) do %>
   <div class="panel-body">
     <span class="absolute"><%= icon "barcode" %></span>
     <div class="offset-small">
