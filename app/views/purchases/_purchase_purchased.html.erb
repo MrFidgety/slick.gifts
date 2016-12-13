@@ -2,9 +2,12 @@
 <% if full_display %>
 <%= render purchase.want.wanted, plain: true %>
 <% if purchase.want.archived? %>
-  <p>ALERT! <%= purchase.want.user.name %> removed this from their list 
+<p class="alert-text">
+  <%= icon("exclamation-circle") %> <%= purchase.want.user.name %> removed 
+  this from their list 
   <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
-  You can still gift it to them or cancel the gift.</p>
+  You can still gift it to them or cancel the gift.
+</p>
 <% end %>
 <p>
   You got this 

@@ -6,11 +6,15 @@
           purchase: purchase,
           full_display: full_display %>
     <% else %>
-      <p>Uh oh, it looks like one of your purchases has somehow lost its linked 
-      item.</p>
+      <p>Uh oh, it looks like one of your gift has somehow lost its linked 
+      item. The item was probably deleted.</p>
       <p>This purchase was made by you on <%= local_time(purchase.created_at) %></p> 
       <% if purchase.comment.present? %>
-        <p>Your comments were: <strong>"<%= purchase.comment %>"</strong></p>
+      <blockquote>
+        <p>
+          <%= purchase.comment %>
+        </p>
+      </blockquote>
       <% else %>
         <p>You did not make any comments about the purchase.</p>
       <% end %>
