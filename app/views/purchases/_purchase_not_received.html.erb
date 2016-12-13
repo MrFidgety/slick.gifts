@@ -1,43 +1,59 @@
 <% name = current_user == purchase.user ? 'You' : 'Someone' %>
 <% if full_display %>
-  <%= render purchase.want.wanted, plain: true %>
-  <% if purchase.want.archived? %>
-    <p><%= icon("exclamation-circle") %> <%= purchase.want.user.name %> removed this from their list 
-    <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
-    You can still gift it to them or cancel the gift.</p>
-  <% end %>
+<% if purchase.want.archived? %>
+<p class="alert-red">
+  <%= icon("exclamation-circle") %> <%= purchase.want.user.name %> removed 
+  this from their list 
+  <%= local_relative_time(purchase.want.updated_at, type: 'weekday-or-date') %>.
+  You can still gift it to them or cancel the gift.
+</p>
+<% end %>
+<p class="alert-blue">
+  <%= icon("exclamation-circle") %> You marked this as gifted. 
+  However, <%= purchase.want.user.name %> did not receive the gift!
+</p>
+<%= render purchase.want.wanted, plain: true %>
+<p>
+  You got this 
+  <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %>
+  for 
+  <%= link_to purchase.want.user.name, purchase.want.user %>
+</p>
+<% if purchase.comment.present? %>
+<blockquote>
   <p>
-    You got this 
-    <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %>
-    for 
-    <%= link_to purchase.want.user.name, purchase.want.user %>
+    <%= purchase.comment %>
   </p>
-  <% if purchase.comment.present? %>
-  <blockquote>
-    <p>
-      <%= purchase.comment %>
-    </p>
-  </blockquote>
-  <% end %>
-  <p>You marked this as gifted. However, <%= purchase.want.user.name %> did not receive the gift!</p>
-  <%= link_to "I have gifted this to #{purchase.want.user.name}", 
+</blockquote>
+<% end %>
+<div class="row">
+  <div class="col-xs-6">
+    <%= link_to icon("gift", "Gifted"), 
         gift_want_purchase_path(purchase.want, purchase),
-        class: "btn btn-default",
+        class: "btn btn-link blue btn-block",
         method: :post, remote: true, 
           data: {
           title: "Gifted", 
+          icon: "gift",
+          color: "blue",
           message: "Only select this when you have given the gift to 
                   #{purchase.want.user.name}. They will confirm it has
                   been received.",
           confirm: "I have given this" } %>
-  <%= link_to "Cancel this purchase", 
+  </div>
+  <div class="col-xs-6">
+    <%= link_to icon("times", "Cancel"), 
         want_purchase_path(purchase.want, purchase),
-        class: "btn btn-default",
+        class: "btn btn-link red btn-block",
         method: :delete, remote: true, 
           data: {
           title: "Cancel", 
+          icon: "times",
+          color: "red",
           message: "This will remove the purchase completely.",
           confirm: "I want to cancel this" } %>
+  </div>
+</div>
 <% else %>
   <%= render 'purchases/purchase_details', purchase: purchase, name: name %>
 <% end %>
