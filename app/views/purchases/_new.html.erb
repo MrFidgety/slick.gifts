@@ -6,7 +6,7 @@ has received it.</p>
 <%= form_for [want, purchase], remote: true do |f| %>
   <div class="form-group">
   <%= f.text_area :comment, placeholder: "Add any information here about what you have gotten for #{want.user.name}, such as what occasion it is for (birthday, christmas, etc), any details about the gift. This will be visible to everyone so they know not to get the same thing!", 
-        class: 'form-control' %>
+        class: 'form-control', rows: 5 %>
   </div>
     <%= button_tag(type: 'submit', 
         class: 'btn btn-link btn-block blue', 
