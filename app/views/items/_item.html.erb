@@ -1,6 +1,6 @@
 <% plain ||= false %>
 <div id="item-<%= item.id %>" class="panel panel-default panel-want">
-  <%= link_to_if(!plain, item_path(item), remote: true) do %>
+  <%= link_to_if(!plain, item_path(item), remote: true, class: "show-item") do %>
   <div class="panel-body">
     <span class="absolute"><%= icon "barcode" %></span>
     <div class="offset-small">

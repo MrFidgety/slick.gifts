@@ -23,9 +23,6 @@ $("#purchase-want").click ->
     $("#show-want-section").show()
     $("#purchase-want").html("I've got this!")
 
-# Show the modal
-$('#show-modal').modal('show')
-
 # Clear edit item form errors when submitting    
 $(".edit_item").on "submit", ->
   $("form.edit_item").clear_form_errors()

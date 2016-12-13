@@ -16,3 +16,7 @@ $(document).on "page:change page:restore", ->
   # Clear new item form errors when submitting    
   $("#new_item").on "submit", ->
     $("form#new_item").clear_form_errors()
+    
+  $(".show-item").click ->
+    # Show the modal
+    $('#show-modal').modal('show')
