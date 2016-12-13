@@ -62,7 +62,7 @@ class PurchasesController < ApplicationController
     if @purchase.want.archived? && @purchase.want.purchases.size == 1
       @purchase.want.destroy
     end
-    flash_message :notice, "Purchase successfully cancelled"
+    flash_message :notice, "Gift successfully cancelled"
     @purchase.destroy
   end
     
