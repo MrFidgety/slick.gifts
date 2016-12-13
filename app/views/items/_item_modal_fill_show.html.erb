@@ -1,6 +1,9 @@
-<h1><%= item.name %></h1>
+<h2><%= item.name %></h2>
 <blockquote>
   <p>
     <%= item.comment %>
   </p>
 </blockquote>
+<p><%= link_to icon("globe", "Link to item"), item.link %></p>
+<p><%= icon("code", item.code) %></p>
+<p><%= icon("map-marker", item.location) %></p>
