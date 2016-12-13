@@ -4,9 +4,10 @@ class Item < ActiveRecord::Base
   
   after_create :link_want
   
-  # Item name can be from 3 to 140 characters long
-  validates :name, presence: true, length: { in: 3..140 }
-  
+  validates :name, presence: true, length: { in: 3..60 }
+  validates :name, length: { maximum: 140 }
+  validates :link, allow_blank: true, uri: true
+
   private
   
     # Link this item to a want
