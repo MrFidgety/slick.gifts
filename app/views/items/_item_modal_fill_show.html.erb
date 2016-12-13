@@ -1,9 +1,11 @@
 <h2><%= item.name %></h2>
+<% if item.comment %>
 <blockquote>
   <p>
     <%= item.comment %>
   </p>
 </blockquote>
+<% end %>
 <ul class="want-details-list">
   <% if item.link %>
   <li>

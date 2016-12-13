@@ -7,7 +7,7 @@ $("#edit-want").click ->
   if $("#show-want-section").is(':visible')
     $("#show-want-section").hide()
     $("#edit-want-section").show()
-    $("#edit-want").html("<%= j icon('undo') %>")
+    $("#edit-want").html("<%= j icon('arrow-left') %>")
   else
     $("#edit-want-section").hide()
     $("#show-want-section").show()
@@ -17,7 +17,7 @@ $("#purchase-want").click ->
   if $("#show-want-section").is(':visible')
     $("#show-want-section").hide()
     $("#purchase-want-section").show()
-    $("#purchase-want").html("<%= j icon('undo') %>")
+    $("#purchase-want").html("<%= j icon('arrow-left') %>")
   else
     $("#purchase-want-section").hide()
     $("#show-want-section").show()
