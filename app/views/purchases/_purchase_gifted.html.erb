@@ -30,7 +30,5 @@
         confirm: "I have not received this" } %>
 <% else %>
   <%= render 'purchases/purchase_details', purchase: purchase, 
-      name: name, recipient: purchase.want.user %>
-  <p class="purchase-alert"><%= icon("exclamation-circle") %>
-  Don't tell <%= purchase.want.user.name %>, they haven't received it yet!</p>
+      name: name, recipient: purchase.want.user, received: false %>
 <% end %>

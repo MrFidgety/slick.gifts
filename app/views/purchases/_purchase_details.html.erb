@@ -1,7 +1,17 @@
 <p>
-  <%= name %> purchased this 
+  <%= name %> got this 
   <%= local_relative_time(purchase.created_at, type: 'weekday-or-date') %>
   <%= "for #{recipient.name}" if recipient %>
+</p>
+<p class="purchase-alert">
+<% if received %>
+<%= icon("gift") %>
+<%= purchase.want.user.name %> received this as of 
+<%= local_relative_time(purchase.updated_at, type: 'weekday-or-date') %>
+<% else %>
+<%= icon("exclamation-circle") %>
+Don't tell <%= purchase.want.user.name %>, they haven't received it yet!
+<% end %>
 </p>
 <% if purchase.comment.present? %>
 <blockquote>

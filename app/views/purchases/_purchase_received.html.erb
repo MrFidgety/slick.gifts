@@ -6,6 +6,4 @@
 <% else %>
   <%= render 'purchases/purchase_details', purchase: purchase, name: name, 
     recipient: purchase.want.user %>
-  <p><%= purchase.want.user.name %> received this as of 
-  <%= local_relative_time(purchase.updated_at, type: 'weekday-or-date') %></p>
 <% end %>
