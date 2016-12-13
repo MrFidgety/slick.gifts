@@ -33,9 +33,9 @@
           confirm: "I have given this" } %>
   </div>
   <div class="col-xs-6">
-    <%= link_to "Cancel this purchase", 
+    <%= link_to icon("times", "Cancel"), 
         want_purchase_path(purchase.want, purchase),
-        class: "btn btn-link blue btn-block",
+        class: "btn btn-link red btn-block",
         method: :delete, remote: true, 
           data: {
           title: "Cancel", 
