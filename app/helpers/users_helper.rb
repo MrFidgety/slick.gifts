@@ -30,27 +30,33 @@ module UsersHelper
   end
   
   # Get user received and gifted sentence
-  def user_received_gifted(user)
+  def user_received_icons(user)
     # Get number of each type
     received_count = Purchase.includes(:want).where(wants: {user_id: user.id}, status: Purchase.statuses[:received]).size
-    gifted_count = user.purchases.received.size
-    
     # Map each number to an array 123 => [1,2,3]
     received_array = received_count.to_s.chars.map(&:to_i)
-    gifted_array = gifted_count.to_s.chars.map(&:to_i)
+    received_icon_array = Array.new
     
     received_array.each_with_index  do |number, index|
       number.times {
-        received_string += icon('gift', class: "received #{(10**(received_array.size-index-1)).humanize}")
+        received_icon_array.push icon('gift', class: "received #{(10**(received_array.size-index-1)).humanize}")
       } if number > 0
     end
+    
+    received_icon_array.join("")
+  end
+  
+  def user_gifted_icons(user)
+    gifted_array = user.purchases.received.size.to_s.chars.map(&:to_i)
+    gifted_icon_array = Array.new
     
     gifted_array.each_with_index  do |number, index|
       number.times {
-        gifted_string += icon('gift', class: "gifted #{(10**(gifted_array.size-index-1)).humanize}")
+        gifted_icon_array.push icon('gift', 
+          class: "gifted #{(10**(gifted_array.size-index-1)).humanize}")
       } if number > 0
     end
     
-    "#{received_string} - #{gifted_string}"
+    gifted_icon_array.join("")
   end
 end
