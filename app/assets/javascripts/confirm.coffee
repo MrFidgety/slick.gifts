@@ -20,7 +20,7 @@ $(document).on "page:change page:restore", ->
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">#{icon(icon)} #{title}</h4>
+              <h4 class="modal-title"><i class="fa fa-#{icon}"></i> #{title}</h4>
             </div>
             <div class="modal-body">
               <p>#{message}</p>
