@@ -1,5 +1,11 @@
 $(document).on "page:change page:restore", ->
   
+  # Display loader when loading a want
+  $(".show-want").click ->
+    $("#show-modal").html('<i class="modal-loader fa fa-cog fa-spin fa-2x fa-fw"></i>')
+    # Show the modal
+    $('#show-modal').modal('show')
+  
   # Render errors on failed AJAX
   $.fn.render_form_errors = (model_name, error_class, errors) ->
     form = this

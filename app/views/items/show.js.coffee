@@ -1,7 +1,7 @@
 # Fill show modal with this specific items content
-# $("#show-modal").html(
-#   "<%= j render partial: 'items/item_modal_fill', 
-#   object: @item, as: :item %>")
+$("#show-modal").html(
+  "<%= j render partial: 'items/item_modal_fill', 
+  object: @item, as: :item %>")
   
 $("#edit-want").click ->
   if $("#show-want-section").is(':visible')
