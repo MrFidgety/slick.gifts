@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   
     # Define which params are permitted
     def item_params
-      params.require(:item).permit(:name, :comment)
+      params.require(:item).permit(:name, :comment, :link, :code, :location)
     end
     
     # Ensure only current user can complete actions
