@@ -4,6 +4,15 @@
     <%= item.comment %>
   </p>
 </blockquote>
-<p><%= link_to icon("globe", "Link to item"), item.link %></p>
-<p><%= icon("code", item.code) %></p>
-<p><%= icon("map-marker", item.location) %></p>
+<ul>
+  <% if item.link %>
+  <li><%= icon("globe", "Link") %>
+  <%= link_to , "Here's the item online"), item.link %></li>
+  <% end %>
+  <% if item.code %>
+  <li><%= icon("code", "Code") %>
+  <%= item.location %></li>
+  <li><%= icon("map-marker", "Location") %>
+  <%= item.location %></li>
+  <% end %>
+</ul>
