@@ -51,6 +51,6 @@ module UsersHelper
       } if number > 0
     end
     
-    received_string+gifted_string
+    "#{received_string} - #{gifted_string}"
   end
 end
