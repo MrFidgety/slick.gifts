@@ -1,6 +1,6 @@
 <% submit_button = icon('check', 'Confirm') %>
 <% submitting = "Confirming" %>
-<p>This will let everyone know that a gift has been organised for this 
+<p class="purchase-helper">This will let everyone know that a gift has been organised for this 
 <%= want.wanted_type %>. They won't see its from you until <%= want.user.name %> 
 has received it.</p>
 <%= form_for [want, purchase], remote: true do |f| %>
