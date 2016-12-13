@@ -238,8 +238,8 @@ button, .btn {
   }
 }
 
-.want-details-section {
-  margin-bottom: 15px;
+#want-details-section {
+  padding: 15px;
 }
 
 .no-padding {
@@ -304,9 +304,9 @@ ul.want-details-list {
     font-weight: 300;
     .fa {
       position: absolute;
-      left: 0;
+      left: 30px;
       line-height: inherit;
-      width: 40px;
+      width: 20px;
       text-align: center;
     }
   }
