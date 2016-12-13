@@ -1,5 +1,5 @@
 <% full_display ||= false %>
-<div id="purchase-<%= purchase.id %>" class="panel panel-default">
+<div id="purchase-<%= purchase.id %>" class="panel panel-default panel-purchase">
   <div class="panel-body">
     <% if purchase.want.present? %>
       <%= render "purchases/purchase_#{purchase.status}", 

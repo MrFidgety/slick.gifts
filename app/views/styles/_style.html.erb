@@ -1,5 +1,5 @@
 <% plain ||= false %>
-<div id="style-<%= style.id %>" class="panel panel-default">
+<div id="style-<%= style.id %>" class="panel panel-default panel-want">
   <%= link_to_if(!plain, style_path(style), remote: true) do %>
   <div class="panel-body">
     <span class="absolute"><%= icon "tags" %></span>

@@ -315,3 +315,10 @@ ul.want-details-list {
   font-weight: 300;
   padding: 15px;
 }
+
+.panel-purchase {
+  .panel-want {
+    margin: -15px -15px 15px -15px;
+    box-shadow: none;
+  }
+}
