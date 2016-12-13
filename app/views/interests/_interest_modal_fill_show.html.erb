@@ -1,6 +1,8 @@
-<h1><%= interest.name %></h1>
+<h2><%= item.name %></h2>
+<% if item.comment.present? %>
 <blockquote>
   <p>
-    <%= interest.comment %>
+    <%= item.comment %>
   </p>
 </blockquote>
+<% end %>

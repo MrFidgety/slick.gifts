@@ -28,7 +28,7 @@ class PurchasesController < ApplicationController
       if @purchase.save
         # Create another new purchase in case user wants to immediately add another purchase
         @purchase_new = @want.purchases.new
-        flash_message :notice, "You have purchased something for 
+        flash_message :notice, "You have gotten something for 
           #{@want.user.name}"
         flash_message :notice, "Make sure to mark it as gifted 
           #{view_context.link_to("here", root_path)} when you give it to them"

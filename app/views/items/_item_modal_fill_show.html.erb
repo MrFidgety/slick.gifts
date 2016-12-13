@@ -1,5 +1,5 @@
 <h2><%= item.name %></h2>
-<% if item.comment %>
+<% if item.comment.present? %>
 <blockquote>
   <p>
     <%= item.comment %>
@@ -7,7 +7,7 @@
 </blockquote>
 <% end %>
 <ul class="want-details-list">
-  <% if item.link %>
+  <% if item.link.present? %>
   <li>
     <%= icon("globe") %>
     <div class="offset-small">
@@ -15,7 +15,7 @@
     </div>
   </li>
   <% end %>
-  <% if item.code %>
+  <% if item.code.present? %>
   <li>
     <%= icon("code") %>
     <div class="offset-small">
@@ -23,7 +23,7 @@
     </div>
   </li>
   <% end %>
-  <% if item.location %>
+  <% if item.location.present? %>
   <li>
     <%= icon("map-marker") %>
     <div class="offset-small">
