@@ -1,13 +1,14 @@
 <% if @facebook_error.present? %>
-  <p class="facebook-error text-center">
-    There appears to be an issue with your facebook permissions! Click the 
-    facebook logo to attempt to fix.<br>
-    <small>
-      If that doesn't work, we siggest removing the Slick.gifts app permissions 
-      in your Facebook settings and trying again.
-    </small><br>
-    <%= link_to icon('facebook'), user_facebook_omniauth_authorize_path,
-                class: "facebook-login-button" %>
+  <p class="text-center">
+    There appears to be an issue with your facebook permissions! You will have 
+    to log out and log in to reinstate permissions.
+  </p>
+  <p class="text-center small alert-red">
+    If that doesn't work, we suggest removing the Slick.gifts app permissions 
+    in your Facebook settings and trying again.
+  </p>
+  <p class="text-center">
+    <%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
   </p>
 <% end %>
 <div id="actions-container">
