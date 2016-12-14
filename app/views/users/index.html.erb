@@ -1,3 +1,15 @@
+<% if @facebook_error.present? %>
+  <p class="facebook-error text-center">
+    There appears to be an issue with your facebook permissions! Click the 
+    facebook logo to attempt to fix.<br>
+    <small>
+      If that doesn't work, we siggest removing the Slick.gifts app permissions 
+      in your Facebook settings and trying again.
+    </small><br>
+    <%= link_to icon('facebook'), user_facebook_omniauth_authorize_path,
+                class: "facebook-login-button" %>
+  </p>
+<% end %>
 <div id="actions-container">
   <div>
     <%= render @actionable_gifts, full_display: true %>

@@ -4,12 +4,15 @@ class UsersController < ApplicationController
   def index
     # Get current user friends
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    
-    if @graph
+
+    # Try to retrieve facebook friends
+    begin
       friend_array = @graph.get_connections("me", "friends")
       @friends = User.where(slug: friend_array.map { |f| f["id"] }).order(:name) if friend_array
+    rescue Koala::Facebook::APIError => e
+      @facebook_error = e.to_s
     end
-    
+      
     # Get all purchases from current user that are purchased or not received
     @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received]).order(updated_at: :desc)
     # Get all purchases for current user that have been gifted
@@ -17,6 +20,7 @@ class UsersController < ApplicationController
     
     # Set page meta tags
     prepare_meta_tags(title: 'Home')
+    
   end
   
   def show
