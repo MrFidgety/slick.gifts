@@ -1,1 +1,7 @@
+<% if @view_access == "restricted" %>
+<p class="text-center">
+  You must be friends with <%= @user.name %> to view their received list
+</p>
+<% else %>
 <%= render @received, full_display: true %>
+<% end %>
