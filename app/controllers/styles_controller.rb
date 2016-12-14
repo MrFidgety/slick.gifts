@@ -68,7 +68,7 @@ class StylesController < ApplicationController
   
     # Define which params are permitted
     def style_params
-      params.require(:style).permit(:name, :comment)
+      params.require(:style).permit(:name, :comment, :size)
     end
     
     # Ensure only current user can complete actions
