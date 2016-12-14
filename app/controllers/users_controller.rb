@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   def index
     # Get current user friends
     @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    friend_array = @graph.get_connections("me", "friends")
-    @friends = User.where(slug: friend_array.map { |f| f["id"] }).order(:name) if friend_array
+    
+    if @graph
+      friend_array = @graph.get_connections("me", "friends")
+      @friends = User.where(slug: friend_array.map { |f| f["id"] }).order(:name) if friend_array
+    end
     
     # Get all purchases from current user that are purchased or not received
     @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received]).order(updated_at: :desc)

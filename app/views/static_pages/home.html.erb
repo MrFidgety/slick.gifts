@@ -45,17 +45,10 @@
           class: "settings-icon",
           target: "_blank" %>
 </p>
-
-
 <div class="text-center">
   <% if Rails.env.development? %>
     <%= link_to icon("facebook", "Continue as Developer"), 
         omniauth_authorize_path(User, "developer"), 
-        class: "btn btn-default btn-facebook btn-lg" %>
-  <% else %>
-    <%#= link_to icon("facebook", "Continue with Facebook"), 
-        user_facebook_omniauth_authorize_path, 
-        id: "facebook-login", 
         class: "btn btn-default btn-facebook btn-lg" %>
   <% end %>
 </div>
