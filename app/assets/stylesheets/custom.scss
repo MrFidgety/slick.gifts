@@ -158,11 +158,11 @@ img#home-page-logo {
 }
 
 #delete-want {
-  bottom: -55px;
+  bottom: -60px;
   left: 0px;
   padding: 15px;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .start-hidden {
@@ -222,6 +222,14 @@ button, .btn {
     text-decoration: inherit;
     &:hover, &:active, &:focus {
       color: $dark-gray;
+      text-decoration: inherit;
+    }
+  }
+  &.white {
+    color: white;
+    text-decoration: inherit;
+    &:hover, &:active, &:focus {
+      color: white;
       text-decoration: inherit;
     }
   }
