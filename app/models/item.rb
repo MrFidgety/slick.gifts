@@ -7,6 +7,8 @@ class Item < ActiveRecord::Base
   validates :name, presence: true, length: { in: 3..60 }
   validates :comment, length: { maximum: 140 }
   validates :link, allow_blank: true, length: { maximum: 2083 }, uri: true
+  validates :code, allow_blank: true, length: { maximum: 60 }
+  validates :location, allow_blank: true, length: { maximum: 60 }
 
   private
   

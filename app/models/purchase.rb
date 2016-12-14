@@ -3,6 +3,8 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
    
   enum status: { purchased: 0, gifted: 1, not_received: 2, received: 3 }
+  
+  validates :comment, length: { maximum: 140 }
    
   scope :for_statuses, ->(values) do
     return all if values.blank?

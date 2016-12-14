@@ -6,6 +6,7 @@ class Style < ActiveRecord::Base
   
   validates :name, presence: true, length: { in: 3..60 }
   validates :comment, length: { maximum: 140 }
+  validates :size, allow_blank: true, length: { maximum: 60 }
   
   private
   
