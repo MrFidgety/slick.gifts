@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     @friends = User.where(slug: friend_array.map { |f| f["id"] }).order(:name) if friend_array
     
     # Get all purchases from current user that are purchased or not received
-    @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received])
+    @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received]).order(updated_at: :desc)
     # Get all purchases for current user that have been gifted
-    @actionable_gifts = Purchase.includes(:want).where(wants: {user_id: current_user.id}, status: Purchase.statuses[:gifted])
+    @actionable_gifts = Purchase.includes(:want).where(wants: {user_id: current_user.id}, status: Purchase.statuses[:gifted]).order(updated_at: :desc)
     
     # Set page meta tags
     prepare_meta_tags(title: 'Home')
