@@ -33,7 +33,7 @@ $("#delete-item").click ->
   
 # Render new purchase form errors
 $("#new_purchase").on "ajax:error", (e, data, status, xhr) ->
-  $("form#new_purchase").render_form_errors('ourchase', 
+  $("form#new_purchase").render_form_errors('purchase', 
     'error-message',
     $.parseJSON(data.responseText))
    
