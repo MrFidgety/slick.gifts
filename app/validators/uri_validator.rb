@@ -1,4 +1,5 @@
 require 'addressable/uri'
+
 # Accepts options[:message] and options[:allowed_protocols]
 class UriValidator < ActiveModel::EachValidator
 
