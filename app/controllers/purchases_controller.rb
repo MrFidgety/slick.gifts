@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
   before_action :find_want
   before_action :signed_in, except: :index
   before_action :can_delete, only: :destroy
+  before_action :want_friend, only: [:create, :index]
   before_action :purchase_owner, only: [:gift]
   before_action :want_owner, only: [:receive, :not_receive]
   
@@ -92,5 +93,10 @@ class PurchasesController < ApplicationController
     # Ensure purchase belongs to current user and is purchased or not_received
     def can_delete
       redirect_to root_url unless @purchase = current_user.purchases.for_statuses([:purchased, :not_received]).find(params[:id])
+    end
+    
+    # Ensure user can create and index purchases for friends wants only
+    def want_friend
+      redirect_to root_url unless current_user.is_friend?(@want.user)
     end
 end
