@@ -4,8 +4,8 @@ class Style < ActiveRecord::Base
   
   after_create :link_want
   
-  # Interest name can be from 3 to 140 characters long
-  validates :name, presence: true, length: { in: 3..140 }
+  validates :name, presence: true, length: { in: 3..60 }
+  validates :comment, length: { maximum: 140 }
   
   private
   
