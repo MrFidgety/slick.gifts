@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @wants = @user.wants.where(archived: false).order(updated_at: :desc, :wanted_type)
+    @wants = @user.wants.where(archived: false).order(:wanted_type, updated_at: :desc)
     
     if @view_access == "edit"
       # Set up new elements user can create
