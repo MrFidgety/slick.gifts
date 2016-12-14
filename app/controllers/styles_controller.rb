@@ -41,7 +41,7 @@ class StylesController < ApplicationController
           format.js   { render json: @style.errors, status: :unprocessable_entity }
         end
       else
-        flash_message :notice, "Style can not be edited as it has been active for more than 48 hours"
+        flash_message :warning, "Style cannot be edited as it has been active for more than 48 hours"
         flash_message :notice, "Hint: You can always create a new style"
         format.js
       end
@@ -51,7 +51,7 @@ class StylesController < ApplicationController
   def destroy
     # If any purchases are currently 'gifted' notify user
     if @style.want.purchases.gifted.any?
-      flash_message :notice, "Unable to remove. There are outstanding gifts for this style"
+      flash_message :warning, "Unable to remove. There are outstanding gifts for this style"
       flash_message :notice, "Manage your gifts #{view_context.link_to("here", root_path)}"
     else
       flash_message :notice, "Style removed"

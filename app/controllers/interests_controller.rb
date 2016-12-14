@@ -41,7 +41,7 @@ class InterestsController < ApplicationController
           format.js   { render json: @interest.errors, status: :unprocessable_entity }
         end
       else
-        flash_message :notice, "Interest can not be edited as it has been active for more than 48 hours"
+        flash_message :warning, "Interest cannot be edited as it has been active for more than 48 hours"
         flash_message :notice, "Hint: You can always create a new interest"
         format.js
       end
@@ -51,7 +51,7 @@ class InterestsController < ApplicationController
   def destroy
     # If any purchases are currently 'gifted' notify user
     if @interest.want.purchases.gifted.any?
-      flash_message :notice, "Unable to remove. There are outstanding gifts for this interest"
+      flash_message :warning, "Unable to remove. There are outstanding gifts for this interest"
       flash_message :notice, "Manage your gifts #{view_context.link_to("here", root_path)}"
     else
       flash_message :notice, "Interest removed"
