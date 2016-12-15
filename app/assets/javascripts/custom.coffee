@@ -42,3 +42,9 @@ $(document).on "page:change page:restore", ->
   
   # Display first alert
   $('#flash-container .alert:first').display_alert()
+  
+$(document).on "page:fetch", ->
+  console.log("Fetching Page")
+  
+$(document).on "page:change", ->
+  console.log("Page Changed")
