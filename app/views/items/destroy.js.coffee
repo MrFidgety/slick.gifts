@@ -9,4 +9,4 @@ $("#wants-sentence").html("<%= j user_wants_sentence(@item.user) %>")
 # Render flash
 $("#flash-container").html("<%= j render 'layouts/flash' %>")
 # Display any flash
-$('.alert:first').display_alert()
+$('#flash-container .alert:first').display_alert()

@@ -14,4 +14,4 @@ $('#new_interest').trigger("reset").clear_form_errors()
 $("#flash-container").html("<%= j render 'layouts/flash' %>")
 
 # Display any flash
-$('.alert:first').display_alert()
+$('#flash-container .alert:first').display_alert()

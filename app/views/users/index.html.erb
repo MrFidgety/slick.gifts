@@ -11,6 +11,8 @@
     <%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
   </p>
 <% end %>
+<%= button_tag icon("facebook","Invite your friends"), 
+    id: "fb-share-button", class: "btn btn-link btn-block blue" %>
 <div id="actions-container">
   <div>
     <%= render @actionable_gifts, full_display: true %>

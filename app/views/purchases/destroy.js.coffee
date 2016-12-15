@@ -6,4 +6,4 @@ $('#purchase-<%= @purchase.id %>').remove()
 $("#flash-container").html("<%= j render 'layouts/flash' %>")
 
 # Display any flash
-$('.alert:first').display_alert()
+$('#flash-container .alert:first').display_alert()
