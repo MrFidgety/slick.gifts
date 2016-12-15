@@ -1,4 +1,6 @@
 <% current_user_profile = @view_access == "edit" %>
+<%= button_tag icon("facebook","Share profile on Facebook"), 
+    id: "facebook-share-button", class: "btn btn-link blue" %>
 <%= render @user, full_display: true %>
 <% if current_user_profile %>
 <div class="row margin-bottom new-wants">
