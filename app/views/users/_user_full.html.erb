@@ -2,10 +2,6 @@
   <%= image_tag(user.image, class: "img-large") %>
   <% if user == current_user %>
     <span class="pull-right">
-      <%= link_to icon("question-circle"), 
-          "https://www.facebook.com/slickgiftsapp", 
-          class: "settings-icon",
-          target: "_blank" %>
       <%= link_to icon("cog"), 
           settings_path, 
           class: "settings-icon" %>
