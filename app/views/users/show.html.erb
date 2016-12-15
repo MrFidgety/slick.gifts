@@ -25,10 +25,18 @@
 </div>
 <% end %>
 <% if @view_access == "restricted" %>
-<div class="alert alert-notice">
-   <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-   Log in with facebook to view <%= @user.name %>'s list
-</div>
+ <% if user_signed_in? %>
+    <div class="alert alert-notice">
+       <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+       It looks like you aren't Facebook friends with <%= @user.name %>, 
+       so your view is restricted.
+    </div>
+ <% else %>
+    <div class="alert alert-notice">
+       <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+       Log in with facebook to view <%= @user.name %>'s list
+    </div>
+  <% end %>
 <% else %>
 <div id="want-container" class="panel-group">
   <% @wants.each do |want| %>
