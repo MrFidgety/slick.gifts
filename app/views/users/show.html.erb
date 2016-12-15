@@ -24,7 +24,7 @@
   </div>
 </div>
 <% end %>
-<% if @view_access = "restricted" %>
+<% if @view_access == "restricted" %>
 <div class="alert alert-notice">
    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
    Log in with facebook to view <%= @user.name %>'s list
