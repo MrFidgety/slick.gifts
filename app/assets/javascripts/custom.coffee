@@ -41,4 +41,11 @@ $(document).on "page:change page:restore", ->
     $(this).remove()
 
   $('#flash-container .alert:first').display_alert()
-    
+  
+  # Facebook share link
+  $("#fb-share-button").click ->
+    FB.ui({
+      method: 'share',
+      mobile_iframe: true,
+      href: window.location.href,
+    }, -> (response){})
