@@ -40,5 +40,5 @@ $(document).on "page:change page:restore", ->
     # Remove current alert
     $(this).remove()
 
-  $('.alert:first').display_alert()
+  $('#flash-container .alert:first').display_alert()
     

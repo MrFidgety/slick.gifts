@@ -28,13 +28,14 @@
  <% if user_signed_in? %>
     <div class="alert alert-notice">
        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-       It looks like you aren't Facebook friends with <%= @user.name %>, 
-       so your view is restricted.
+       Add <%= @user.name %> on facebook to view their list and never get them 
+       a bad gift. #NoBadGifts
     </div>
  <% else %>
     <div class="alert alert-notice">
        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-       Log in with facebook to view <%= @user.name %>'s list
+       Log in with facebook to view <%= @user.name %>'s list nd never get them 
+       a bad gift. #NoBadGifts
     </div>
   <% end %>
 <% else %>
