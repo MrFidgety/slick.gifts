@@ -15,12 +15,4 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-   
-  document.getElementById('facebook-share-button').onclick = function() {
-    FB.ui({
-      method: 'share',
-      display: 'popup',
-      href: '<%= request.url %>',
-    }, function(response){});
-  }
 </script>
