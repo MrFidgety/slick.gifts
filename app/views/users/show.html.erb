@@ -24,7 +24,12 @@
   </div>
 </div>
 <% end %>
-<% unless @view_access == "restricted" %>
+<% if @view_access = "restricted" %>
+<div class="alert alert-notice">
+   <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+   Log in with facebook to view <%= @user.name %>'s list
+</div>
+<% else %>
 <div id="want-container" class="panel-group">
   <% @wants.each do |want| %>
     <%= render want.wanted, editable: current_user_profile %>
