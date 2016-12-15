@@ -44,7 +44,11 @@ $(document).on "page:change page:restore", ->
   $('#flash-container .alert:first').display_alert()
   
 $(document).on "page:fetch", ->
+  # Show loading modal
   console.log("Fetching Page")
+  $('#loading-modal').modal('show')
   
 $(document).on "page:change", ->
+  # Hide loading modal
   console.log("Page Changed")
+  $('#loading-modal').modal('hide')
