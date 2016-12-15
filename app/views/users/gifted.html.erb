@@ -1,7 +1,15 @@
 <% if @view_access == "restricted" %>
-<p class="text-center">
-  You must be friends with <%= @user.name %> to view their gifted list
-</p>
+  <% if user_signed_in? %>
+    <div class="alert alert-notice">
+       <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+       Add <%= @user.name %> on facebook to view their gifted list. #NoBadGifts
+    </div>
+  <% else %>
+    <div class="alert alert-notice">
+       <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+       Log in with facebook to view <%= @user.name %>'s gifted list. #NoBadGifts
+    </div>
+  <% end %>
 <% else %>
 <%= render @gifted, full_display: true %>
 <% end %>

@@ -25,13 +25,13 @@
 </div>
 <% end %>
 <% if @view_access == "restricted" %>
- <% if user_signed_in? %>
+  <% if user_signed_in? %>
     <div class="alert alert-notice">
        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
        Add <%= @user.name %> on facebook to view their list and never get them 
        a bad gift. #NoBadGifts
     </div>
- <% else %>
+  <% else %>
     <div class="alert alert-notice">
        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
        Log in with facebook to view <%= @user.name %>'s list and never get them 
