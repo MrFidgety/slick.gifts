@@ -6,7 +6,8 @@ class StaticPagesController < ApplicationController
   end
   
   def overview
-    prepare_meta_tags(title: "Overview")
+    prepare_meta_tags(title: "Slick.gifts Overview - Get in the gift zone",
+                      description: "View the number of users, gifts, items, interests, and styles. Let's stamp out bad gifts. #NoBadGifts")
     @user_count = User.all.size
     @want_count = Want.where(archived: false).size
     @interest_count = Want.where(archived: false, wanted_type: 'Interest').size
