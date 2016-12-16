@@ -1,6 +1,9 @@
 # Add the new item to the users list
 $("<%= j render @item, editable: true %>").prependTo('#want-container')
 
+# Remove the alert if there were no wants
+$("#no-wants-alert").hide()
+
 # Update the users wants sentence
 $("#wants-sentence").html("<%= j user_wants_sentence(@item.user) %>")
 

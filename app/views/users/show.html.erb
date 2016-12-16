@@ -39,6 +39,15 @@
     </div>
   <% end %>
 <% else %>
+<% if @view_access == "edit" && @wants.blank? %>
+  <div id="no-wants-alert" class="alert alert-notice">
+     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+     Hi <%= @user.name %>, welcome to Slick.gifts! Start building your list by 
+     selecting to add an Item, Interest or Style above. Next, open your arms 
+     while listening to some sweet, sweet tunes and embrace the wave of awesome 
+     gifts coming your way. #NoBadGifts
+  </div>
+<% end %>
 <div id="want-container" class="panel-group">
   <% @wants.each do |want| %>
     <%= render want.wanted, editable: current_user_profile %>

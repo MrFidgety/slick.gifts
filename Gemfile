@@ -25,6 +25,7 @@ gem 'serviceworker-rails'
 gem 'humanize'
 gem 'addressable'
 gem 'sdoc',                       '0.4.0', group: :doc
+gem 'rack-facebook-signed-request', :git => 'git://github.com/cmer/rack-facebook-signed-request.git'
 
 group :development, :test do
   gem 'byebug',                   '3.4.0'
