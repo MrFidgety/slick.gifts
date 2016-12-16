@@ -20,7 +20,7 @@
   </div>
 </div>
 <div id="friends-container" class="panel-group">
-  <% if @friends %>
+  <% if @friends.present? %>
     <%= render @friends  %>
   <% else %>
     <div class="alert alert-notice">
