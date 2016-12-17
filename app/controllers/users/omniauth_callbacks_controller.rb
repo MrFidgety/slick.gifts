@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # Create or find user
     @user = User.from_omniauth(request.env["omniauth.auth"])
     # Set redirect to profile if new user
-    store_location_for(:user, user_path(@user)) if @user.new_record?
+    #store_location_for(:user, user_path(@user)) if @user.new_record?
     # Read omniauth data into profile
     @user.read_from_omniauth(request.env["omniauth.auth"])
     # Flash messages
