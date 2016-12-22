@@ -419,6 +419,10 @@ ul.want-details-list {
   padding: 15px;
 }
 .panel-collapse {
+  .panel-heading {
+    background: white;
+    border: 0;
+  }
   #actions-collapse {
     padding: 0;
   }
