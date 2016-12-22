@@ -44,6 +44,16 @@ class UsersController < ApplicationController
     prepare_meta_tags(title: "Settings")
   end
   
+  def actions
+    # Set page meta tags
+    prepare_meta_tags(title: "Actions")
+    
+    # Get all purchases from current user that are purchased or not received
+    @actionable_purchases = current_user.purchases.for_statuses([:purchased, :not_received]).order(updated_at: :desc)
+    # Get all purchases for current user that have been gifted
+    @actionable_gifts = Purchase.includes(:want).where(wants: {user_id: current_user.id}, status: Purchase.statuses[:gifted]).order(updated_at: :desc)
+  end
+  
   def gifted
     # Set page meta tags
     prepare_meta_tags(title: "Gifted by #{@user.name}")
