@@ -44,6 +44,11 @@ class UsersController < ApplicationController
     prepare_meta_tags(title: "Settings")
   end
   
+  def actions
+    # Set page meta tags
+    prepare_meta_tags(title: "Actions")
+  end
+  
   def gifted
     # Set page meta tags
     prepare_meta_tags(title: "Gifted by #{@user.name}")
