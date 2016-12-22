@@ -20,7 +20,9 @@ body {
   }
   padding-top: 56px;
 }
-
+.selectable {
+  cursor: pointer;
+}
 .tagline {
   font-size: 2em;
   font-weight: 300;
