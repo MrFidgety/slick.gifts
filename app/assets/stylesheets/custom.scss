@@ -416,3 +416,11 @@ ul.want-details-list {
 .panel-overview {
   padding: 15px;
 }
+.panel-collapse {
+  .panel-body {
+    padding: 0;
+    #actions-container {
+      margin: 15px;
+    }
+  }
+}
