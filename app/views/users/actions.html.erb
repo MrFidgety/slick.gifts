@@ -1,11 +1,12 @@
+<%= actions_count = @actionable_gifts.size + @actionable_purchases.size %>
 <div class="panel panel-default panel-collapse">
   <div class="panel-heading selectable" data-toggle="collapse" data-target="#actions-collapse">
     <div class="gift-img">
       <%= icon "gift" %>
     </div>
     <div class="actions-info">
-      <p>There are X gifts you can take action on</p>
-      <small>Some helper text</small>
+      <p>You have <%= "#{actions_count.humanize} #{"gift".pluralize(actions_count)}" %> you can take action on</p>
+      <small>Select to view and take action!</small>
     </div>
   </div>
   <div id="actions-collapse" class="collapse panel-body">
