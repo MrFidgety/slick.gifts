@@ -1,9 +1,9 @@
 <% if @purchase.destroyed? %>
 # Remove from display
 $('#purchase-<%= @purchase.id %>').remove()
-console.log("<%= j @actions_count - 1 %>")
 # If no actionable gifts left, hide panel
 # Otherwise update actions count display
+#$("#actions-count-display").html("<%= j user_actions_sentence(current_user) %>")
 <% end %>
 
 # Render flash

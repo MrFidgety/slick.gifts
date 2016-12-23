@@ -17,11 +17,7 @@
       <%= icon "gift" %>
     </div>
     <div class="actions-info">
-      <p>You have 
-        <span id="actions-count-display">
-          <%= "#{@actions_count.humanize} #{"gift".pluralize(@actions_count)}" %>
-        </span> you can take action on
-      </p>
+      <p><%= user_actions_sentence(current_user) %></p>
       <small>Select to view and take action!</small>
     </div>
   </div>

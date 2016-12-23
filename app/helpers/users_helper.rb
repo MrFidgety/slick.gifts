@@ -29,6 +29,14 @@ module UsersHelper
     wants.any? ? "has #{wants.to_sentence}" : "is going to add something to their list, I'm sure of it"
   end
   
+  def user_actions_sentence(user)
+    # Get all purchases from current user that are purchased or not received
+    @actions_count = user.purchases.for_statuses([:purchased, :not_received]).size
+    # Get all purchases for current user that have been gifted
+    @actions_count += Purchase.includes(:want).where(wants: {user_id: user.id}, status: Purchase.statuses[:gifted]).size
+    "You have #{@actions_count.humanize} #{"gift".pluralize(@actions_count)} you can take action on"
+  end
+  
   # Get user received icons
   def user_received_icons(user)
     # Get number of each type
