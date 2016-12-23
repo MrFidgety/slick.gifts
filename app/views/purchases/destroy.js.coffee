@@ -3,7 +3,7 @@
 $('#purchase-<%= @purchase.id %>').remove()
 # If no actionable gifts left, hide panel
 # Otherwise update actions count display
-#$("#actions-count-display").html("<%= j user_actions_sentence(current_user) %>")
+$("#actions-sentence").html("<%= j user_actions_sentence(current_user) %>")
 <% end %>
 
 # Render flash
