@@ -8,7 +8,7 @@
   <p class="text-center">
     <%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
   </p>
-<% end %>
+<% else %>
 <%= button_tag icon("facebook","Invite your friends"), 
     id: "fb-share-button", class: "btn btn-link btn-block blue" %>
 <div id="actions-panel" class="panel panel-default panel-collapse">
@@ -41,3 +41,4 @@
   <% end %>
 </div>
 <%= will_paginate @friends if @friends.present? %>
+<% end %>
