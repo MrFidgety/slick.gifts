@@ -19,6 +19,9 @@ class UsersController < ApplicationController
     # Get all purchases for current user that have been gifted
     @actionable_gifts = Purchase.includes(:want).where(wants: {user_id: current_user.id}, status: Purchase.statuses[:gifted]).order(updated_at: :desc)
     
+    # Set actions count
+    @actions_count = @actionable_gifts.size + @actionable_purchases.size
+    
     # Set page meta tags
     prepare_meta_tags(title: 'Home')
     

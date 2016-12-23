@@ -1,4 +1,3 @@
-<% actions_count = @actionable_gifts.size + @actionable_purchases.size %>
 <% if @facebook_error.present? %>
   <div class="alert alert-warning">
     There appears to be an issue with your facebook permissions! You will have 
@@ -20,7 +19,7 @@
     <div class="actions-info">
       <p>You have 
         <span id="actions-count-display">
-          <%= "#{actions_count.humanize} #{"gift".pluralize(actions_count)}" %>
+          <%= "#{@actions_count.humanize} #{"gift".pluralize(@actions_count)}" %>
         </span> you can take action on
       </p>
       <small>Select to view and take action!</small>
