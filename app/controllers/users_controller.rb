@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     begin
       # Try to retrieve facebook friends
       friend_array = @graph.get_connections("me", "friends")
-      @friends = User.where(slug: friend_array.map { |f| f["id"] }).order(:name) if friend_array
+      @friends = User.where(slug: friend_array.map { |f| f["id"] }).order(:name).paginate(:per_page => 10, :page => params[:page]) if friend_array
     rescue Koala::Facebook::APIError => e
       # Catch any GraphAPI errors
       @facebook_error = e.to_s
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     
     # Set page meta tags
     prepare_meta_tags(title: 'Home')
-    
+
   end
   
   def show
