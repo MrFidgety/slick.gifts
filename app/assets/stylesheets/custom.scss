@@ -354,7 +354,12 @@ ul.want-details-list {
     font-weight: 300;
   }
 }
-
+.alert {
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
+}
 .alert-red {
   color: $slick-red;
 }
