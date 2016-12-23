@@ -40,4 +40,4 @@
     </div>
   <% end %>
 </div>
-<%= will_paginate @friends %>
+<%= will_paginate @friends if @friends.present? %>
