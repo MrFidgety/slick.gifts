@@ -423,6 +423,9 @@ ul.want-details-list {
     background: white;
     border: 0;
     padding: 15px;
+    &.collapsed {
+      transform: rotate(-360deg);
+    }
   }
   #actions-collapse {
     padding: 0;
@@ -439,6 +442,7 @@ ul.want-details-list {
   text-align: center;
   .fa {
     font-size: 45px;
+    transition: transform 1s ease;
   }
 }
 .actions-info {
