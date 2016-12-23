@@ -1,7 +1,7 @@
 .user-panel {
   &.selectable {
     transition: opacity 0.3s ease;
-    &:hover, &:focus, &:active {
+    &:hover {
       opacity: 0.6;
     }
   }
