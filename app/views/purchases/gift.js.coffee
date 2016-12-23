@@ -1,4 +1,5 @@
 <% if @purchase.gifted? %>
+# Remove from display
 $('#purchase-<%= @purchase.id %>').remove()
 <% end %>
 

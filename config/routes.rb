@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   authenticated :user do
     root  'users#index', as: :authenticated_root
     get   'settings'    =>  'users#settings'
-    get   'actions'    =>  'users#actions'
     resources :wants do
       resources :purchases do
         post 'gift', on: :member

@@ -1,4 +1,5 @@
 <% if @purchase.not_received? %>
+# Remove from display
 $('#purchase-<%= @purchase.id %>').remove()
 <% end %>
 

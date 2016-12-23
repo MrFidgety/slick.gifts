@@ -1,3 +1,4 @@
+<% actions_count = @actionable_gifts.size + @actionable_purchases.size %>
 <% if @facebook_error.present? %>
   <div class="alert alert-warning">
     There appears to be an issue with your facebook permissions! You will have 
@@ -11,14 +12,17 @@
 <% end %>
 <%= button_tag icon("facebook","Invite your friends"), 
     id: "fb-share-button", class: "btn btn-link btn-block blue" %>
-<% actions_count = @actionable_gifts.size + @actionable_purchases.size %>
-<div class="panel panel-default panel-collapse">
+<div id="actions-panel" class="panel panel-default panel-collapse">
   <div class="panel-heading selectable" data-toggle="collapse" data-target="#actions-collapse">
     <div class="gift-img">
       <%= icon "gift" %>
     </div>
     <div class="actions-info">
-      <p>You have <%= "#{actions_count.humanize} #{"gift".pluralize(actions_count)}" %> you can take action on</p>
+      <p>You have 
+        <span id="actions-count-display">
+          <%= "#{actions_count.humanize} #{"gift".pluralize(actions_count)}" %>
+        </span> you can take action on
+      </p>
       <small>Select to view and take action!</small>
     </div>
   </div>
