@@ -1,6 +1,8 @@
 <% if @purchase.not_received? %>
 # Remove from display
 $('#purchase-<%= @purchase.id %>').remove()
+# Update actions count display
+$("#actions-sentence").html("<%= j user_actions_sentence(current_user) %>")
 <% end %>
 
 # Render flash
