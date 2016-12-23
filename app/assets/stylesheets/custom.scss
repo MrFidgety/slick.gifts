@@ -424,7 +424,9 @@ ul.want-details-list {
     border: 0;
     padding: 15px;
     &.collapsed {
-      transform: rotate(-360deg);
+      .fa {
+        transform: rotate(-360deg);
+      }
     }
   }
   #actions-collapse {
