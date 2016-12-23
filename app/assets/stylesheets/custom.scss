@@ -414,9 +414,13 @@ ul.want-details-list {
 #fb-share-button {
   margin-bottom: 10px;
 }
-
 .panel-overview {
   padding: 15px;
+}
+.collapsing {
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
 }
 .panel-collapse {
   .panel-heading {
