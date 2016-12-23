@@ -418,9 +418,9 @@ ul.want-details-list {
   padding: 15px;
 }
 .collapsing {
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  // -webkit-transition: all 0.5s;
+  // -o-transition: all 0.5s;
+  // transition: all 0.5s;
 }
 .panel-collapse {
   .panel-heading {
@@ -448,7 +448,7 @@ ul.want-details-list {
   text-align: center;
   .fa {
     font-size: 45px;
-    transition: transform 0.5s;
+    transition: transform 0.5s ease;
   }
 }
 .actions-info {
